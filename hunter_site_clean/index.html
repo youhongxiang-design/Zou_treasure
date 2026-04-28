@@ -1,0 +1,3649 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鄒族獵人文化寶庫</title>
+    <style>
+html { scroll-behavior: smooth; }
+
+    #issues .article-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px;
+    }
+
+    #issues .section-title,
+    #issues h2 {
+        margin-bottom: 18px;
+    }
+
+    #issues .issues-intro {
+        background: #fdfaf5;
+        border-left: 5px solid #9E1B1B;
+        padding: 18px 20px;
+        border-radius: 10px;
+        margin-bottom: 24px;
+        line-height: 1.75;
+    }
+
+    #issues .event-nav-box,
+    #issues .term-section {
+        background: #f4f1ec;
+        border: 1px solid #ddd0c4;
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin: 18px 0;
+    }
+
+    #issues .nav-label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 700;
+        color: #4E342E;
+    }
+
+    #issues .event-links,
+    #issues .term-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    #issues .event-link-item,
+    #issues .term-btn.small {
+        display: inline-block;
+        text-decoration: none;
+        color: #4a3328;
+        background: #fff;
+        border: 1px solid #d7c7b8;
+        padding: 7px 12px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+    #issues .event-link-item:hover,
+    #issues .term-btn.small:hover {
+        background: #4E342E;
+        color: #fff;
+        transform: translateY(-1px);
+    }
+
+    #issues .issue-card {
+        border: 2px solid #444;
+        background-color: #ffffff;
+        padding: 0;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 40px;
+        scroll-margin-top: 110px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+
+    #issues .issue-card.highlight-border {
+        border-color: #9E1B1B;
+    }
+
+    #issues .card-header {
+        background-color: #444;
+        color: white;
+        padding: 12px 20px;
+        font-weight: bold;
+    }
+
+    #issues .card-body {
+        padding: 25px;
+    }
+
+    #issues h3 {
+        margin-top: 0;
+        color: #222;
+    }
+
+    #issues .issue-meta {
+        margin: 10px 0 18px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    #issues .issue-badge {
+        background: #666;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.85em;
+    }
+
+    #issues .issue-summary {
+        line-height: 1.7;
+        color: #333;
+        background: #fdfdfd;
+        padding: 15px;
+        border: 1px solid #eee;
+        border-left: 5px solid #666;
+        border-radius: 6px;
+        margin: 20px 0;
+    }
+
+    #issues .issue-focus {
+        background: #fff9f9;
+        padding: 15px 35px;
+        border-radius: 6px;
+        line-height: 1.7;
+    }
+
+    #issues .always-open-panel {
+        display: block;
+        background: #f9f9f9;
+        padding: 15px;
+        margin: 15px 0 20px;
+        border-radius: 6px;
+        border-top: 2px solid #666;
+        line-height: 1.7;
+    }
+
+    #issues .note-panel {
+        display: block;
+        border-left: 4px solid #b33;
+        background-color: #fff9f9;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 6px;
+        line-height: 1.7;
+    }
+
+    #issues .green-panel {
+        border-left: 5px solid #2e7d32;
+        background-color: #f1f8e9;
+        padding: 15px;
+        margin: 25px 0;
+        border-radius: 6px;
+        line-height: 1.7;
+    }
+
+    #issues .detail-toggle-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    #issues .detail-btn {
+        border: none;
+        border-radius: 6px;
+        padding: 9px 14px;
+        cursor: pointer;
+        background: #444;
+        color: white;
+        transition: 0.2s;
+    }
+
+    #issues .detail-btn.secondary {
+        background: #777;
+    }
+
+    #issues .detail-btn:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+    }
+
+    #issues .detail-panel {
+        display: none;
+        background: #f9f9f9;
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 6px;
+        border-top: 2px solid #666;
+        line-height: 1.7;
+        animation: issueFadeIn 0.25s ease;
+    }
+
+    #issues .detail-panel h4,
+    #issues .always-open-panel h4,
+    #issues .note-panel h4 {
+        margin-top: 0;
+        color: #333;
+    }
+
+    #issues a {
+        color: #7a2d20;
+        word-break: break-word;
+    }
+
+    #issues :target {
+        animation: issueHighlight 1.4s ease;
+    }
+
+    @keyframes issueFadeIn {
+        from { opacity: 0; transform: translateY(-4px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes issueHighlight {
+        0% { box-shadow: 0 0 0 6px rgba(158,27,27,0.18); }
+        100% { box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
+    }
+
+    .term-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.55);
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .term-modal-content {
+        background: white;
+        max-width: 760px;
+        width: 100%;
+        max-height: 82vh;
+        overflow-y: auto;
+        border-radius: 12px;
+        padding: 22px;
+        line-height: 1.7;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .term-close-btn {
+        float: right;
+        cursor: pointer;
+        font-size: 26px;
+        line-height: 1;
+        color: #555;
+    }
+
+    @media (max-width: 700px) {
+        #issues .card-body { padding: 18px; }
+        #issues .event-link-item,
+        #issues .term-btn.small { font-size: 0.82rem; }
+    }
+        :root {
+            --forest-deep: #1B3022;
+            --forest-mid: #395B44;
+            --wood-dark: #4E342E;
+            --tsou-red: #9E1B1B;
+            --white: #ffffff;
+            --cream-bg: #fdfaf5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft JhengHei", "微軟正黑體", sans-serif;
+        }
+
+        body {
+            background-color: var(--cream-bg);
+            color: #222;
+            line-height: 1.8;
+        }
+
+        nav {
+            background: rgba(27, 48, 34, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            border-bottom: 3px solid var(--tsou-red);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            display: block;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            color: var(--white);
+            background: var(--tsou-red);
+            border-radius: 4px;
+        }
+
+        .page {
+            display: none;
+            padding-top: 60px;
+            min-height: 100vh;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                        url('image_24f0c4.jpg') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            letter-spacing: 10px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            margin-top: 20px;
+            letter-spacing: 4px;
+        }
+
+        .article-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+        }
+
+        h2 {
+            color: var(--wood-dark);
+            border-left: 8px solid var(--tsou-red);
+            padding-left: 20px;
+            margin-bottom: 25px;
+            font-size: 2.1rem;
+        }
+
+        h3 {
+            color: var(--wood-dark);
+            margin: 18px 0 10px;
+        }
+
+        .section-tag {
+            background: var(--forest-mid);
+            color: white;
+            padding: 8px 20px;
+            margin: 30px 0 15px;
+            display: inline-block;
+            border-radius: 0 20px 20px 0;
+            font-weight: bold;
+        }
+
+        .mini-note {
+            background: #fff7f4;
+            border-left: 4px solid var(--tsou-red);
+            padding: 14px 16px;
+            margin: 10px 0 24px;
+            color: #5a4038;
+        }
+
+        .interactive-img {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 20px auto;
+            cursor: pointer;
+            border: 8px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .interactive-img:hover {
+            transform: scale(1.01);
+            filter: brightness(1.05);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 25px 0 35px;
+        }
+
+        #techMenu.category-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .category-card {
+            background: white;
+            padding: 28px;
+            border-bottom: 5px solid var(--tsou-red);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: 0.25s;
+            border-radius: 6px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+        }
+
+        .category-card h3 {
+            color: var(--wood-dark);
+            margin-bottom: 10px;
+        }
+
+        .category-card p {
+            color: #555;
+        }
+
+        .tech-panel {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .tech-panel.active {
+            display: block;
+        }
+
+        .tech-intro {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 5px 0 20px;
+            color: var(--tsou-red);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .table-box {
+            width: 100%;
+            overflow-x: visible;
+            margin-bottom: 40px;
+            border: 1px solid #ddd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 0;
+            table-layout: fixed;
+        }
+
+        .wide-table {
+            overflow-x: auto;
+        }
+
+        .wide-table table {
+            min-width: 800px;
+            table-layout: auto;
+        }
+
+        table th {
+            background: var(--wood-dark);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #5d4037;
+            font-size: 1rem;
+        }
+
+        table td {
+            padding: 12px;
+            border: 1px solid #eee;
+            font-size: 0.95rem;
+            vertical-align: top;
+            word-break: break-word;
+        }
+
+        tr:nth-child(even) {
+            background: #fdfaf5;
+        }
+
+        .row-title {
+            font-weight: bold;
+            color: var(--tsou-red);
+            background: #fffafa;
+            width: 160px;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 650px;
+            width: 90%;
+            border-top: 10px solid var(--tsou-red);
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: #aaa;
+        }
+
+        footer {
+            background: var(--forest-deep);
+            color: #888;
+            text-align: center;
+            padding: 60px 0;
+            border-top: 5px solid var(--tsou-red);
+        }
+
+
+        .issues-intro {
+            background: #f8f4ee;
+            border-left: 5px solid var(--tsou-red);
+            padding: 18px 20px;
+            margin-bottom: 28px;
+            color: #4a3a33;
+        }
+
+        .issue-card {
+            border: 1px solid #e7ddd6;
+            border-radius: 10px;
+            padding: 24px;
+            margin: 22px 0 30px;
+            background: #fffdfb;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+
+        .issue-card h3 {
+            color: var(--wood-dark);
+            margin-bottom: 10px;
+            font-size: 1.35rem;
+        }
+
+        .issue-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .issue-badge {
+            background: #f3ece7;
+            color: var(--tsou-red);
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 0.88rem;
+            font-weight: bold;
+        }
+
+        .issue-summary {
+            margin-bottom: 16px;
+            color: #333;
+        }
+
+        .issue-focus {
+            margin: 14px 0 16px;
+            padding-left: 18px;
+        }
+
+        .issue-focus li {
+            margin-bottom: 6px;
+        }
+
+        .detail-toggle-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .detail-btn, .term-btn {
+            border: none;
+            background: var(--forest-mid);
+            color: white;
+            padding: 9px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .detail-btn.secondary {
+            background: var(--wood-dark);
+        }
+
+        .term-btn {
+            background: #efe7df;
+            color: var(--wood-dark);
+            margin: 4px 6px 0 0;
+            font-size: 0.9rem;
+        }
+
+        .detail-panel {
+            display: none;
+            margin-top: 16px;
+            padding: 18px;
+            background: #faf7f2;
+            border-left: 4px solid var(--forest-mid);
+            border-radius: 6px;
+        }
+
+        .detail-panel.active {
+            display: block;
+        }
+
+        .detail-panel h4 {
+            color: var(--wood-dark);
+            margin-bottom: 10px;
+        }
+
+        .detail-panel ul {
+            padding-left: 20px;
+        }
+
+        .detail-panel li {
+            margin-bottom: 8px;
+        }
+.detail-panel {
+    display: none;
+    background: #f9f9f9;
+    padding: 16px;
+    margin-top: 14px;
+    border-left: 4px solid #666;
+    border-radius: 6px;
+    line-height: 1.7;
+}
+
+.detail-panel.active {
+    display: block !important;
+}
+
+        .term-list {
+            margin-top: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .category-grid,
+            #techMenu.category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+                letter-spacing: 4px;
+            }
+
+            .article-container {
+                padding: 20px;
+                margin: 20px auto;
+            }
+        }
+
+        .media-link {
+            color: var(--tsou-red);
+            font-weight: bold;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .photo-modal-caption {
+            margin-top: 14px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .photo-modal-caption a {
+            color: var(--tsou-red);
+            font-weight: bold;
+        }
+
+        .photo-modal-image {
+            width: 100%;
+            max-height: 68vh;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #faf7f2;
+        }
+/* ===== 統一 detail-panel 成 issue-card 風格 ===== */
+.detail-panel {
+    display: none;
+    margin-top: 16px;
+
+    background: #fffdfb;
+    border: 1px solid #e7ddd6;
+    border-radius: 10px;
+    padding: 22px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+}
+
+.detail-panel.active {
+    display: block !important;
+}
+
+.detail-panel h3,
+.detail-panel h4 {
+    color: var(--wood-dark);
+    margin-bottom: 10px;
+}
+
+.detail-panel p {
+    background: #f8f4ee;
+    border-left: 5px solid var(--tsou-red);
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border-radius: 6px;
+}
+
+.detail-panel ul {
+    padding-left: 20px;
+}
+
+.detail-panel li {
+    margin-bottom: 8px;
+}
+
+.detail-panel table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+.detail-panel th {
+    background: var(--wood-dark);
+    color: white;
+    padding: 10px;
+}
+
+.detail-panel td {
+    padding: 10px;
+    border: 1px solid #eee;
+}
+
+.detail-panel tr:nth-child(even) {
+    background: #fdfaf5;
+}
+/* 修正技術頁各分類跑出版面的問題 */
+.tech-panel {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+}
+
+/* 避免 tech-panel 裡面的卡片再變得太奇怪 */
+.tech-panel .issue-card {
+    background: #fffdfb;
+    border: 1px solid #e7ddd6;
+    border-radius: 10px;
+    padding: 24px;
+    margin: 22px 0 30px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+}
+
+/* 陷阱、技巧展開內容也統一 */
+.tech-panel .detail-panel {
+    background: #fffdfb;
+    border: 1px solid #e7ddd6;
+    border-radius: 10px;
+    padding: 22px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+}
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a onclick="showPage('home')">首頁</a></li>
+            <li><a onclick="showPage('tech')">1. 技術與工具</a></li>
+            <li><a onclick="showPage('share')">2. 分配與共享</a></li>
+            <li><a onclick="showPage('taboo')">3. 獵場與獵地</a></li>
+            <li><a onclick="showPage('ritual')">4. 祭典與儀式</a></li>
+            <li><a onclick="showPage('ethics')">5. 倫理與身分</a></li>
+            <li><a onclick="showPage('issues')">6. 議題事件與未來發展</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="page active">
+        <div class="hero">
+            <h1>鄒族獵人文化寶庫</h1>
+            <p>數位典藏 ‧ 山林智慧 ‧ 社會倫理</p>
+        </div>
+
+        <div class="article-container" style="text-align:center; margin-top:-50px; position:relative; z-index:10;">
+            <div class="category-grid">
+                <div class="category-card" onclick="showPage('tech')">
+                    <h3>技術與經驗</h3>
+                    <p>精密機關製作與獵場動植物變化的洞察</p>
+                </div>
+                <div class="category-card" onclick="showPage('share')">
+                    <h3>分享與祭典</h3>
+                    <p>神聖的社會行動與全族共享的部落連結</p>
+                </div>
+                <div class="category-card" onclick="showPage('ethics')">
+                    <h3>身分與社會</h3>
+                    <p>EINU 規範定義的獵人倫理高度與社會地位</p>
+                </div>
+                <div class="category-card" onclick="showPage('issues')">
+                    <h3>議題事件與未來發展</h3>
+                    <p>法律衝突、社會爭議、媒體事件與未來制度方向</p>
+                </div>
+            </div>
+                    </div>
+    </div>
+
+
+    <div id="tech" class="page">
+        <div class="article-container">
+            <h2>1. 技術與工具：山林智慧</h2>
+
+            <div class="issues-intro">
+                技術與工具的核心不是「做陷阱」，而是「<strong style="color:#b33;">讀懂山林</strong>」。讀懂森林，包括對動物，植物，工具的認識，在這裡你可以知道各種動植物的生態習慣與文化意義以及傳統陷阱的認識。
+            </div>
+
+            <div id="techMenu" class="category-grid">
+                <div class="category-card" onclick="showTechSection('animals')">
+                    <h3>動物</h3>
+                    <p>哪些動物重要、生活習慣是什麼、哪些有禁忌與祭儀意義。</p>
+                </div>
+                <div class="category-card" onclick="showTechSection('plants')">
+                    <h3>植物</h3>
+                    <p>植物不只是資源，也是判斷季節、環境與動物活動的寶藏。</p>
+                </div>
+                <div class="category-card" onclick="showTechSection('traps')">
+                    <h3>陷阱</h3>
+                    <p>屬於鄒族的文化工具，了解名稱與運作概念和現代合併。</p>
+                </div>
+                <div class="category-card" onclick="showTechSection('skills')">
+                    <h3>狩獵技巧</h3>
+                    <p>風向、時間、動物反應與異常訊號，是最重要的判斷能力。</p>
+                </div>
+            </div>
+
+            <div id="animalsPanel" class="tech-panel">
+                <div class="back-link" onclick="showTechSection('menu')">← 返回分類</div>
+
+
+                <div class="issue-card">
+                    <h3>看見的不只是獵物，而是整個獵場與文化</h3>
+                    <div class="issue-summary">鄒族獵人的動物知識，重點不只是名字，而是知道每一種動物和什麼地形、水源、植物、季節、禁忌、分配方式連在一起。真正重要的是：看到痕跡時，你能不能知道這隻動物為什麼來、還會不會回來、值不值得繼續判斷。</div>
+                    <ul class="issue-focus">
+                        <li>水鹿的活動都會和「獸泉」與「果實成熟期」常互相連動。</li>
+                        <li>山豬是文化核心獵物，背後連著能力、分配與榮譽。</li>
+                        <li>山羌、山羊、松鼠雖然體型不同，但文化位置都不一樣。</li>
+                        <li>熊、雲豹等有靈性觀念，不能用一般獵物去看。</li>
+                    </ul>
+                    <div class="detail-toggle-row">
+                        <button class="detail-btn" onclick="toggleDetail('animal-land-detail')">看大型陸生動物</button>
+                        <button class="detail-btn secondary" onclick="toggleDetail('animal-stream-detail')">看溪流魚蝦與水生動物</button>
+                        <button class="detail-btn secondary" onclick="toggleDetail('animal-bird-detail')">看鳥類的徵兆與禁忌</button>
+                    </div>
+                    <div id="animal-land-detail" class="detail-panel">
+                        <h4>大型陸生動物與重要慣習</h4>
+                        <ul>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('waterDeer')">‘ua（水鹿）</span>：</strong>重要獵物，常在獸泉（nsoo）附近活動，也和山蘋果、殼斗科果實成熟有關。獵人會看獸跡掌握族群概況與常出沒地區；鹿角、鹿皮可利用，但在山林中看到鹿角有不吉觀念，可生食鹿肝與腸肚。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('boar')">fuzu（山豬）</span>：</strong><strong style="color:#b33;">最具象徵性的文化核心獵物之一</strong>，和勇士能力、分配制度、祭祀部位都連在一起。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('muntjac')">ta’cx（山羌）</span>：</strong>重要獵物，常見於平緩地形，性較溫馴，肉質受喜愛，皮可利用。</li>
+                            <li><strong>moatx’nx（山羊）：</strong>重要獵物，多在峭壁與陡峭地形，需要很強的地形判斷與移動能力，皮可製衣物。</li>
+                            <li><strong>puktu（松鼠）：</strong>祭儀上很重要，小米祭可作供品，作祭品時肉不可食；，復獵前會先獵松鼠以示獲土地神允許。</li>
+                            <li><strong>cmoi（熊）：</strong>視為有靈之物，不刻意獵捕；若獵到被認為帶有特殊命格，熊皮可作裝飾，但不可帶回部落，只能在外食用，否則被認為會帶來飢荒。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('cloudedLeopard')">e’uho（雲豹）</span>：</strong>同樣被視為有靈之物，不刻意獵捕；若獵得，會取下顎作獵刀裝飾。</li>
+                            <li><strong>buhci（老鼠）：</strong>不食用，不被視為正式獵物，但會出現在地名buhciana（老鼠很多的地方）與環境記憶中。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('maskedPalmCivet')">mea'hisi（白鼻心）</span>：</strong>屬狐狸類但可獵捕，和一般禁食狐狸類不同。</li>
+                            <li><strong>nghou（猴子）：</strong>部分家族傳統禁食，1960年代後較有人食用，也常被視為會偷食農作物的調皮動物。</li>
+                            <li><strong>voyx（飛鼠）：</strong>傳統禁食，1960年代後逐漸有人食用；種類包含白面、赤腹及小飛鼠。</li>
+                            <li><strong>veoveo（梅花鹿）：</strong>過去的重要獵物，現已消失，相關知識多保留在記憶與舊記錄中。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('leopardCat')">istola（石虎）</span>、<span class="media-link" onclick="openPhotoModal('weasel')">'itaci（黃鼠狼）</span>、kuhku（狐狸類）：</strong>多帶禁食或不吉觀念，尤其狐狸類在狩獵途中遇見常被視為不吉。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('pangolin')">hieamoza（穿山甲）</span>、snoo（水獺）：</strong>不屬日常核心獵物；捕獲多販售給外族。</li>
+                        </ul>
+                    </div>
+                    <div id="animal-stream-detail" class="detail-panel">
+                        <h4>溪流魚蝦與水生動物</h4>
+                        <ul>
+                            <li>鄒族雖不以漁撈為主要文化核心，但河川也有分段由不同氏族或亞氏族管理與使用的觀念，不是誰都能隨意取用。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('yoskx')">yoskx-axlx（鯝魚）</span>：</strong>認為是正宗的魚，<strong style="color:#b33;">賦予特別的文化意義</strong>，也是最好吃的魚，可以作為分享的體面禮物，在小米播種祭可作為祭祀的魚種。</li>
+                            <li><strong>‘eu（高身鯝魚）、<span class="media-link" onclick="openPhotoModal('squalidus')">sukasx（何氏棘魞）</span>、copi（爬岩鰍）：</strong>都是重要漁獲對象，各自對應不同水域環境。</li>
+                            <li><strong>tungeoza（鰻魚）：</strong>傳統上被視為大地靈物，屬禁食魚種，認為禁食鰻魚是遵循土地神靈的做法；後來部分禁食規範才逐漸鬆動。</li>
+                            <li><strong>kos’oza（蝦子）：</strong>溪流常見；分大型（kakusungu）與小型（koa-soehxpx）；捕捉方式多元（手捉、釣、叉、網、草束法sohi’u)。</li>
+                            <li><strong>yongo（螃蟹）：</strong>河川、山溝常見；有捕蟹歌；乾地見螃蟹象徵颱風將至。</li>
+                            <li><strong>acipa（鱉）、phoi（溪哥／馬口魚）、tfun’nu（彈塗魚）：</strong>都是非主要捕撈對象，顯示不同物種在食用價值與文化地位上有高低之分，不是所有水生動物都一樣重要。</li>
+                            <li><strong>czou / ciou（石賓）：</strong>卵具毒性不可食，部分卵被認為會變蛇；性情兇猛，會被用來形容欺負人的孩子</li>
+                        </ul>
+                    </div>
+                    <div id="animal-bird-detail" class="detail-panel">
+                        <h4>鳥類、徵兆與禁忌</h4>
+                        <ul>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('fulvetta')">oazmx / oaimx（繡眼畫眉）</span>：</strong><strong style="color:#b33;">最重要的占卜鳥之一</strong>，有五種鳴聲判斷吉凶（大吉、吉、凶、大凶），和鳥占文化直接相關。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('toevosx')">toevosx（藍腹鷳）</span>、<span class="media-link" onclick="openPhotoModal('ftxftx')">ftxftx（帝雉）</span>：</strong>可捕捉，也具有高文化評價；尾羽作皮帽裝飾象徵勇士；見到為吉兆，被稱為「正宗的鳥」。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('bambooPartridge')">hu’hu（深山竹雞）</span>、<span class="media-link" onclick="openPhotoModal('sxeo')">sx'eo（竹雞）</span>：</strong>常以鳥套捕捉，肉質好吃；鳴叫代表當天可能下雨。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('tmueosx')">tmu'eosx（藪鳥）</span>：</strong>屬警戒鳥，鳴叫會驚動動物，對獵人而言比可食性更重要。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('kaangi')">kaangi（灰林鶚／鴞）</span>：</strong>禁食；其鳴叫可能影響狩獵，被視為會使動物躲避的存在。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('koiyo')">koiyo（大冠鷲）</span>：</strong>禁食；神話中與飢餓孩子有關，尾羽象徵勇士，獵獲需祭地。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('yiski')">yiski（熊鷹）</span>：</strong>禁食；被視為重要象徵，尾羽象徵勇士；地名由其而來。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('yxpx')">yx'px（鳳頭蒼鷹）</span>：</strong>禁食；飛行迅速，常捕食家禽。</li>
+
+                            <li><strong>tfua’a（烏鴉）：</strong>
+  禁食；在神話中羽毛被染黑，常被視為不潔或帶有不吉象徵。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('feocuChumu')">feoc'u-chumu（翠鳥）</span>：</strong>被理解為和水有關，出現時常被聯想到河裡有魚。</li>
+                            <li>
+  <strong>keuisi（麻雀）：</strong>
+  洪水神話中取火之鳥之一；允許在田中食用作物。
+</li>
+
+<li>
+  <strong>
+    <span class="media-link" onclick="openPhotoModal('teofsiza')">
+      teofsi’za（臺灣藍鵲）
+    </span>：
+  </strong>
+  洪水神話中取火之鳥之一；外觀與婦女服飾顏色有所關聯。
+</li>
+
+<li>
+  <strong>
+    <span class="media-link" onclick="openPhotoModal('uhngu')">
+      uhngu（白腰文鳥）
+    </span>：
+  </strong>
+  洪水神話取火之鳥；允許在田中吃作物；喙短被認為是被火燒過；肉質好吃。
+</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('seisi')">seisi（山椒鳥）</span>：</strong>被視為吉祥之鳥，反映鳥類不只是食物，也可作環境與徵兆判讀。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="plantsPanel" class="tech-panel">
+                <div class="back-link" onclick="showTechSection('menu')">← 返回分類</div>
+
+                <div class="issue-card">
+                    <h3>植物是山林知識，不只是材料</h3>
+                    <div class="issue-summary">
+植物對獵人來說，不只是環境，而是<strong style="color:#b33;">判斷山林狀況的重要線索</strong>。<br><br>
+不同植物的分布，通常代表不同的地形、濕度與人為活動程度。
+例如：果實成熟時，較容易吸引動物前來覓食；
+芒草或箭竹大量出現，常見於開闊地、邊界或擾動區；
+咬人貓、苔蘚等植物，則可用來判斷環境濕度與是否接近水源。
+透過觀察植物，可以幫助獵人推測動物可能出現的區域，
+以及判斷行走時的環境安全。</div>
+                    <ul class="issue-focus">
+                        <li>小米、五節芒不只是植物名稱，而是時間、祭儀、動物與生活節奏的線索。</li>
+                        <li>山芙蓉、台灣杉／紅檜能幫助判讀海拔、受傷動物痕跡與原始林風險。</li>
+                        <li>桂竹／箭竹與咬人貓，直接影響行走、工具使用與環境安全。</li>
+                    </ul>
+                    <div class="detail-toggle-row">
+                        <button class="detail-btn" onclick="toggleDetail('plant-millet-detail')">看小米與五節芒</button>
+                        <button class="detail-btn secondary" onclick="toggleDetail('plant-forest-detail')">看山芙蓉、台灣杉／紅檜、箭竹</button>
+                        <button class="detail-btn secondary" onclick="toggleDetail('plant-use-detail')">看咬人貓、十大功勞、山胡椒、酢漿草</button>
+                    </div>
+                    <div id="plant-millet-detail" class="detail-panel">
+                        <h4>小米與五節芒</h4>
+                        <ul>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('plantMillet')">小米</span>：</strong>是食物來源，也是播種祭、收穫祭的核心作物。一般可視作 一年 1～2 次，要看部落耕作期別與地區安排，田區常代表接近部落、舊耕地或人類活動區。</li>
+                            <li>對獵人來說，小米田也是觀察動物進出邊界的地方：野豬、山羌、田鼠、鳥類都可能進田覓食，可透過踩踏、啃咬、倒伏、糞便與進出小徑判斷；若是野豬，常伴隨較明顯翻土或大面積踩倒。</li>
+                            <li>不同品種株高常見約 95～167 公分，所以成熟後田間有一定遮蔽，但通常不像高大玉米田那麼封閉。抽穗到成熟期的株高會形成部分遮蔽，所以也會影響看見田裡動物的方式。</li>
+                            <li>
+  <strong>
+    <span class="media-link" onclick="openPhotoModal('plantMiscanthus')">
+      五節芒
+    </span>：
+  </strong>
+  用途非常廣，從嫩芽可食、田野零食、解渴，到驅邪儀式、小米祭、屋頂、屋牆、掃把、火把與工寮建材，都會依不同生長階段使用。
+</li>
+
+<li>
+  鄒語會細分不同階段：如 
+  <strong>cuhu（初生嫩芽）、yapu'eoza、fa’a（極肥厚狀態）、feufeu、haengu（成長後的五節芒）、hipo、ngocngi（開花狀態）、esmu（枯乾老死）、mtiveu</strong>，
+  表示族人會依照植物當下的狀態判斷用途，而不是把它當成同一種草。
+</li>
+
+<li>
+  <strong>可食與利用：</strong>
+  可食部分以嫩心、嫩芽為主，可直接生食、簡單火烤或汆燙，是野外快速補充的來源；
+  feufeu 階段含水量高，也可用來解渴。
+</li>
+
+<li>
+  <strong>動物利用：</strong>
+  山羌、水鹿、山羊等草食或雜食性動物會取食嫩芽或嫩葉，
+  也代表這類區域可能有動物活動。
+</li>
+
+<li>
+  <strong>環境判斷：</strong>
+  大片五節芒常出現在開闊地、擾動地、森林邊緣或坡地，
+  也可能是過去人為活動或舊耕地的痕跡。
+</li>
+
+<li>
+  <strong>狩獵判斷：</strong>
+  判斷重點通常在芒草邊緣（草原與林地交界），
+  動物較可能沿邊移動，而不會直接穿越最密的區域。
+</li>                        </ul>
+                    </div>
+                    <div id="plant-forest-detail" class="detail-panel">
+                        <h4>山芙蓉、台灣杉／紅檜、箭竹</h4>
+                        <ul>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('plantHibiscus')">山芙蓉（FUKUO）</span>：</strong>花期約7～10月，同一朵花在一天內會變色，也可作時間與季節線索。更重要的是，樹幹可能留下受傷有蹄類啃咬、磨蹭與樹液混血跡等痕跡，所以它不只是象徵植物，也是動物活動判讀點。</li>
+                            <li><strong><span class="media-link" onclick="openPhotoModal('plantRedCypress')">台灣杉／紅檜</span>：</strong>出現時常代表已進入較高海拔原始林。對獵人而言，這些巨木的重點不是木材，而是：地標、山脈方向、森林範圍、濕滑程度、濃霧、水氣與動物活動機會。</li>
+                            <li>這類原始林區常見水鹿、山羌、長鬃山羊、野豬，甚至黑熊，因為遮蔽高、人為干擾較少。</li>
+                            <li>
+  <strong>
+    <span class="media-link" onclick="openPhotoModal('plantBamboo')">
+      桂竹／箭竹
+    </span>：
+  </strong>
+  既是食物來源，也是材料知識。新竹柔韌，老竹堅硬；可透過顏色、表面、彈性、重量與敲擊聲區分。
+</li>
+
+<li>
+  對獵人來說，箭竹／桂竹的重點在於：
+  能做容器、支架與一般器物，也能當作環境線索。竹林往往意味著動物可能躲藏、覓食，
+  竹筍季也更容易吸引動物出沒；
+  新竹可製作陷阱、彈性結構（如驅鳥器），
+  老竹可作支架、武器（竹槍、弓箭）與工具。
+</li>
+
+<li>
+  <strong>新竹與老竹判斷：</strong>
+  <table border="1" style="border-collapse:collapse; margin-top:10px;">
+    <tr>
+      <th>判斷方式</th>
+      <th>新竹（1年內）</th>
+      <th>老竹（2年以上）</th>
+    </tr>
+    <tr>
+      <td>顏色</td>
+      <td>淺綠、偏亮</td>
+      <td>深綠 → 綠褐、甚至偏灰</td>
+    </tr>
+    <tr>
+      <td>表面</td>
+      <td>光滑、有粉感（竹粉）</td>
+      <td>較粗糙，可能有裂紋或斑</td>
+    </tr>
+    <tr>
+      <td>彈性</td>
+      <td>彈性高、可彎</td>
+      <td>較硬、不易彎曲</td>
+    </tr>
+    <tr>
+      <td>重量</td>
+      <td>較輕</td>
+      <td>較重</td>
+    </tr>
+    <tr>
+      <td>聲音（敲）</td>
+      <td>悶聲</td>
+      <td>清脆</td>
+    </tr>
+    <tr>
+      <td>用途</td>
+      <td>陷阱、彈性結構</td>
+      <td>支架、武器、承重</td>
+    </tr>
+  </table>
+</li>                        </ul>
+                    </div>
+                    <div id="plant-use-detail" class="detail-panel">
+    <h4>咬人貓、阿里山十大功勞、山胡椒、酢漿草</h4>
+    <ul>
+
+        <li>
+            <strong>
+                <span class="media-link" onclick="openPhotoModal('plantStinging')">
+                    咬人貓
+                </span>：
+            </strong>
+            重點不是用途，而是先看風險。它通常代表附近濕、陰、可能近水，也提醒行走安全。
+        </li>
+
+        <li>
+            <strong>分布與環境：</strong>
+            台灣山區常見（約500～3000公尺），多出現在潮濕林下、林緣蔭蔽處、溪溝旁或有水氣聚集的位置。
+        </li>
+
+        <li>
+            <strong>辨識與風險：</strong>
+            葉片與莖有焮毛，接觸會產生刺痛、灼熱，可能紅腫並持續數小時至1～2天。
+        </li>
+
+        <li>
+            <strong>環境判斷：</strong>
+            看到它通常表示環境濕度高、接近水源，不是乾燥稜線型地形。
+        </li>
+
+        <li>
+            <strong>用途與補充：</strong>
+            雖有經驗提到嫩葉可食或具藥用，甚至有人用來提神，但這些並非普遍安全做法，不能當成一般建議。
+            <br><span style="color:#b33;">※重點：看到它先想到風險與環境，而不是用途。</span>
+        </li>
+
+        <hr>
+
+        <li>
+            <strong>
+                <span class="media-link" onclick="openPhotoModal('plantMahonia')">
+                    阿里山十大功勞
+                </span>：
+            </strong>
+            兼具觀賞、藥用與高山環境辨識意義，果實也與鳥類互動有關。
+        </li>
+
+        <li>
+            <strong>分布與特徵：</strong>
+            台灣特有種，多分布於中高海拔（1500～3500公尺）山區；常綠灌木，葉片有刺，花為黃色，果實成熟呈黑紫色。
+        </li>
+
+        <li>
+            <strong>物候與生態：</strong>
+            花期約8～11月，果期11月至翌年5月，果實為鳥類重要食物來源。
+        </li>
+
+        <li>
+            <strong>用途：</strong>
+            含小檗鹼，根、莖、葉皆有藥用；也具觀賞價值，可作庭園與綠籬植物。
+        </li>
+
+        <li>
+            <strong>判斷重點：</strong>
+            出現位置多為較穩定的中高海拔環境，可作為環境辨識線索。
+        </li>
+
+        <hr>
+
+        <li>
+            <strong>
+                <span class="media-link" onclick="openPhotoModal('plantPepper')">
+                    山胡椒（馬告）
+                </span>：
+            </strong>
+            是很好辨認的邊界植物，常見於林道、林緣、舊墾地與向陽次生林。
+        </li>
+
+        <li>
+            <strong>分布與環境：</strong>
+            台灣100～1500公尺山區常見，特別容易出現在光照較好的林道與次生林邊。
+        </li>
+
+        <li>
+            <strong>辨識：</strong>
+            搓葉或折枝有明顯香氣，枝條灰褐或綠褐，樹皮常有白點。
+        </li>
+
+        <li>
+            <strong>用途：</strong>
+            果實可作香料，用於去腥、調味，特別適合肉類。
+        </li>
+
+        <li>
+            <strong>動物與環境判斷：</strong>
+            果熟期約9～10月，會吸引食果性或雜食性鳥類（如綠繡眼、白頭翁等），也代表該區為林緣或人為活動邊界。
+        </li>
+
+        <hr>
+
+        <li>
+            <strong>
+                <span class="media-link" onclick="openPhotoModal('plantOxalis')">
+                    酢漿草
+                </span>：
+            </strong>
+            屬於易取得的野地補充植物，也和民間草藥知識連在一起。
+        </li>
+
+        <li>
+            <strong>分布：</strong>
+            常見於開闊地、草地、路邊與農地周邊。
+        </li>
+
+        <li>
+            <strong>辨識：</strong>
+            三出複葉，葉片呈心形。
+        </li>
+
+        <li>
+            <strong>用途：</strong>
+            可少量食用，味酸，也常作民間草藥。
+        </li>
+
+        <li>
+            <strong>補充：</strong>
+            可與阿里山十大功勞搭配煮飲，用於民間胃部調理；整體而言屬容易取得的野外補充植物。
+        </li>
+
+    </ul>
+</div>                        </ul>
+                    </div>
+                </div>
+            </div>
+<div id="trapsPanel" class="tech-panel">
+                <div class="back-link" onclick="showTechSection('menu')">← 返回分類</div>
+
+                <div class="issue-card">
+    <h3>陷阱的重點不是名字，而是風險、對象與規範</h3>
+
+    <div class="issue-summary">
+        陷阱不是單純的工具，而是建立在<strong style="color:#b33;">對動物行為、路徑與環境判斷之上的技術</strong>。
+        不同類型的陷阱，對應不同的動物特性，例如體型大小、行走方式、是否沿固定獸徑活動，以及對氣味或聲音的反應。
+        <br><br>
+        獵人不只是「設置陷阱」，而是先判斷動物會從哪裡經過、如何行動，再選擇適合的方式。
+        因此，理解每一種陷阱的運作原理與適用對象，比記住名稱更重要。
+    </div>
+
+    <ul class="issue-focus">
+        <li>有些陷阱偏向被動捕捉，有些則具有主動攻擊風險。</li>
+        <li>現在法律很重視是否會誤傷人、保育類或非目標物種。</li>
+        <li>部落規範、einu 和現代法律都會一起影響可不可以用。</li>
+    </ul>
+
+    <div class="detail-toggle-row">
+        <button class="detail-btn" onclick="toggleDetail('trap-system')">看陷阱分類</button>
+    </div>
+
+    <!--  重點：這裡才是你要展開的內容 -->
+    <div id="trap-system" class="detail-panel">
+
+        <h3>陷阱系統</h3>
+
+        <p>
+            陷阱不是單純的工具，而是建立在對動物行為、路徑與環境判斷之上的技術。
+            不同類型的陷阱，對應不同的動物特性。
+        </p>
+
+        <table border="1" style="border-collapse: collapse; width:100%; margin-top:10px;">
+
+            <tr>
+                <th>鄒語</th>
+                <th>類型</th>
+                <th>運作概念</th>
+                <th>材料</th>
+                <th>獵捕對象</th>
+            </tr>
+
+            <tr>
+                <td>boepono</td>
+                <td>陷機獵</td>
+                <td>踩踏觸發</td>
+                <td>繩索、木材</td>
+                <td>大型地面動物</td>
+            </tr>
+
+            <tr>
+                <td>buo-feo’isi</td>
+                <td>套頸</td>
+                <td>通過套住</td>
+                <td>藤類</td>
+                <td>中大型獸徑動物</td>
+            </tr>
+
+            <tr>
+                <td>h’opona-no-pepe</td>
+                <td>彈力</td>
+                <td>彈性束縛</td>
+                <td>竹、繩</td>
+                <td>小型快速動物</td>
+            </tr>
+
+            <tr>
+                <td>tocʉfʉ</td>
+                <td>石板</td>
+                <td>重量壓制</td>
+                <td>石板</td>
+                <td>小型動物</td>
+            </tr>
+
+            <tr>
+                <td>topano</td>
+                <td>誘餌</td>
+                <td>吸引觸發</td>
+                <td>食物</td>
+                <td>嗅覺型動物</td>
+            </tr>
+
+            <tr>
+                <td>ʉs’ʉfea</td>
+                <td>捕鳥</td>
+                <td>路徑設置</td>
+                <td>細繩</td>
+                <td>地面鳥類</td>
+            </tr>
+
+            <tr>
+                <td>etokʉ</td>
+                <td>弓式</td>
+                <td>彈性釋放</td>
+                <td>竹</td>
+                <td>小型動物</td>
+            </tr>
+
+            <tr>
+                <td>sofsuya</td>
+                <td>機關</td>
+                <td>強力觸發</td>
+                <td>木材</td>
+                <td>大型動物</td>
+            </tr>
+
+            <tr>
+                <td>seohmova</td>
+                <td>箭矢</td>
+                <td>驚嚇觸發</td>
+                <td>尖刺材料</td>
+                <td>野豬類</td>
+            </tr>
+
+        </table>
+
+        <p style="color:#b33;">
+            ※重點：陷阱效果取決於位置與判斷，而不是種類。
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+            <div id="skillsPanel" class="tech-panel">
+                <div class="back-link" onclick="showTechSection('menu')">← 返回分類</div>
+
+                <div class="issue-card">
+                    <h3>真正的技術，是會停下來看!!!</h3>
+                    <div class="issue-summary">對獵人來說，技術不只是動手，而是判斷：風怎麼吹、地形怎麼回風、痕跡是不是新的、鳥為什麼突然不叫、今天到底適不適合繼續。很多危險都不是因為不會做，而是因為太急、太想追上去，沒有在接近前再看一次。
+                        <br><br>
+                        真正成熟的技術，常常不是多快接近目標，而是知道什麼時候該停、該退、該重新判斷。能停下來的人，通常也比較能<strong style="color:#b33;">安全地下山</strong>。</div>
+                    <ul class="issue-focus">
+                        <li>風向不是固定的，接近目標前要重看。</li>
+                        <li>太安靜、有異常警戒聲，通常比看到痕跡更重要。</li>
+                        <li>撤退不是失敗，是判斷正確。</li>
+                    </ul>
+                    <div class="detail-toggle-row">
+                        <button class="detail-btn" onclick="toggleDetail('skill-wind-detail')">看風向判斷</button>
+                        <button class="detail-btn secondary" onclick="toggleDetail('skill-animal-detail')">看動物異常訊號</button>
+                        <button class="detail-btn secondary" onclick="toggleDetail('skill-mind-detail')">看節奏與心態</button>
+                    </div>
+                    <div id="skill-wind-detail" class="detail-panel">
+  <h4>風向判斷</h4>
+
+  <div class="issue-summary">
+    風向不是固定的，尤其在山區會受到時間、地形、樹林與天氣影響。
+    對獵人來說，風向判斷不是出發前看一次就好，而是<strong style="color:#b33;">每次接近目標前都要重新確認</strong>。
+  </div>
+
+  <h4>常見風向情境</h4>
+  <table>
+    <tr>
+      <th>情境</th>
+      <th>實際發生什麼事</th>
+      <th>怎麼判斷</th>
+    </tr>
+    <tr>
+      <td>早晚風向不同</td>
+      <td>早上風可能往上吹（山谷 → 山上），下午可能反過來。</td>
+      <td>早上能從下往上接近，不代表下午同一路線也安全，下午可能會暴露氣味。</td>
+    </tr>
+    <tr>
+      <td>山谷回風</td>
+      <td>你以為風往前，但谷地可能繞回來。</td>
+      <td>在谷地停留時要特別小心，反而更容易被動物聞到。</td>
+    </tr>
+    <tr>
+      <td>突然轉風</td>
+      <td>原本順風，突然變成側風或逆風。</td>
+      <td>行動前要再次確認，不要只依靠剛剛的判斷。</td>
+    </tr>
+    <tr>
+      <td>林內與空地風不同</td>
+      <td>樹林裡風很弱，一走到空地風變強。</td>
+      <td>在林地與空地交界處，要重新判斷風向。</td>
+    </tr>
+    <tr>
+      <td>下雨前風變亂</td>
+      <td>天氣變化前風向容易不穩定。</td>
+      <td>風亂時通常不適合接近目標。</td>
+    </tr>
+    <tr>
+      <td>陡坡風差</td>
+      <td>山坡上的風向和一般平地不同。</td>
+      <td>上坡與下坡接近目標時，策略要分開判斷。</td>
+    </tr>
+  </table>
+
+  <h4>容易犯的錯誤</h4>
+  <table>
+    <tr>
+      <th>情境</th>
+      <th>錯誤行為</th>
+      <th>正確判斷</th>
+    </tr>
+    <tr>
+      <td>已經走了一段路</td>
+      <td>以為風向沒變，直接靠近。</td>
+      <td>停下來重新確認風向。</td>
+    </tr>
+    <tr>
+      <td>快接近動物</td>
+      <td>想快點靠近，不再觀察。</td>
+      <td>反而要更慢、更小心。</td>
+    </tr>
+    <tr>
+      <td>已經看到目標</td>
+      <td>太專注目標，忽略環境。</td>
+      <td>先看風，再決定下一步動作。</td>
+    </tr>
+    <tr>
+      <td>之前成功過的路線</td>
+      <td>直接照舊路走。</td>
+      <td>每次都要重新判斷。</td>
+    </tr>
+    <tr>
+      <td>多人一起行動</td>
+      <td>只看自己位置。</td>
+      <td>要看整體隊伍會不會把氣味帶到動物那邊。</td>
+    </tr>
+    <tr>
+      <td>風突然變弱</td>
+      <td>以為沒影響。</td>
+      <td>風弱時氣味可能更集中，也要小心。</td>
+    </tr>
+  </table>
+
+  <p style="color:#b33; margin-top:12px;">
+    ※重點：越接近目標，越不能只看動物，要先重新確認風向。
+  </p>
+</div>
+<div id="skill-animal-detail" class="detail-panel">
+  <h4>判斷動物行為</h4>
+
+  <div class="issue-summary">
+    動物異常不一定代表馬上有獵物，有時反而是在<strong style="color:#b33;">提醒環境已經改變</strong>。
+    對獵人來說，重點不是只看見動物，而是要看牠為什麼突然安靜、逃跑、警戒或改變路線。
+  </div>
+
+  <h4>A. 動物「太安靜」</h4>
+  <table>
+    <tr>
+      <th>情境</th>
+      <th>代表什麼</th>
+    </tr>
+    <tr>
+      <td>平常有動物的地方突然完全沒聲音</td>
+      <td>可能有大型動物或人在附近。</td>
+    </tr>
+    <tr>
+      <td>鳥突然全部不叫</td>
+      <td>環境可能出現干擾或危險。</td>
+    </tr>
+    <tr>
+      <td>動物活動突然消失</td>
+      <td>有變化發生，但你不一定看得到。</td>
+    </tr>
+  </table>
+
+  <h4>B. 動物「異常警戒」</h4>
+  <table>
+    <tr>
+      <th>情境</th>
+      <th>代表什麼</th>
+    </tr>
+    <tr>
+      <td>小動物突然快速逃跑</td>
+      <td>可能有掠食者或人在附近。</td>
+    </tr>
+    <tr>
+      <td>鳥發出警戒聲（不是正常鳴唱）</td>
+      <td>代表牠發現異常。</td>
+    </tr>
+    <tr>
+      <td>動物持續盯著某個方向</td>
+      <td>那個方向可能有問題。</td>
+    </tr>
+  </table>
+
+  <h4>C. 動物「不正常移動」</h4>
+  <table>
+    <tr>
+      <th>情境</th>
+      <th>代表什麼</th>
+    </tr>
+    <tr>
+      <td>同一條路徑動物反覆來回</td>
+      <td>可能被干擾。</td>
+    </tr>
+    <tr>
+      <td>動物突然亂跑</td>
+      <td>可能被追逐或驚嚇。</td>
+    </tr>
+    <tr>
+      <td>動物往不常走的方向移動</td>
+      <td>環境有變化。</td>
+    </tr>
+  </table>
+
+  <h4>D. 痕跡「不合理」</h4>
+  <table>
+    <tr>
+      <th>情境</th>
+      <th>代表什麼</th>
+    </tr>
+    <tr>
+      <td>新舊痕跡混亂</td>
+      <td>可能有多個動物或不同時間的活動痕跡。</td>
+    </tr>
+    <tr>
+      <td>腳印方向不一致</td>
+      <td>可能有干擾或追逐。</td>
+    </tr>
+    <tr>
+      <td>突然沒有後續痕跡</td>
+      <td>動物可能改變行為或路徑。</td>
+    </tr>
+  </table>
+
+  <h4>E. 「太順利」的狀況</h4>
+  <table>
+    <tr>
+      <th>情境</th>
+      <th>代表什麼</th>
+    </tr>
+    <tr>
+      <td>很容易接近動物</td>
+      <td>可能有風向問題，或動物本身狀態異常。</td>
+    </tr>
+    <tr>
+      <td>動物沒有警覺</td>
+      <td>可能牠已經察覺，但還沒有動作。</td>
+    </tr>
+    <tr>
+      <td>一路都有痕跡</td>
+      <td>反而要懷疑是不是舊痕跡或判斷錯誤。</td>
+    </tr>
+  </table>
+
+  <p style="color:#b33; margin-top:12px;">
+    ※重點：看到異常時不要急著前進，先停下來判斷原因。
+  </p>
+</div>
+                    <div id="skill-mind-detail" class="detail-panel">
+                        <h4>節奏與心態</h4>
+                        <ul>
+                            <li>不帶情緒上山，因為情緒會比技術更先害人失誤。</li>
+                            <li>停下來看，比一直走更重要。</li>
+                            <li>同一地點早晚差很多，不要只靠一次經驗。</li>
+                            <li>沒有跡象就離開，不要用亂抓補收穫。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="share" class="page">
+    <div class="article-container">
+        <h2>2. 分配與共享：狩獵的終點不是捕獲，而是分享</h2>
+
+        <div class="issues-intro">
+            獵物分配不只是把肉分出去，而是在維持家族關係、長幼秩序與獵人的名聲。
+            在鄒族文化中，「怎麼分」和「會不會獵」一樣重要。
+        </div>
+
+        <div class="issue-card">
+            <h3>為什麼一定要分享？</h3>
+
+            <div class="issue-summary">
+                分享不是客氣，而是規範。獵物從來不只是個人的戰利品，而是<strong style="color:#b33;">整個社會關係的一部分</strong>。若分錯、少分或故意不分，不只是沒禮貌，而是代表你沒有理解這套制度，也可能影響別人對你的評價，甚至被認為會招來不吉。
+                <br><br>
+                所以真正被看重的獵人，不只是會獵的人，而是知道獵到之後怎麼把關係維持好的人。
+            </div>
+
+            <ul class="issue-focus">
+                <li>分享能建立獵人的地位與信任。</li>
+                <li>長者、獵場主人、協助者都有不同位置。</li>
+                <li>大型重要獵物與小型獵物的分配方式不同。</li>
+            </ul>
+
+            <div class="detail-toggle-row">
+                <button class="detail-btn" onclick="toggleDetail('share-core-detail')">看分配核心觀念</button>
+                <button class="detail-btn secondary" onclick="toggleDetail('share-space-detail')">看部落、山裡、農作區差別</button>
+                <button class="detail-btn secondary" onclick="toggleDetail('share-rank-detail')">看獵物等級與價值</button>
+            </div>
+
+            <div id="share-core-detail" class="detail-panel">
+                <h4>分配核心觀念</h4>
+                <ul>
+                    <li>必須分享給族人，這本身就是獵人的責任。</li>
+                    <li>長幼有序，分錯不是小事，會被視為不尊重。</li>
+                    <li>動物不是只有肉量，而是整體被理解的存在。</li>
+                    <li>山豬分配最細，最能看出制度與秩序。</li>
+                </ul>
+            </div>
+
+            <div id="share-space-detail" class="detail-panel">
+                <h4>部落、山裡、農作區差別</h4>
+                <ul>
+                    <li>在部落裡，家人與家族可以共享獵場帶回來的資源。</li>
+                    <li>在山裡遇見剛上山的獵人，也有分享的習俗。</li>
+                    <li>回到農作區後，對象與分法會不同；例如遇到婦女通常要分給山肉。</li>
+                    <li>這些細節反映出獵場與農耕地的傳統分工。</li>
+                </ul>
+            </div>
+
+            <div id="share-rank-detail" class="detail-panel">
+                <h4>獵物等級與文化價值</h4>
+                <ul>
+                    <li>大型哺乳類中，山豬通常最被看重，其次是鹿、山羌、山羊。</li>
+                    <li>鳥類中，藍腹鷳、帝雉常被認為較高等。</li>
+                    <li>魚類中，鯝魚最重要，也常和祭祀、送禮連在一起。</li>
+                    <li>有些動物即使能吃，也未必會拿去正式分享給長輩。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="issue-card">
+            <h3>山豬的文化分配</h3>
+
+            <ul class="issue-focus">
+                <li>山豬肉在評價上通常最高。</li>
+                <li>特定部位和祭祀、長者、榮譽分配有關。</li>
+                <li>獵場主人、搏鬥刺殺者、背負者、狗主等角色分得不同。</li>
+            </ul>
+
+            <div class="detail-toggle-row">
+                <button class="detail-btn" onclick="toggleDetail('share-pig-role-detail')">看分配角色</button>
+                <button class="detail-btn secondary" onclick="toggleDetail('share-pig-part-detail')">看重要部位用途</button>
+            </div>
+
+            <div id="share-pig-role-detail" class="detail-panel">
+                <h4>山豬分配角色</h4>
+                <ul>
+                    <li><strong>獵場主人：</strong>有優先分配位置。</li>
+                    <li><strong>搏鬥刺殺者：</strong>具有重要榮譽性，能分得核心部位。</li>
+                    <li><strong>獵獲者：</strong>透過陷阱或槍獵得者，也有其份額。</li>
+                    <li><strong>背負者、切肉者、狗主：</strong>都不只是幫忙，而是在制度中有位置。</li>
+                    <li><strong>分享家族者：</strong>最後剩下的肉皮骨會再平均串分給其他家族。</li>
+                </ul>
+            </div>
+
+            <div id="share-pig-part-detail" class="detail-panel">
+                <h4>重要部位用途</h4>
+                <ul>
+                    <li><strong>舌、心、肝、胰等：</strong>常和祭祀有關，不是一般先拿來吃的部位。</li>
+                    <li><strong>厚皮：</strong>和尊敬長者、榮譽分配有關。</li>
+                    <li><strong>大腸：</strong>可曬乾作為水袋。</li>
+                    <li><strong>頭骨、下顎：</strong>常被保留，具有獵績與象徵意義。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="issue-card">
+            <h3>分享其實也在反映性別與生活分工</h3>
+
+            <div class="issue-summary">
+                例如幼小山豬若活捉回家，交給婦女飼養後，性質就改變了。這顯示獵物、家畜、獵場、農地之間，在鄒族傳統裡有很清楚的分類，不是只有「抓到就是自己的」。
+                <br><br>
+                從這些細節可以看出，分配制度其實也在整理人和動物的關係、男人和女人的分工，以及獵場與家屋之間的界線。
+            </div>
+
+            <div class="detail-toggle-row">
+                <button class="detail-btn" onclick="toggleDetail('share-gender-detail')">看分工與觀念補充</button>
+            </div>
+
+            <div id="share-gender-detail" class="detail-panel">
+                <h4>分工與觀念補充</h4>
+                <ul>
+                    <li>fuzu 山豬屬於獵物，和男性狩獵活動關係深。</li>
+                    <li>家豬則轉入家內飼養與管理系統，常由婦女接手。</li>
+                    <li>這些差異顯示，動物分類本身就反映出社會秩序。</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <div id="taboo" class="page">
+        <div class="article-container">
+            <h2>3. 獵場與獵地：家族、歷史與使用關係而成的「被理解的領域」。
+</h2>
+
+            <div class="issues-intro">
+                獵地不是地圖上的一條線，而是靠<strong style="color:#b33;">家族歷史、長期使用、彼此默契與部落規範形成的領域</strong>。對獵人來說，懂不懂邊界，不只是空間問題，也是人與人的關係問題。
+            </div>
+
+            <div class="issue-card">
+                <h3>怎麼知道這裡是不是別人的獵地？</h3>
+                <div class="issue-summary">在山裡，不一定會看到明顯界線，但獵人會從獸徑、陷阱、標記、整理過的痕跡與過往經驗，知道某塊地方是不是有人在使用。真正重要的不是地圖，而是「看得懂別人的存在」。
+                <br><br>
+                獵地的核心也不只是土地，而是記憶、關係與默契。你知不知道這裡是不是自己的地方，往往比你有沒有真的跨到某條線還重要。</div>
+                <ul class="issue-focus">
+                    <li>家族使用歷史與長期默契很重要。</li>
+                    <li>看到被整理過的環境，就要提高警覺。</li>
+                    <li>同一條獸徑出現新舊不同痕跡，不一定代表只有一個人在用。</li>
+                </ul>
+                <div class="detail-toggle-row">
+                    <button class="detail-btn" onclick="toggleDetail('land-judge-detail')">看判斷方式</button>
+                    <button class="detail-btn secondary" onclick="toggleDetail('land-modern-detail')">看現代制度影響</button>
+                </div>
+                <div id="land-judge-detail" class="detail-panel">
+                    <h4>判斷獵地的方式</h4>
+                    <ul>
+                        <li>獸徑使用痕跡。</li>
+                        <li>陷阱、標記或人為整理痕跡。</li>
+                        <li>過去經驗：已知道誰常在哪裡活動。</li>
+                        <li>與長者或其他獵人之間形成的默契與共識。</li>
+                    </ul>
+                </div>
+                <div id="land-modern-detail" class="detail-panel">
+                    <h4>現代制度影響</h4>
+                    <ul>
+                        <li>現在不只要看部落內部規範，也會受到傳統領域、國有林、保護區等法律影響。(原住民基本法、野生動物保育法、森林法/國家公園法等)</li>
+                        <li>有些原本長期使用的獵地，現代可能因保護區或法規而受限。</li>
+                        <li>所以現在的獵地判斷，常常是「部落規範＋國家制度」一起看。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <h3>如果進到模糊地帶，要先想的是避免衝突</h3>
+                <div class="issue-summary">真正成熟的獵人，不是搶先設陷阱，而是知道什麼時候該退、該問、該先停。因為一塊獵地的問題，常常最後不是在吵地，而是在傷關係。
+                <br><br>
+                很多衝突表面看起來像是地盤問題，其實背後是在問：你有沒有尊重別人的判斷、別人的時間、別人長期維持的秩序。</div>
+                <ul class="issue-focus">
+                    <li>模糊地帶通常先避開。</li>
+                    <li>不確定時，不設陷阱比硬設更安全。</li>
+                    <li>衝突處理多半先從協調開始。</li>
+                </ul>
+                <div class="detail-toggle-row">
+                    <button class="detail-btn" onclick="toggleDetail('land-conflict-detail')">看常見衝突與處理</button>
+                </div>
+                <div id="land-conflict-detail" class="detail-panel">
+                    <h4>常見衝突與處理</h4>
+                    <ul>
+                        <li><strong>衝突來源：</strong>獵區重疊、外來獵人、不熟 einu 的人。</li>
+                        <li><strong>處理方式：</strong>獵人之間先協調，再由長者或協會介入。</li>
+                        <li><strong>重點：</strong>不是比誰先，而是先守住安全與關係。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="issue-card">
+    <h3>真正的獵人，不只是有證照，更要被認可</h3>
+
+    <div class="issue-summary">
+        成為獵人不是拿到證照或取得資格就結束。對鄒族來說，獵人身分還需要<strong style="color:#b33;">被部落、長者與資深獵人長期認可</strong>。
+        <br><br>
+        現代制度會透過獵人協會或部落機制進行申請、訓練與管理，但文化上的認可仍然是核心。真正重要的是：這個人是不是會判斷、會克制、會負責，進山時不會亂來，也不會讓同行的人陷入危險。
+    </div>
+
+    <ul class="issue-focus">
+        <li>基本資格上，鄒族族人具備文化上成為獵人的可能性。</li>
+        <li>現代需要透過獵人協會或部落管理機制申請與管理。</li>
+        <li>證照或資格是制度上的證明，但不是唯一標準。</li>
+        <li>最核心的條件，是被認可為「會判斷、會克制、會負責」的人。</li>
+    </ul>
+
+    <div class="detail-toggle-row">
+        <button class="detail-btn" onclick="toggleDetail('hunter-path-detail')">看成為獵人的流程</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('hunter-training-detail')">看訓練內容</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('hunter-standard-detail')">看審查標準</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('hunter-change-detail')">看現代變化</button>
+    </div>
+
+    <div id="hunter-path-detail" class="detail-panel">
+        <h4>成為獵人的流程</h4>
+        <ul>
+            <li><strong>加入組織或部落管理系統：</strong>通常需透過獵人協會或部落機制進行申請與管理。</li>
+            <li><strong>接受訓練：</strong>包含文化、技術、生態與安全等面向。</li>
+            <li><strong>跟隨資深獵人上山：</strong>不是只靠課堂，而是在實際行動中學習判斷。</li>
+            <li><strong>通過審查與觀察：</strong>長者與資深獵人會從實際表現中觀察。</li>
+            <li><strong>取得資格與認可：</strong>資格是制度證明，認可是文化與社群的承認。</li>
+        </ul>
+    </div>
+
+    <div id="hunter-training-detail" class="detail-panel">
+        <h4>訓練內容</h4>
+        <ul>
+            <li><strong>文化訓練：</strong>einu 倫理、祭儀、獵物分配制度與部落規範。</li>
+            <li><strong>技術訓練：</strong>獸徑判斷、環境辨識、風向判斷、安全狩獵。</li>
+            <li><strong>生態訓練：</strong>物種辨識、永續狩獵、棲地維護與保育觀念。</li>
+            <li><strong>教材狀況：</strong>雖然有課程與訓練內容，但沒有完全統一的教材，核心仍然是實地學習與經驗傳承。</li>
+        </ul>
+    </div>
+
+    <div id="hunter-standard-detail" class="detail-panel">
+        <h4>審查標準</h4>
+        <ul>
+            <li><strong>文化標準：</strong>是否遵守 einu，也就是基本的狩獵倫理與道德規範。</li>
+            <li><strong>能力標準：</strong>是否具備山林判斷、安全能力與環境辨識能力。</li>
+            <li><strong>態度標準：</strong>是否能克制，不濫捕、不逞強、不讓同行者陷入危險。</li>
+            <li><strong>社群認可：</strong>是否被長者或資深獵人認可。</li>
+            <li><strong>審查方式：</strong>不是只看單次表現，而是透過長期觀察與實際行動評估。</li>
+        </ul>
+    </div>
+
+    <div id="hunter-change-detail" class="detail-panel">
+        <h4>現代制度與文化認可</h4>
+        <ul>
+            <li><strong>制度增加：</strong>現代多了申請、訓練、審查與資格管理。</li>
+            <li><strong>文化仍是核心：</strong>不是拿到證照就自然成為真正的獵人。</li>
+            <li><strong>多人綜合評估：</strong>通常需要長者、資深獵人與部落共同觀察，降低單一個人判斷的偏差。</li>
+            <li><strong>結合法律標準：</strong>現代獵人除了遵守部落規範，也需要理解法律、物種限制、工具限制與安全責任。</li>
+            <li><strong>最容易誤解的地方：</strong>證照是外在資格，文化認可是長期行為累積出來的信任。</li>
+        </ul>
+    </div>
+</div>
+        </div>
+    </div>
+
+
+
+    <div id="ritual" class="page">
+        <div class="article-container">
+            <h2>4. 祭典與儀式：和山林保持關係</h2>
+
+            <div class="issues-intro">
+                獵人來說，儀式是在提醒自己：獵物不是單純被取得，而是和<strong style="color:#b33;">自然、動物、祖靈、家族關係連在一起</strong>。儀式也在安排時間、行動與分配。
+            </div>
+
+            <div class="issue-card">
+                <h3>emocucu：重點不是發聲，而是回應</h3>
+                <div class="issue-summary">
+    很多人只記得要發出「cucu」聲，但真正重要的是：<strong style="color:#b33;">你是在對誰回應、為什麼回應</strong>。這個行為不是禮貌動作，而是狩獵行為本身的一部分。
+    <br><br>
+    它在提醒獵人：你不是只是把東西拿走，而是在面對一個有關係、有代價的行動。這個理解，遠比聲音本身更重要。
+</div>
+                <ul class="issue-focus">
+                    <li>通常在狩獵成功或取得資源後出現。</li>
+                    <li>是在和山林、動物或靈建立關係。</li>
+                    <li>不是固定流程，不同家族也可能有差異。</li>
+                </ul>
+                <div class="detail-toggle-row">
+                    <button class="detail-btn" onclick="toggleDetail('ritual-emocucu-detail')">看 emocucu 補充</button>
+                </div>
+                <div id="ritual-emocucu-detail" class="detail-panel">
+                    <h4>emocucu 補充</h4>
+                    <ul>
+                        <li>核心意義是<strong style="color:#b33;">回應，而不是單純感謝詞</strong>。</li>
+                        <li>現代常被理解為感謝，但它本質上和狩獵情境綁在一起。</li>
+                        <li>只記得形式、不理解對象，就容易把儀式看淺了。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <h3>鳥占：判讀環境的知識</h3>
+
+<div class="issue-summary">
+    以繡眼畫眉（oazmx / oaimx）為核心的鳥占文化，重點不只是吉凶，而是學會聽懂環境。聲音、方向、時間要一起看，才能判斷今天適不適合上山或繼續行動。
+    <br><br>
+    對獵人來說，鳥占真正有價值的地方，
+    <strong style="color:#b33;">是把環境訊號放進判斷裡</strong>，
+    而不是只把它當成一句「今天好或不好」的答案。
+</div>
+
+<ul class="issue-focus">
+    <li>清脆宏亮的鳴聲：大吉（tmusansango）。</li>
+    <li>娛悅的鳴聲：吉（zezezeze）。</li>
+    <li>滯澀沮喪的鳴聲：凶（emu'au）。</li>
+    <li>急促驚嚇的鳴聲：凶（caicici）。</li>
+    <li>哀淒的鳴聲：大凶（engaho）。</li>
+</ul>
+
+<div class="detail-toggle-row">
+    <button class="detail-btn" onclick="toggleDetail('ritual-bird-detail')">看鳥占補充</button>
+    <button class="detail-btn secondary" onclick="toggleDetail('ritual-bird-use-detail')">看實際判斷方式</button>
+</div>
+
+<div id="ritual-bird-detail" class="detail-panel">
+    <h4>鳥占補充</h4>
+    <ul>
+        <li><strong>儀式名稱：</strong>鳥占（含 topano）。</li>
+        <li><strong>核心對象：</strong>繡眼畫眉（oazmx / oaimx）。</li>
+        <li><strong>文化意義：</strong>透過鳥鳴與行為判斷是否適合狩獵。</li>
+        <li><strong>儀式：</strong>戰祭中有對繡眼畫眉的祭儀（topano），祈求出征或狩獵平安與豐獲。</li>
+        <li><strong>部落差異：</strong>不同部落對聲音與方向的解讀可能不同。</li>
+        <li><strong>現代使用：</strong>仍有部分獵人依鳥占決定是否上山，但通常會與天氣、時間一起判斷。</li>
+    </ul>
+</div>
+
+<div id="ritual-bird-use-detail" class="detail-panel">
+    <h4>實際判斷方式</h4>
+    <ul>
+        <li><strong>判斷不是只看聲音：</strong>必須同時看「聲音＋方向＋時間」。</li>
+        <li><strong>方向判讀：</strong>飛行方向與出現位置會影響判斷，例如橫越或突然飛出常被視為不佳訊號。</li>
+        <li><strong>使用時機：</strong>出發前、行進中、接近狩獵區時都會判斷。</li>
+        <li><strong>實際作用：</strong>決定是否上山、是否繼續前進或改變路線。</li>
+        <li><strong>常見誤解：</strong>很多人只記「吉凶」，但真正關鍵是聲音種類與方向的組合。</li>
+        <li><strong>本質：</strong>鳥占是一種環境訊號判讀，而不是單純的迷信。</li>
+    </ul>
+</div>
+            </div>
+
+            <div class="issue-card">
+    <h3>小米祭在安排整年的生活節奏</h3>
+
+    <div class="issue-summary">
+        小米播種祭與收穫祭不只是農業儀式，也會影響
+        <strong style="color:#b33;">狩獵時間、供品準備、家族聚合、長老決策與後續更大的年度安排</strong>。
+        對獵人來說，這些祭儀其實是在安排「<strong style="color:#b33;">什麼時候該做什麼</strong>」。
+        <br><br>
+        換句話說，小米祭整理的是整個部落的時間秩序：什麼時候可以開始行動、什麼時候要停下來、哪些獵物適合成為祭品，以及部落接下來是否進入更大的年度儀式。
+    </div>
+
+    <ul class="issue-focus">
+        <li>播種祭大致在 1–2 月，但仍要看長老卜夢、擇地、燒墾整地等進度。</li>
+        <li>收穫祭大致在 7–8 月，日期會依小米成熟狀況，由頭目與長老決定。</li>
+        <li>山豬代表重要獵物與分配制度，松鼠雖小，卻有高度祭儀價值。</li>
+        <li>現代祭儀可能集中或簡化，但小米祭仍不是單純表演。</li>
+    </ul>
+
+    <div class="detail-toggle-row">
+        <button class="detail-btn" onclick="toggleDetail('ritual-millet-sowing-detail')">看播種祭流程</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('ritual-millet-harvest-detail')">看收穫祭流程</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('ritual-millet-hunter-detail')">看獵人與祭品意義</button>
+    </div>
+
+    <div id="ritual-millet-sowing-detail" class="detail-panel">
+        <h4>小米播種祭流程</h4>
+        <ul>
+            <li><strong>時間：</strong>約在 1–2 月，但不是固定同一天，需看長老卜夢、擇地、燒墾整地等進度。</li>
+            <li><strong>卜夢與決定：</strong>長老會透過傳統判斷決定是否適合開始播種，這代表部落不是隨便選日子。</li>
+            <li><strong>擇地與整地：</strong>播種前會先確認耕作地點，並進行燒墾、整地等準備。</li>
+            <li><strong>播種：</strong>播種不是單純農事，而是年度生活秩序的開始。</li>
+            <li><strong>狩獵關聯：</strong>播種祭會影響獵人接下來的活動安排，因為部落已進入新的年度節奏。</li>
+        </ul>
+    </div>
+
+    <div id="ritual-millet-harvest-detail" class="detail-panel">
+        <h4>小米收穫祭流程</h4>
+        <ul>
+            <li><strong>時間：</strong>約在 7–8 月，依小米成熟狀況決定。</li>
+            <li><strong>日期決定：</strong>確切日期通常由頭目與長老依當年小米生長狀況判斷，不是所有部落都同一天。</li>
+            <li><strong>收穫與聚合：</strong>收穫祭使家族與部落重新聚合，也象徵一年重要階段的完成。</li>
+            <li><strong>供品準備：</strong>山豬與松鼠都可能具有祭儀價值，供品不是只看體型大小。</li>
+            <li><strong>後續安排：</strong>收穫祭後，也可能牽動是否舉行戰祭等更大的年度儀式。</li>
+            <li><strong>現代變化：</strong>過去流程可能較長，現代因學校、工作與部落活動安排，常有集中或簡化情況。</li>
+        </ul>
+    </div>
+
+    <div id="ritual-millet-hunter-detail" class="detail-panel">
+        <h4>獵人與祭品意義</h4>
+        <ul>
+            <li><strong>山豬：</strong>代表重要獵物與分配制度，不只是食物，也和獵人的能力、分享與祭祀責任有關。</li>
+            <li><strong>松鼠：</strong>小米祭至少要準備一隻松鼠作為貢品；在小米女神眼中，一隻松鼠可等同一隻大山豬，象徵性大於體型。</li>
+            <li><strong>獵人意義：</strong>小米祭會影響何時狩獵、何時停止、何時集中行動。</li>
+            <li><strong>社會意義：</strong>祭儀同時是獵物供奉、家族團圓、分配關係與長老決策的場合。</li>
+            <li><strong>現代提醒：</strong>即使今天狩獵不再是主要生計，小米祭仍在決定家族何時聚合、供品該準備什麼，以及哪些獵物具有儀式資格。</li>
+        </ul>
+    </div>
+</div>
+
+            <div class="issue-card">
+    <h3>戰祭（Mayasvi）今天看到的，不一定是全部</h3>
+
+    <div class="issue-summary">
+        戰祭現在常被外界看成文化展演，但它原本和出征、凱旋、男子會所（kuba）、部落特殊狀況等實際行動有關。對年輕獵人來說，最容易忽略的是：現在看見的公開部分，不等於整個傳統版本。
+        <br><br>
+        因此，理解戰祭不能只看熱鬧或流程，而要知道它
+        <strong style="color:#b33;">過去如何和集體準備、行動能力與群體秩序</strong>
+        連在一起。
+    </div>
+
+    <ul class="issue-focus">
+        <li>戰祭原本和出征、凱旋與重大集體行動有關。</li>
+        <li>也與男子會所（kuba）的運作與修建相關。</li>
+        <li>現在雖然轉為文化祭典，但仍在維持部落秩序與一致性。</li>
+        <li>不是每個部落、每一年、每一社的戰祭都一樣。</li>
+    </ul>
+
+    <div class="detail-toggle-row">
+        <button class="detail-btn" onclick="toggleDetail('ritual-mayasvi-flow-detail')">看戰祭流程</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('ritual-mayasvi-detail')">看戰祭補充</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('ritual-mayasvi-modern-detail')">看現代變化</button>
+    </div>
+
+    <div id="ritual-mayasvi-flow-detail" class="detail-panel">
+        <h4>戰祭傳統流程（概念）</h4>
+        <ul>
+            <li><strong>決定舉行：</strong>由長老會議決定是否舉行，通常與部落狀況或重要需求有關。</li>
+            <li><strong>前期準備：</strong>整理男子會所（kuba）、準備供品、調整部落內部秩序與分工。</li>
+            <li><strong>集體動員：</strong>部落男性會集中，強化一致行動與群體狀態。</li>
+            <li><strong>核心祭儀：</strong>進行呼嘯（paebai）、祭儀儀式與象徵性行動，確認部落整體狀態。</li>
+            <li><strong>行動象徵：</strong>過去與出征、凱旋直接連動，現在多為象徵與文化呈現。</li>
+            <li><strong>結束與轉換：</strong>祭儀結束後，代表部落進入下一個階段（如準備其他祭儀或年度行動）。</li>
+        </ul>
+    </div>
+
+    <div id="ritual-mayasvi-detail" class="detail-panel">
+        <h4>戰祭補充</h4>
+        <ul>
+            <li><strong>核心意義：</strong>原本與出征、戰鬥、凱旋、修建 kuba 等實際行動有關。</li>
+            <li><strong>實際功能：</strong>強化群體一致性、確認行動準備狀態。</li>
+            <li><strong>時間：</strong>由長老決定；特富野社多在 1–3 月，達邦社多在 8–10 月。</li>
+            <li><strong>部落差異：</strong>例如呼嘯（paebai）次數不同：特富野五次、達邦三次。</li>
+            <li><strong>獵人關聯：</strong>與集體行動、準備狀態與部落秩序有直接關係。</li>
+        </ul>
+    </div>
+
+    <div id="ritual-mayasvi-modern-detail" class="detail-panel">
+        <h4>現代變化</h4>
+        <ul>
+            <li><strong>功能轉變：</strong>由實際出征祭儀，轉為文化傳承與部落凝聚。</li>
+            <li><strong>舉辦方式：</strong>近年多由達邦、特富野兩社輪流舉辦。</li>
+            <li><strong>流程調整：</strong>現代流程、時間與開放方式較過去更有彈性。</li>
+            <li><strong>對外開放：</strong>部分核心儀式只限族人參與，外人多在後段活動觀禮。</li>
+            <li><strong>重要提醒：</strong>今天看到的公開版本，不等於完整的傳統祭儀。</li>
+        </ul>
+    </div>
+</div>
+        </div>
+    </div>
+
+
+
+    <div id="ethics" class="page">
+        <div class="article-container">
+            <h2>5. 倫理與身分：einu 是不說破的規矩，也是最重要的規矩</h2>
+
+            <div class="issues-intro">
+                einu 不只是禁忌清單，而是一整套<strong style="color:#b33;">和人、動物、山林、其他獵人互動的方法</strong>。很多規定表面上看很簡單，但真正重要的是背後的判斷與自我克制。<br><br>它真正管的不是表面行為，而是你會不會在沒人提醒的時候，自己停下來、自己修正、自己尊重界線。
+            </div>
+
+            <div class="issue-card">
+                <h3>einu 的核心不是「不能做什麼」，而是知道自己該怎麼做</h3>
+                <div class="issue-summary">
+                    einu 是狩獵傳統慣習、禮儀與倫理規範。它管的不只有技術，也包括人品、態度與對他人的尊重。真正成熟的獵人，不是懂最多規則的人，而是能把規則變成習慣的人。<br><br>所以 einu 的深處，不是「怕犯錯」，而是你有沒有把這些規矩內化成自己做人的方式。
+                </div>
+                <ul class="issue-focus">
+                    <li>酒後不上山。</li>
+                    <li>不破壞環境、不偷拿、不亂進他人獵場。</li>
+                    <li>不浪費獵物，也不隨便帶不熟的人進山。</li>
+                </ul>
+                <div class="detail-toggle-row">
+                    <button class="detail-btn" onclick="toggleDetail('ethics-core-detail')">看核心規範</button>
+                    <button class="detail-btn secondary" onclick="toggleDetail('ethics-people-detail')">看人與人之間的規矩</button>
+                </div>
+                <div id="ethics-core-detail" class="detail-panel">
+                    <h4>核心規範（獵人協會十項原則）</h4>
+
+<ul>
+    <li><strong>1. 不在飲酒或精神不清狀態狩獵：</strong>
+        於服用酒類或其他相類之物後不狩獵，避免判斷錯誤與安全風險。
+    </li>
+
+    <li><strong>2. 維護棲地與環境：</strong>
+        維護野生動物棲息地，不棄置垃圾、不破壞農林作物，並禁止電魚、毒魚、炸魚等破壞性行為。
+    </li>
+
+    <li><strong>3. 不任意破壞森林資源：</strong>
+        不採集、焚毀或砍伐森林植被；除非是生活慣俗、文化需求，或經獵人協會／庫巴協會認可。
+    </li>
+
+    <li><strong>4. 尊重他人狩獵權利：</strong>
+        尊重他人狩獵範圍與行為，維護他人陷阱，不竊取他人獵獲物。
+    </li>
+
+    <li><strong>5. 進入他人獵場需同意：</strong>
+        進入其他家族或他人獵場前需事先取得同意；若因追獵動物進入，應事後告知。
+    </li>
+
+    <li><strong>6. 不浪費獵物：</strong>
+        應適時回收陷阱內獵物，並考量自身搬運能力，不過度獵捕、不浪費。
+    </li>
+
+    <li><strong>7. 使用他人資源需回報：</strong>
+        若取用他人獵寮物品，需告知並於下次補回，維持信任關係。
+    </li>
+
+    <li><strong>8. 村落附近避免槍獵：</strong>
+        村落近鄰周遭不進行槍獵，避免危險與干擾。
+    </li>
+
+    <li><strong>9. 帶外人需登記：</strong>
+        帶領非鄒族人（含研究人員）進入獵場前，需向獵人協會登記。
+    </li>
+
+    <li><strong>10. 遵守傳統規範：</strong>
+        其他鄒族傳統應遵循之規範（einu 等），仍是狩獵行為的基礎。
+    </li>
+</ul>
+                </div>
+                <div id="ethics-people-detail" class="detail-panel">
+                    <h4>人與人之間的規矩</h4>
+                    <ul>
+                        <li>進入他人獵場前要先取得同意；若追獵進入，事後也要告知。</li>
+                        <li>取用他人獵寮之物，要告知並補回。</li>
+                        <li>村落近鄰不進行槍獵活動。</li>
+                        <li>帶外人進獵場，需要依規定登記與管理。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <h3>行前準備、路徑、氣味、撤退，都是倫理的一部分</h3>
+                <div class="issue-summary">
+                    很多人以為倫理只和禁忌有關，但其實行前準備、對風向的注意、是否亂改計畫、看到異常時會不會退，都是 einu 的實際表現。因為這些行為直接關係到安全、尊重與節制。<br><br>換句話說，倫理不是額外加上去的東西，而是每天上山時每一步怎麼做、怎麼停、怎麼收手。
+                </div>
+                <div class="detail-toggle-row">
+                    <button class="detail-btn" onclick="toggleDetail('ethics-before-detail')">看行前與移動</button>
+                    <button class="detail-btn secondary" onclick="toggleDetail('ethics-after-detail')">看捕獲後與撤退</button>
+                </div>
+                <div id="ethics-before-detail" class="detail-panel">
+                    <h4>行前與移動</h4>
+                    <ul>
+                        <li>不帶情緒上山，出發前先想今天是否真的適合去。</li>
+                        <li>有明確目標，不是只是「去看看」。</li>
+                        <li>走舊路但不依賴舊路，要會回頭看來路。</li>
+                        <li>不只看地面，也看周圍；太安靜時更要警覺。</li>
+                        <li>接近目標前要重新判斷風向與氣味。</li>
+                    </ul>
+                </div>
+                <div id="ethics-after-detail" class="detail-panel">
+                    <h4>捕獲後與撤退</h4>
+                    <ul>
+                        <li>現場不要停太久，血味可能引來其他動物。</li>
+                        <li>不要留下危險物，也不要把收穫當成已經結束。</li>
+                        <li>沒有跡象就離開，異常情況優先撤退。</li>
+                        <li>看到不合理的動物行為要停，不要硬解釋。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <h3>真正重要的，是獵人的心態</h3>
+                <div class="issue-summary">
+                    einu 最後會落在心態上：不急著證明自己、不把狩獵當競爭、接受今天不適合、知道穩定比一次成功更重要。這些看起來不像技術，卻往往最決定一個人是不是成熟獵人。<br><br>很多錯誤不是因為不懂，而是因為太想證明自己。能控制這一點，往往比多知道幾種技巧更重要。
+                </div>
+                <div class="detail-toggle-row">
+                    <button class="detail-btn" onclick="toggleDetail('ethics-mind-detail')">看心態補充</button>
+                </div>
+                <div id="ethics-mind-detail" class="detail-panel">
+                    <h4>獵人心態</h4>
+                    <ul>
+                        <li>很多錯誤來自逞強，而不是不會。</li>
+                        <li>能不做的決定，有時比做更重要。</li>
+                        <li>不用每次都有收穫，穩定比成功重要。</li>
+                        <li>保持觀察者心態，而不是只想追逐獵物。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="issues" class="page">
+    <div class="article-container">
+        <h2>6. 議題事件與未來發展</h2>
+
+        <div class="issues-intro">
+            <p>在這一頁當中，提供近年來重大的事項討論與日常爭議。您可以點擊下方連結快速跳轉至指定事件，或查看相關法律名詞解釋。</p>
+
+           <div class="event-nav-box">
+    <strong class="nav-label">事件快速導覽（點擊會緩慢滑動）</strong>
+
+    <div class="event-links">
+        <a href="#intro-concept" class="event-link-item">核心概念</a>
+        <a href="#wang-case" class="event-link-item">王光祿案</a>
+        <a href="#bear-case" class="event-link-item">霧台獵熊案</a>
+        <a href="#snare-case" class="event-link-item">山豬吊爭議</a>
+        <a href="#danda-case" class="event-link-item">丹大林場案</a>
+        <a href="#gun-case" class="event-link-item">台中獵槍案</a>
+        <a href="#cross-case" class="event-link-item">南投跨區案</a>
+    </div>
+</div>
+            <div class="term-section" style="margin-bottom: 30px;">
+                <strong style="display: block; margin-bottom: 10px; color: #b33;">法律與名詞解釋 (點擊查看)</strong>
+                <div class="term-list" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <button class="term-btn small" onclick="openTermModal('wild21_1')">野保21-1</button>
+                    <button class="term-btn small" onclick="openTermModal('wild21')">野保21</button>
+                    <button class="term-btn small" onclick="openTermModal('wild41')">野保41</button>
+                    <button class="term-btn small" onclick="openTermModal('wild51_1')">野保51-1</button>
+                    <button class="term-btn small" onclick="openTermModal('gun20')">槍砲20</button>
+                    <button class="term-btn small" onclick="openTermModal('animal14_1')">動保14-1</button>
+                    <button class="term-btn small" onclick="openTermModal('constitution803')">釋字803</button>
+                    <button class="term-btn small" onclick="openTermModal('nonprofit')">非營利自用</button>
+                    <button class="term-btn small" onclick="openTermModal('protected')">保育類</button>
+                    <button class="term-btn small" onclick="openTermModal('territory')">傳統領域</button>
+                </div>
+            </div>
+        </div>
+        <div id="intro-concept" class="issue-card highlight-border">
+            <div class="card-header">核心概念：法規限制下的原民狩獵困境</div>
+            <div class="card-body">
+                <h3>制度設計與實際運作的斷裂</h3>
+
+                <div class="issue-meta" style="margin-bottom: 20px;">
+                    <span class="issue-badge" style="background:#666; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.85em;">日常制度爭議</span>
+                    <span class="issue-badge" style="background:#666; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.85em;">申請制度矛盾</span>
+                    <span class="issue-badge" style="background:#888; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.85em;">去污名化論述</span>
+                </div>
+
+                <div class="issue-summary" style="line-height: 1.6; color: #333; background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 4px; margin-bottom: 20px;">
+                    這不是單一事件，而是許多獵人共同面對的結構性困境。法律雖承認狩獵權，但實際操作仍要求事前申請時間、地點、物種與工具。<br><br>
+                    對獵人來說，狩獵是文化實踐與日常，但<strong style="color:#d32f2f;">山林動物不會依照行政表格出現</strong>。若制度太僵硬，就會讓原本正常的文化行為，被迫卡在難以合法的「灰色地帶」。
+                </div>
+
+                <div style="margin: 20px 0; border-top: 1px solid #eee; padding-top: 20px;">
+                    <h4 style="color: #444; margin-bottom: 15px;">為什麼現行制度難以落實？</h4>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #666;">●</span>
+                            <strong>預測的矛盾：</strong>狩獵具即時性，動物出沒無法精準預測，事前申請與山林實務不合。
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #666;">●</span>
+                            <strong>定位的偏差：</strong>法律將狩獵視為「例外」，忽視了它是族人生活與文化的「常態」。
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #666;">●</span>
+                            <strong>門檻的阻礙：</strong>若合法程序過於繁瑣且不切實際，反而會削弱制度本身的有效性。
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="border-left: 5px solid #2e7d32; background-color: #f1f8e9; padding: 15px; margin: 25px 0;">
+                    <h4 style="color: #2e7d32; margin-top: 0;">去污名化的核心訴求</h4>
+                    <p style="font-size: 0.9em; color: #444; font-weight: bold;">※ 獵人不是不要規範，而是需要能真正運作的制度：</p>
+                    <ul style="color: #333; margin-bottom: 0;">
+                        <li style="margin-bottom: 8px;"><strong>權利回復：</strong>從「例外開放」轉向尊重「文化主權」的制度設計。</li>
+                        <li style="margin-bottom: 8px;"><strong>部落共管：</strong>引入在地知識與部落規範，讓獵人協會參與資源管理。</li>
+                        <li><strong>機制轉型：</strong>推動「事後申報」與「彈性管理」，取代僵化的事前行政審核。</li>
+                    </ul>
+                </div>
+
+                <div class="detail-toggle-row">
+                    <button class="detail-btn" onclick="toggleDetail('intro-view')">看立場分析</button>
+                    <button class="detail-btn secondary" onclick="toggleDetail('intro-law')">看法律衝突</button>
+                    <button class="detail-btn secondary" onclick="toggleDetail('intro-future')">看未來發展</button>
+                </div>
+
+                <div id="intro-view" class="detail-panel" style="display:none; background:#f9f9f9; padding: 15px; margin-top: 15px; border-radius: 4px; border-top: 2px solid #666;">
+                    <h4 style="margin-top: 0; color: #333;">不同立場怎麼看</h4>
+                    <p><strong>一般社會：</strong>支持統一的申請制度，認為這是確保保育與安全的唯一手段。</p>
+                    <p><strong>原民觀點：</strong>認為現行制度忽視在地知識與狩獵特性，主張應由部落自行管理或與國家共管。</p>
+                </div>
+
+                <div id="intro-law" class="detail-panel" style="display:none; background:#f9f9f9; padding: 15px; margin-top: 15px; border-radius: 4px; border-top: 2px solid #666;">
+                    <h4 style="margin-top: 0; color: #333;">關鍵法律爭議</h4>
+                    <ul>
+                        <li><strong>野保法第21條之1：</strong>雖有例外條款，但行政限制仍過多。</li>
+                        <li><strong>釋字第803號：</strong>明確要求制度應考量「文化權利」，檢討過度限制。</li>
+                    </ul>
+                </div>
+
+                <div id="intro-future" class="detail-panel" style="display:none; background:#f9f9f9; padding: 15px; margin-top: 15px; border-radius: 4px; border-top: 2px solid #666;">
+                    <h4 style="margin-top: 0; color: #333;">未來發展</h4>
+                    <ul>
+                        <li><strong>行政簡化：</strong>降低負擔，讓合法路徑變的可行。</li>
+                        <li><strong>在地參與：</strong>將獸徑、季節、祭儀禁忌等部落知識納入管理依據。</li>
+                        <li><strong>自治機制：</strong>建立部落層級的狩獵自治，達成生態與文化的平衡。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<div id="wang-case" class="issue-card">
+<div class="card-body">
+                <h3>2013年 王光祿案</h3>
+
+                <div class="issue-meta">
+                    <span class="issue-badge" style="background:#666; color: white; padding: 4px 8px; border-radius: 4px;">法律與文化衝突</span>
+                    <span class="issue-badge" style="background:#666; color: white; padding: 4px 8px; border-radius: 4px;">布農族</span>
+                </div>
+
+                <div class="issue-summary" style="line-height: 1.6; color: #333; background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 4px; margin: 20px 0;">
+                    這個案子讓很多人第一次理解：<strong style="color:#b33;">狩獵不是單純捕獵，而是和家庭照顧、生活責任、文化行為連在一起</strong>。<br><br>
+                    對獵人來說，這個案子的真正意義是：法律開始願意看文化，但前提仍然是<strong style="color:#b33;">用途、情境、過程要說得清楚</strong>。
+                </div>
+
+                <div class="detail-panel" style="display:block; margin-bottom: 20px;">
+                    <h4 style="border-bottom: 1px solid #eee; padding-bottom: 5px;">事件怎麼發生</h4>
+                    <ul>
+                        <li><strong>2013年：</strong>王光祿因母親想吃山肉，使用自製獵槍上山狩獵。</li>
+                        <li><strong>獵獲物：</strong>山羌、長鬃山羊。</li>
+                        <li><strong>起訴：</strong>依野保法與槍砲條例起訴，二審判決3年6個月。</li>
+                        <li><strong>轉折：</strong>2021年釋字第803號解釋，2024年最高法院改判無罪確定。</li>
+                    </ul>
+                </div>
+
+                <ul class="issue-focus" style="background: #fff9f9; padding: 15px 35px; border-radius: 4px;">
+                    <li>問題不是「有沒有打獵」，而是<strong>為什麼打、怎麼打</strong>。</li>
+                    <li>法律原本沒有分清楚：文化自用 vs 一般違法狩獵。</li>
+                    <li>這個案子讓「非營利自用」變成重要判斷標準。</li>
+                </ul>
+
+                <div class="detail-toggle-row" style="margin-top: 20px;">
+                    <button class="detail-btn" onclick="toggleDetail('wang-view')">看不同觀點</button>
+                    <button class="detail-btn secondary" onclick="toggleDetail('wang-law')">看法律衝突</button>
+                    <button class="detail-btn secondary" onclick="toggleDetail('wang-future')">看未來發展</button>
+                </div>
+
+                <div id="wang-view" class="detail-panel" style="display:none; background:#f9f9f9; padding: 15px; margin-top: 15px; border-radius: 4px;">
+                    <h4>不同立場怎麼看</h4>
+                    <ul>
+                        <li><strong>一般社會：</strong>強調野生動物保育，擔心非標準化獵槍的安全性，希望法律一致化。</li>
+                        <li><strong>原住民族：</strong>狩獵是家庭需求而非商業行為，法律未考量生活情境會導致文化被汙名化。</li>
+                    </ul>
+                </div>
+
+                <div id="wang-law" class="detail-panel" style="display:none; background:#f9f9f9; padding: 15px; margin-top: 15px; border-radius: 4px;">
+                    <h4>法律衝突分析</h4>
+                    <ul>
+                        <li><strong>野保法第21條之1：</strong>原僅承認祭儀。釋字803後認定「非營利自用」亦屬文化權。</li>
+                        <li><strong>槍砲條例第20條：</strong>法院認可若制度未提供合法安全工具，不應以一般槍砲罪苛責。</li>
+                    </ul>
+                    <p style="color:#b33;">※ 資料來源：法律扶助基金會、公視新聞</p>
+                </div>
+
+                <div id="wang-future" class="detail-panel" style="display:none; background:#f9f9f9; padding: 15px; margin-top: 15px; border-radius: 4px;">
+                    <h4>未來發展</h4>
+                    <ul>
+                        <li>「非營利自用」成為核心標準。</li>
+                        <li>狩獵規範化：未來將更要求申請紀錄與明確的部落脈絡。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+   
+<div id="bear-case" class="issue-card">
+<div class="card-body">
+    <h3>2022年 霧台獵熊案</h3>
+
+    <div class="issue-meta">
+        <span class="issue-badge">保育類物種衝突</span>
+        <span class="issue-badge">倫理與傳承</span>
+        <span class="issue-badge">魯凱族</span>
+    </div>
+
+    <div class="issue-summary">
+        這個案子對獵人是一次沉重的警示：社會最敏感的不是一般狩獵，而是<strong style="color:#b33;">保育類動物、黑熊這種高關注物種</strong>，以及影像公開後帶來的外部觀感。<br><br>
+        反映的核心問題是：當文化規範在當代社會中<strong style="color:#b33;">未能有效轉譯為具體行為標準</strong>，偏差行為將會重創狩獵的正當性。即便刑事最後判無罪，其間的輿論壓力與行政責任依然巨大。
+    </div>
+
+    <div class="detail-panel" style="display:block;">
+        <h4>事件怎麼發生</h4>
+        <ul>
+            <li><strong>2020-2022年：</strong>屏東霧台陸續發生 4 起台灣黑熊死亡案件，檢方認定均未事先申請。</li>
+            <li><strong>2022年12月：</strong>網路流傳機車載運死亡黑熊、揮舞熊掌嬉鬧之影片，引發全台輿論沸騰。</li>
+            <li><strong>調查階段：</strong>檢警隨即介入，認為相關行為涉嫌違反《野生動物保育法》並提起公訴。</li>
+            <li><strong>證據爭議：</strong>證據多集中於事後影像與供述，對於實際「獵捕行為」之直接證明存在困難。</li>
+            <li><strong>2025年11月：</strong>一審判決認定證據不足以證明被告實施非法獵捕，9名被告刑事部分均判無罪。</li>
+            <li><strong>頂替責任：</strong>其中顏姓被告因於調查中替兒子頂替責任，另依「頂替罪」判處拘役10日。</li>
+        </ul>
+    </div>
+
+    <ul class="issue-focus">
+        <li>問題不在於文化本身，而是<strong>「文化傳承與教育的中斷」</strong>。</li>
+        <li><strong>社群媒體的展示文化</strong>：使狩獵行為脫離原有脈絡，轉向外界眼中的嬉鬧與不敬。</li>
+        <li><strong>物種敏感度</strong>：黑熊屬瀕臨絕種保育類，法律與社會標準皆極其嚴苛。</li>
+    </ul>
+
+    <div class="detail-toggle-row">
+        <button class="detail-btn" onclick="toggleDetail('bear-view')">看不同觀點</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('bear-law')">看法律衝突</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('bear-future')">看未來發展</button>
+    </div>
+
+    <div id="bear-view" class="detail-panel">
+        <h4>不同立場怎麼看</h4>
+        <ul>
+            <li><strong>一般社會：</strong>
+                <ul>
+                    <li>認為獵殺瀕危物種構成嚴重違法，危及保育成效。</li>
+                    <li>對影片呈現的行為感到憤怒，視為對生命缺乏敬畏。</li>
+                    <li>擔憂此類事件將導致整體環境保育的倒退。</li>
+                </ul>
+            </li>
+
+            <li><strong>原住民族：</strong>
+                <ul>
+                    <li>指出傳統文化中本即存在對黑熊的禁忌，案件屬個別行為而非代表整體。</li>
+                    <li>強調獵捕原因部分出自「緊急正當防衛」。</li>
+                    <li>核心問題在於傳統倫理缺乏轉化為當代可執行規範的機制。</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="bear-law" class="detail-panel">
+        <h4>法律衝突</h4>
+
+        <ul>
+            <li>
+                <strong>野生動物保育法第41條（刑罰規定）</strong><br>
+                處理違法獵捕、宰殺保育類動物。因台灣黑熊屬瀕臨絕種物種，原屬刑罰最重的一類。
+            </li>
+
+            <li>
+                <strong>野生動物保育法第21條（例外框架）</strong><br>
+                若野生動物危及人命或公共安全時可不受限制。法院認同本案部分行為具備此例外可能性。
+            </li>
+
+            <li>
+                <strong>野保法第21-1條與第51-1條（2025年關鍵修法）</strong><br>
+                修法明定原民「非營利自用」狩獵改走行政罰而非刑罰。法院依從舊從輕原則，認同 9 名被告行為屬非營利自用，故<strong>刑事判無罪</strong>。
+            </li>
+
+            <li>
+                <strong>刑法第167條（頂替罪）</strong><br>
+                顏明德因在偵查中意圖使犯人隱蔽而頂替，遭判拘役。這提醒了法律程序中真實通報的重要性。
+            </li>
+        </ul>
+
+        <p style="color:#b33;">
+            ※核心問題：法律雖除罪化，但「瀕危物種」的處置仍需由主管機關另行審酌行政罰責任。
+        </p>
+        <p>資料鏈結：<a href="https://www.judicial.gov.tw/tw/cp-1888-1448655-afe34-1.html" target="_blank">司法院裁判新聞稿</a></p>
+    </div>
+
+    <div id="bear-future" class="detail-panel">
+        <h4>未來發展</h4>
+        <ul>
+            <li>
+                <strong>建立緊急處置SOP：</strong><br>
+                未來需補強遇到黑熊時的<strong>「判斷、通報、現場資訊保存」</strong>機制，避免處理錯誤。
+            </li>
+
+            <li>
+                <strong>文化規範的「現代轉譯」：</strong><br>
+                部落需將對禁忌物種與緊急防衛的敬畏，轉化為<strong>明確且口語版的內部規範</strong>，加強約束力。
+            </li>
+
+            <li>
+                <strong>明確紅線預警：</strong><br>
+                獵人需清楚「什麼情況是紅線」，知道立刻回報才是對文化與自身的最佳保護。
+            </li>
+
+            <li style="color:#b33;">
+                <strong>最重要提醒：</strong><br>
+                制度在改，但社會對瀕危物種的關注不會變。避免「偏差影像公開」是維護狩獵正當性的關鍵。
+            </li>
+        </ul>
+        <p>深度閱讀：<a href="https://www.twreporter.org/a/ursus-thibetanus-after-a-bear-shot-dead-in-dawu-village" target="_blank">報導者：大武部落獵熊案後的省思</a></p>
+    </div>
+</div>
+</div>
+<div id="snare-case" class="issue-card">
+<div class="card-body">
+    <h3>山豬吊／改良式獵具爭議</h3>
+
+    <div class="issue-meta">
+        <span class="issue-badge">日常生活爭議</span>
+        <span class="issue-badge">生態保育 vs 生計需求</span>
+    </div>
+
+    <div class="issue-summary">
+        這不只是支持或反對的選擇，而是「捕捉效率」與「物種選擇性」之間的結構性衝突。對山區使用者來說，山豬造成的農損是現實的生存威脅；對社會而言，誤傷黑熊等保育類的風險則是倫理紅線。<br><br>
+        目前的困境在於：<strong style="color:#b33;">若法律僅有禁止而無可行替代方案，衝突將持續存在</strong>。核心問題並非工具本身，而是制度如何回應生計與保育的平衡。
+    </div>
+
+    <div class="detail-panel" style="display:block;">
+        <h4>事件背景與起末</h4>
+        <ul>
+            <li><strong>工具特性：</strong>「山豬吊」因成本低、操作簡便，被廣泛用於防治農損。然而其無差別捕捉特性，無法區分目標物種。</li>
+            <li><strong>衝突升溫：</strong>多起台灣黑熊誤觸套索導致受傷或截肢的案例，引發動物保護團體與山區使用者的高度對立。</li>
+            <li><strong>改良工具推廣：</strong>林保署近年推動「改良式獵具」，稱可減少誤捕，但其有效性與普及度在動保團體與獵人間仍存有爭議。</li>
+            <li><strong>現況僵局：</strong>現行討論多停留在「允許或禁止」的二元對立，缺乏能同時回應生計與保育的技術配置。</li>
+        </ul>
+    </div>
+
+    <ul class="issue-focus">
+        <li><strong>無差別捕捉風險：</strong>高效率工具往往缺乏精準控制，容易誤傷保育動物。</li>
+        <li><strong>替代方案難產：</strong>現有高選擇性工具（如大型捕捉籠）成本過高、操作不易，實務上難以全面取代。</li>
+        <li><strong>制度轉譯缺失：</strong>現行管理多採限制手段，缺乏對技術改良與在地需求的深度整合。</li>
+    </ul>
+
+    <div class="detail-toggle-row">
+        <button class="detail-btn" onclick="toggleDetail('snare-view')">看不同觀點分析</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('snare-law')">看法律補充</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('snare-future')">看未來發展</button>
+    </div>
+
+    <div id="snare-view" class="detail-panel">
+        <h4>不同立場怎麼看</h4>
+        <ul>
+            <li><strong>動保團體與社會大眾：</strong>
+                <ul>
+                    <li>認為金屬套索具高度殘酷性，主張全面禁止無差別捕捉工具。</li>
+                    <li>對改良式獵具仍抱持懷疑，擔心其仍會對野生動物造成嚴重傷害。</li>
+                </ul>
+            </li>
+
+            <li><strong>原住民族與山區農民：</strong>
+                <ul>
+                    <li>強調山豬對農作造成的實質損害，現有替代工具不符實務操作。</li>
+                    <li>認為全面禁止彈簧陷阱將嚴重影響生計，不應在缺乏配套下抹除生存工具。</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="snare-law" class="detail-panel">
+        <h4>法律補充與工具分類</h4>
+
+        <ul>
+            <li>
+                <strong>動物保護法第14條之1</strong><br>
+                2020年公告原則禁止使用「含金屬材質套索」，但若符合《野保法》原民狩獵例外，則不受此公告限制。
+            </li>
+
+            <li>
+                <strong>2025年野生動物保育法修法</strong><br>
+                2025年2月18日修法明定全面禁用獸鋏、炸藥，但**並未**直接將「山豬吊」列入全面刑事禁止。
+            </li>
+
+            <li>
+                <strong>明確被禁止的類型（以鄒語為例）：</strong>
+                <ul>
+                    <li><strong>sofsuya（自動發射機關）：</strong>無法控制、會主動攻擊。</li>
+                    <li><strong>seohmova（箭矢陷阱）：</strong>具攻擊性、會造成嚴重傷害。</li>
+                </ul>
+            </li>
+
+            <li>
+                <strong>視情況限制類型：</strong>
+                <ul>
+                    <li><strong>buo-feo’isi（套頸陷阱）：</strong>需視設置方式是否造成不必要傷害而定。</li>
+                    <li><strong>tocʉfʉ（石板陷阱）：</strong>若用於非目標物種可能違規。</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p style="color:#b33;">
+            ※關鍵判斷：法律禁止的是「自動觸發」、「具有主動攻擊力」且「無法選擇獵物」的高風險工具。
+        </p>
+        <p>資料來源：<a href="https://law.moa.gov.tw/LawContent.aspx?id=GL001105" target="_blank">動保法公告禁止內容</a>、<a href="https://www.spca.org.tw/post/bangintrapsbansnares" target="_blank">TSPCA 山豬吊專題</a></p>
+    </div>
+
+    <div id="snare-future" class="detail-panel">
+        <h4>未來發展</h4>
+        <ul>
+            <li><strong>工具分級管理：</strong>未來朝向按風險分類工具，而非單一標準，讓低誤捕風險工具獲得使用空間。</li>
+            <li><strong>強化在地自律：</strong>透過部落或獵人協會回報農損需求與誤捕情況，參與制度設計。</li>
+            <li><strong>技術與配套並行：</strong>開發真正具備「實務可行性」的低誤捕替代工具，並提供相關補助與訓練。</li>
+
+            <li style="color:#b33;">
+                <strong>核心目標：</strong>透過工具改良與「部落共管」制度設計，降低生態誤傷風險並維持生計需求。
+            </li>
+        </ul>
+        <p>相關資訊：
+            <a href="https://news.ipcf.org.tw/200028" target="_blank">原文網：原民對陷阱禁令看法</a>｜
+            <a href="https://www.endsnares.org/post/taiwan-modified-traps-falsely-claimed-humane-still-harm-wildlife-under-government-promotion" target="_blank">國際倡議團體觀點</a>
+        </p>
+    </div>
+</div>
+</div>
+<div id="danda-case" class="issue-card">
+            <div class="card-body">
+    <h3>丹大林場狩獵爭議</h3>
+
+    <div class="issue-meta">
+        <span class="issue-badge">國有林地使用權</span>
+        <span class="issue-badge">文化權 vs 動物福利</span>
+        <span class="issue-badge">布農族</span>
+    </div>
+
+    <div class="issue-summary">
+        這個案例最值得注意的是：法律開始有限開放，不代表社會就會立刻接受。對獵人來說，未來真正要面對的，不只是「有沒有權利進去」，而是<strong style="color:#b33;">進去之後怎麼被看見、怎麼被管理、怎麼證明傳統狩獵不是濫捕</strong>。<br><br>
+        關鍵問題在於：<strong style="color:#b33;">制度與社會認知之間存在落差</strong>。即便法律依釋字803號逐步開放，但若缺乏跨文化的對話，狩獵行為仍容易被簡化為單純的「殺生」。
+    </div>
+
+    <div class="detail-panel" style="display:block;">
+        <h4>事件怎麼發生</h4>
+        <ul>
+            <li><strong>背景：</strong>丹大林場為國有林地，也是布農族傳統領域，長期受國家法律限制狩獵。</li>
+            <li><strong>政策轉折：</strong>2021年釋字第803號解釋後，機關推動特定區域開放試辦，丹大林場為開放重點。</li>
+            <li><strong>爭議爆發：</strong>隨著狩獵影像在網路流傳，動保團體（如動社）公開質疑政策，認為在國有林開放狩獵衝擊生態且不符現代動物倫理。</li>
+            <li><strong>現況：</strong>事件從單一政策演變為涉及「文化權利」與「公共保育價值」的社會大規模爭議。</li>
+        </ul>
+    </div>
+
+    <ul class="issue-focus">
+        <li><strong>倫理框架的碰撞：</strong>現代「科學保育」制度與原民「文化實踐」觀點的交集與衝突。</li>
+        <li><strong>影像去脈絡化：</strong>狩獵過程被紀錄公開後，原本的文化意義被抽離，導致外界負面評價。</li>
+        <li><strong>權利回復的艱難：</strong>國家長期限制使用權，開放狩獵雖是權利回復，卻面臨極大社會阻力。</li>
+    </ul>
+
+    <div class="detail-toggle-row">
+        <button class="detail-btn" onclick="toggleDetail('danda-view')">看不同觀點分析</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('danda-law')">看法律補充</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('danda-future')">看未來發展</button>
+    </div>
+
+    <div id="danda-view" class="detail-panel">
+        <h4>不同立場怎麼看</h4>
+        <ul>
+            <li><strong>社會大眾與動保團體：</strong>
+                <ul>
+                    <li>認為國有林應以「生態保育」優先，不宜開放狩獵。</li>
+                    <li>擔心政策放寬會增加非法獵捕風險，強調動物福利。</li>
+                    <li>主張法律應一致適用，不應因文化而有差別待遇。</li>
+                </ul>
+            </li>
+
+            <li><strong>原住民族：</strong>
+                <ul>
+                    <li>強調丹大林場是傳統生活領域，狩獵具備歷史與文化正當性。</li>
+                    <li>重申狩獵為「非營利自用」，具備自律規範，不等同濫捕。</li>
+                    <li>認為開放是基本權利的回復，國家應尊重多元文化觀。</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="danda-law" class="detail-panel">
+        <h4>法律與憲法基礎</h4>
+
+        <ul>
+            <li>
+                <strong>野生動物保育法第21條之1</strong><br>
+                這是開放狩獵的核心法律基礎，允許基於傳統、祭儀或「非營利自用」進行獵捕。
+            </li>
+
+            <li>
+                <strong>司法院釋字第803號（重要支柱）</strong><br>
+                要求國家考量原民文化權，檢討過度限制。這不僅是法律，更是保障文化權的憲法標準。
+            </li>
+
+            <li>
+                <strong>森林法與國有林管理規範</strong><br>
+                影響「哪裡能進、如何申請」。丹大林場的開放，象徵行政權限對土地使用政策的調整。
+            </li>
+        </ul>
+
+        <p style="color:#b33;">
+            ※核心重點：法律雖已提供空間，但行政管理（如申請時段、物種限制）仍非常嚴格。
+        </p>
+        <p>資料來源：<a href="https://www.lca.org.tw/article/24" target="_blank">關懷生命協會：原民狩獵爭議分析</a></p>
+    </div>
+
+    <div id="danda-future" class="detail-panel">
+        <h4>未來發展（對獵人與部落最重要）</h4>
+        <ul>
+            <li><strong>邁向「資源共管」：</strong>未來管理權不再由國家單方面主導，部落將成為監測與管理的主體。</li>
+
+            <li><strong>數據透明化：</strong>透過建立透明的狩獵監測機制，用數據回應社會對「過度開發」的疑慮。</li>
+
+            <li><strong>文化意義的轉譯：</strong>加強與社會溝通，讓外界理解「狩獵」背後保護環境與尊重生命的文化內涵。</li>
+
+            <li style="color:#b33;">
+                <strong>獵人實務需求：</strong>未來會更強調明確的區域邊界、回報方式及可獵物種的差異化管理。
+            </li>
+
+            <li>
+                <strong>目標：</strong>建立一個部落參與、數據公開且規範清楚的制度，才能從根本減少社會爭議。
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+<div id="gun-case" class="issue-card">
+            <div class="card-body">
+    <h3>2024年 台中自製獵槍案</h3>
+
+    <div class="issue-meta">
+        <span class="issue-badge">制度轉型期</span>
+        <span class="issue-badge">文化工具主權</span>
+        <span class="issue-badge">排灣族實例</span>
+    </div>
+
+    <div class="issue-summary">
+        這案子凸顯的不是「如何製作工具」，而是嚴重的制度缺失：當法律沒有提供安全、合法且符合文化需要的管理管道時，獵人就被迫在灰色地帶生存。<br><br>
+        對獵人來說，最無奈的是：<strong style="color:#b33;">有打獵需求卻缺乏合法取得槍枝的資格與管道</strong>。本案的無罪判決再次確認了：法律不應僅將獵槍視為危險武器，而應看見其背後的文化實踐脈絡。
+    </div>
+
+    <div class="detail-panel" style="display:block;">
+        <h4>事件背景與起末</h4>
+        <ul>
+            <li><strong>事由：</strong>2024年，台中一名排灣族男子因持自製獵槍試射遭警查獲，依《槍砲條例》偵辦。</li>
+            <li><strong>主張：</strong>被告強調槍枝是為了捕獵山豬以供祭儀與食用，屬傳統文化用途，無犯罪意圖。</li>
+            <li><strong>判決關鍵：</strong>法院審理認為，該行為符合原民基於文化與生活需求之例外規範，一審與二審均判決<strong>無罪</strong>。</li>
+            <li><strong>指標意義：</strong>繼王光祿案後，司法實務再次肯定應以「文化脈絡」而非單純「器械殺傷力」來判斷合法性。</li>
+        </ul>
+    </div>
+
+    <div class="detail-panel" style="display:block; border-left: 4px solid #b33; background-color: #fff9f9;">
+        <h4>獵人可以「主動」做的法律自保</h4>
+        <ul>
+            <li><strong>1. 建立部落內部登記制度：</strong>由部落或獵人協會主動登記成員工具，證明槍枝是公認的「生活工具」而非私藏武器。</li>
+            <li><strong>2. 建立「狩獵紀錄簿」：</strong>記錄每次上山日期、成員、用途（如：某家祭儀、防制農損），作為「生活需求」的長期證據。</li>
+            <li><strong>3. 區分敏感區域：</strong>主動避開風景區或遊客眾多路段進行校槍，減少大眾恐慌，主動展現對公共安全的維護。</li>
+            <li><strong>4. 推動內部安全講習：</strong>由部落長輩主動進行槍枝安全教學，向社會展現獵人具備「自我管理能力」。</li>
+        </ul>
+    </div>
+
+    <div class="detail-toggle-row">
+        <button class="detail-btn" onclick="toggleDetail('gun-view')">看立場分析</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('gun-law')">看法律條文</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('gun-future')">看未來發展</button>
+    </div>
+
+    <div id="gun-view" class="detail-panel">
+        <h4>不同立場怎麼看</h4>
+        <ul>
+            <li><strong>社會大眾：</strong>
+                <ul>
+                    <li>強調槍械管理應以公共安全為最高原則，擔憂自製槍枝難以控管造成安全風險。</li>
+                    <li>主張法律應具有一致性，不宜因文化差異而放寬標準。</li>
+                </ul>
+            </li>
+
+            <li><strong>原住民族：</strong>
+                <ul>
+                    <li>認為獵槍為狩獵文化不可或缺工具，並指出制度未提供合法取得適當獵槍的管道。</li>
+                    <li>主張應以文化脈絡理解其使用，而非一律視為違法。</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="gun-law" class="detail-panel">
+        <h4>法律條文與個案依據</h4>
+        <ul>
+            <li>
+                <strong>槍砲彈藥刀械管制條例第20條第1項</strong><br>
+                規範原住民基於生活工具目的持有自製獵槍，符合條件下免除刑罰。本案以此作為核心判斷標準。
+            </li>
+
+            <li>
+                <strong>司法院釋字第803號解釋</strong><br>
+                要求國家保障原住民族狩獵文化權利，檢討制度是否過度限制。
+            </li>
+        </ul>
+        <p style="color:#b33;">※核心問題：並非單純違法，而是「制度未能提供可行的合法路徑」。</p>
+        <p>資料來源：<a href="https://udn.com/news/story/7321/9063362" target="_blank">聯合報：台中排灣族獵槍案報導</a></p>
+    </div>
+
+    <div id="gun-future" class="detail-panel">
+        <h4>未來發展：從「事後判決」走向「系統化管理」</h4>
+        <ul>
+            <li>
+                <strong>1. 建立「原民獵槍」專屬管理制度：</strong><br>
+                推動與一般刑事犯罪區分的行政管理規範。參考國外經驗，由國家提供符合安全標準的「標準化零件」或「合法管道」，讓獵人不再被迫使用存在炸膛風險或法律爭議的粗糙自製工具。
+            </li>
+            <li>
+                <strong>2. 落實「部落共管」與「資格認證」：</strong><br>
+                未來不再僅由警察機關單方面管理。應授權部落或獵人協會建立「獵人資格證」制度。由部落背書成員的文化用途，並配合定期的安全訓練與工具檢查，達成真正的「自律管理」。
+            </li>
+            <li>
+                <strong>3. 明確化「文化用途」的法律邊界：</strong><br>
+                透過立法或更細緻的行政命令，明確界定「生活工具」與「犯罪工具」的差異。例如：明確列出哪些文化活動（如：婚喪節慶、除害）屬於合法使用情境，減少司法官在判斷時的不確定性。
+            </li>
+            <li>
+                <strong>4. 加強社會教育與跨文化翻譯：</strong><br>
+                主動向大眾揭露狩獵文化的倫理與安全規範。當大眾理解獵槍是為了維繫生態平衡與族群傳統、且獵人受過部落嚴格約束時，社會對槍枝的「恐懼感」才能轉化為「文化尊重」。
+            </li>
+            <li style="color:#b33;">
+                <strong>5. 數位化追蹤與紀錄：</strong><br>
+                建立數位化的狩獵回報系統。獵人主動記錄使用時間、地點與用途。這些數據不僅能做為法律自保的鐵證，更能成為部落參與國家資源管理的重要談判籌碼。
+            </li>
+        </ul>
+        <p style="background:#eee; padding: 10px; border-radius: 5px; font-size: 0.9em;">
+            <strong>總結：</strong>未來的方向是「安全教育」取代「一律禁止」，「部落共管」取代「全面監控」。唯有建立合法路徑，才能真正保障公共安全與文化主權。
+        </p>
+    </div>
+</div>
+</div>
+<div id="cross-case" class="issue-card">
+            <div class="card-body">
+    <h3>2023年 南投跨區非法狩獵案</h3>
+
+    <div class="issue-meta">
+        <span class="issue-badge">跨區狩獵爭議</span>
+        <span class="issue-badge">文化權利界線</span>
+    </div>
+
+    <div class="issue-summary">
+        這個案子提醒所有獵人：文化權利不是「無限通行證」。狩獵權利的行使，必須建立在「部落領域」與「社會規範」的基礎上。<br><br>
+        當個人行為脫離了部落領地規範（如鄒族的 einu），僅將文化權作為擋箭牌時，不僅會踩到法律紅線，更會損害整體族群的文化形象。重點不在於能不能獵，而是<strong style="color:#b33;">「誰」能在「哪裡」獵</strong>。
+    </div>
+
+    <div class="detail-panel" style="display:block;">
+        <h4>事件背景與起末</h4>
+        <ul>
+            <li><strong>事由：</strong>2023年南投警方接獲部落居民通報，有外來人士進入山區可疑狩獵。</li>
+            <li><strong>經過：</strong>警方攔查發現兩名男子夜間持自製獵槍搜尋獵物，車內竟還有未成年孩童，存在高度安全風險。</li>
+            <li><strong>查核：</strong>蔡姓男子雖具原民身分，但狩獵地點非其所屬部落領域，且未依法申請，屬於「跨區非法狩獵」。</li>
+            <li><strong>結果：</strong>行為被認定脫離文化脈絡且違反安全規範，依《槍砲條例》及《野保法》移送法辦。</li>
+        </ul>
+    </div>
+
+    <div class="detail-panel" style="display:block; border-left: 4px solid #b33; background-color: #fff9f9;">
+        <h4>為了保護文化，獵人應「主動」建立的界線</h4>
+        <ul>
+            <li><strong>1. 嚴格遵守「領地界線」：</strong>尊重各部落傳統領域（einu），非經該區域部落同意或具備家族傳統脈絡，不應跨區狩獵。</li>
+            <li><strong>2. 守護「安全紅線」：</strong>避免攜帶未成年參與高風險夜間狩獵，並在公開道路或非狩獵區保持獵槍「空槍」狀態，展現專業素養。</li>
+            <li><strong>3. 建立「跨部族溝通機制」：</strong>若有特殊文化需求需進入他族領域，應主動向該地部落或獵人協會「打聲招呼」，而非逕自闖入。</li>
+            <li><strong>4. 自主制裁「權利誤用者」：</strong>部落應明確譴責不按規範、非法跨區或純屬商業捕獵的行為，避免少數個人行為讓全體原民獵人背鍋。</li>
+        </ul>
+    </div>
+
+    <div class="detail-toggle-row">
+        <button class="detail-btn" onclick="toggleDetail('cross-view')">看立場分析</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('cross-law')">看法律補充</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('cross-future')">看未來發展</button>
+    </div>
+
+    <div id="cross-view" class="detail-panel">
+        <h4>不同立場怎麼看</h4>
+        <ul>
+            <li><strong>社會大眾：</strong>
+                <ul>
+                    <li>認為文化權利不應成為違法亂紀的藉口，特別關注夜間持槍與兒童安全的風險。</li>
+                    <li>期待法律能一致管理，不論身分均需遵守「區域管制」與「公共安全」原則。</li>
+                </ul>
+            </li>
+            <li><strong>原住民族部落：</strong>
+                <ul>
+                    <li>強調「跨區狩獵」侵犯了在地部落的資源與主權，不認同這種脫離規範的行為。</li>
+                    <li>擔憂此類個案會讓社會對「合法狩獵文化」產生負面偏見與誤解。</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="cross-law" class="detail-panel">
+        <h4>法律條文與權利限制</h4>
+        <ul>
+            <li>
+                <strong>野生動物保育法第21條之1</strong><br>
+                雖然保障狩獵權，但明確要求必須符合「區域、用途與程序」。跨區且未申請的行為，在法律上極難主張文化豁免。
+            </li>
+            <li>
+                <strong>釋字第803號解釋</strong><br>
+                憲法保障的是「文化權」，而文化權包含對部落倫理與土地規範的尊重，並非賦予個人在國土內任意狩獵的自由。
+            </li>
+        </ul>
+        <p style="color:#b33;">※核心提醒：文化權若缺乏「部落領地」的支撐，在法律上將失去防禦力。</p>
+        <p>影片來源：<a href="https://www.youtube.com/watch?v=Yo8C8CulaUY" target="_blank">新聞報導：南投跨區非法狩獵案</a></p>
+    </div>
+
+    <div id="cross-future" class="detail-panel">
+        <h4>未來發展：從「混亂競爭」走向「領域共管」</h4>
+        <ul>
+            <li>
+                <strong>1. 強化「跨部落協調與準則」：</strong><br>
+                推動各部落獵人協會間的簽署備忘錄。建立明確的跨區申請機制，例如：若需跨區，需先取得該地獵人團體的「文化邀請」或「核可紀錄」。
+            </li>
+            <li>
+                <strong>2. 獵人教育與「文化邊界」宣導：</strong><br>
+                透過教育體系，讓族人清楚理解狩獵權利與「部落領地主權」是相輔相成的。明確告知哪些行為（如：載小朋友夜獵、擅闖他族領域）是導致法律保障失效的高風險行為。
+            </li>
+            <li>
+                <strong>3. 建立部落監測與自主執法權：</strong><br>
+                未來發展方向應是由部落獵人擔任「森林守護者」，發現跨區非法狩獵時，部落能第一時間進行柔性勸導或通報，讓國家法律與部落規約（Lex Loci）共同管理山林。
+            </li>
+            <li>
+                <strong>4. 明確非法與合法的社會溝通：</strong><br>
+                主動向大眾宣導：原民獵人並不認可「非法跨區」行為。透過主動切割違規者，能讓社會更支持那些真正遵守部落自律規範的「正統獵人」。
+            </li>
+            <li style="color:#b33;">
+                <strong>5. 數位化區域管理地圖：</strong><br>
+                透過數位地圖清楚標示各部落傳統領域與合法狩獵申請區，降低因為「區域認知模糊」而誤觸法律的機率。
+            </li>
+        </ul>
+        <p style="background:#eee; padding: 10px; border-radius: 5px; font-size: 0.9em;">
+            <strong>總結：</strong>文化權利的延續，建立在對「土地主權」與「生命安全」的最高尊重之上。唯有透過部落間的團結與自律，才能真正鞏固狩獵權的合法基礎。
+        </p>
+    </div>
+</div>
+</div>
+<div id="baboon-case" class="issue-card">
+<div class="card-body">
+    <h3>2023年 東非狒狒誤殺事件</h3>
+
+    <div class="issue-meta">
+        <span class="issue-badge">外來種管理任務</span>
+        <span class="issue-badge">執行授權爭議</span>
+        <span class="issue-badge">獵人污名化風險</span>
+    </div>
+
+    <div class="issue-summary">
+        這個案子跟傳統狩獵不完全一樣，但非常值得警惕：它揭示了當獵人被捲入政府或外部單位的管理任務時，若指揮、授權與責任分配不清楚，<strong style="color:#b33;">最後站在風口浪尖承擔法律與輿論壓力的，往往是第一線的獵人</strong>。<br><br>
+        這不只是狩獵問題，而是「政府交辦的風險卻由獵人承擔」的制度問題。當管理行動演變為獵殺結果，即便具備政策正當性，若程序不完備，獵人極易淪為制度缺失下的犧牲品。
+    </div>
+
+    <div class="detail-panel" style="display:block;">
+        <h4>事件背景與起末</h4>
+        <ul>
+            <li><strong>事由：</strong>逃逸的東非狒狒在北部活動，相關單位計畫圍捕，最終狒狒因胸口中彈死亡，圍捕轉變為獵殺事件。</li>
+            <li><strong>爭議：</strong>林姓獵人稱開槍是受園區人員授意，但相關單位事後否認，雙方對責任歸屬各執一詞。</li>
+            <li><strong>結果：</strong>輿論集中質疑獵人行為的倫理與正當性。原民團體指出獵人是在執行合法管理任務，不應過度責難執行者。</li>
+            <li><strong>核心：</strong>制度執行缺乏清楚的指揮鏈，導致責任邊界模糊。</li>
+        </ul>
+    </div>
+
+    <div class="detail-panel" style="display:block; border-left: 4px solid #b33; background-color: #fff9f9;">
+        <h4>參與任務時，獵人要如何「主動」保護自己</h4>
+        <p style="font-size: 0.9em; color: #666;">※ 當受邀參與政府或機構任務時，務必落實以下動作以防事後卸責：</p>
+        <ul>
+            <li><strong>1. 確認「書面授權」：</strong>參與任務前，要求政府單位提供明確的公文或委託函。口頭答應（如電話中說「過來幫忙一下」）在出事時沒有法律效力。</li>
+            <li><strong>2. 釐清「誰是最高指揮官」：</strong>現場必須確認誰負責下達開槍或捕捉指令。若有通訊軟體（如Line）的紀錄應留存。</li>
+            <li><strong>3. 建立「任務紀錄」：</strong>主動配戴密錄器或在行動後撰寫簡易紀錄（時間、地點、受誰指示、做了什麼）。這些紀錄能證明你是在「執行職務」，而非「非法狩獵」。</li>
+            <li><strong>4. 釐清「使用器具」限制：</strong>確認任務中被允許使用的工具（麻醉槍、獵槍或陷阱），避免任務範疇外的行為導致法律漏洞。</li>
+        </ul>
+    </div>
+
+    <div class="detail-toggle-row">
+        <button class="detail-btn" onclick="toggleDetail('baboon-view')">看立場分析</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('baboon-law')">看法律補充</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('baboon-future')">看未來發展</button>
+    </div>
+
+    <div id="baboon-view" class="detail-panel">
+        <h4>不同立場怎麼看</h4>
+        <ul>
+            <li><strong>社會大眾與動保團體：</strong>
+                <ul>
+                    <li>認為動物被射殺具有倫理爭議，質疑過程是否符合人道與專業原則。</li>
+                    <li>關注責任歸屬，認為不應隨意動用致命武器。</li>
+                </ul>
+            </li>
+            <li><strong>原住民獵人社群：</strong>
+                <ul>
+                    <li>強調此屬外來種移除之管理行動，不應與「非法狩獵」混為一談。</li>
+                    <li>極度擔憂此類個案導致合法獵人被污名化，影響整體族群形象。</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="baboon-law" class="detail-panel">
+        <h4>法律架構與授權基礎</h4>
+        <ul>
+            <li>
+                <strong>野生動物保育法</strong><br>
+                雖然規範保護，但亦授權主管機關在特定情況（如移除外來種、危害人身安全）下進行控制或移除行動。
+            </li>
+            <li>
+                <strong>責任分攤原則</strong><br>
+                對獵人而言，最重要的不是法條，而是「職務行為」的認定。若能證明是受公權力委託執行任務，刑事責任較能獲得減免。
+            </li>
+        </ul>
+        <p style="color:#b33;">※ 關鍵提醒：不是所有被交辦的事都風險低，無公文的私下請託最危險。</p>
+        <p>影片來源：<a href="https://www.youtube.com/watch?v=6njp6B_A-7w" target="_blank">新聞報導：狒狒中彈死亡事件</a></p>
+    </div>
+
+    <div id="baboon-future" class="detail-panel">
+        <h4>未來發展：從「混亂指揮」走向「標準化作業」</h4>
+        <ul>
+            <li>
+                <strong>1. 建立外來種移除 SOP：</strong><br>
+                推動政府建立明確的標準作業程序。內容應涵蓋：通報、授權、指揮權移交、使用器具規範及後續處置，讓獵人有章可循。
+            </li>
+            <li>
+                <strong>2. 完善委託契約與責任保險：</strong><br>
+                未來政府找獵人幫忙，應建立正式的「勞務委託」或「開單授權」。同時應考慮納入責任保險，避免第一線執行者獨自面對鉅額訴訟與社會輿論。
+            </li>
+            <li>
+                <strong>3. 建立執行人員的「任務資格認證」：</strong><br>
+                透過訓練與認證（如：外來種移除講習），讓具有證照的獵人參與任務。這不僅能提升執行的專業度，也能在爭議發生時，作為獵人具備專業判斷能力的證據。
+            </li>
+            <li>
+                <strong>4. 加強社會教育，區隔「管理」與「狩獵」：</strong><br>
+                主動向社會說明，獵人參與外來種移除是「生態守護」的一環。當制度明確、指揮清晰時，大眾才能理解這是科學管理的一部分，而非殺生。
+            </li>
+            <li style="color:#b33;">
+                <strong>5. 明確行政指揮鏈：</strong><br>
+                未來任務現場應由公務人員直接帶領並負責指令下達，避免私營機構（如動物園）與政府間的權責不清。
+            </li>
+        </ul>
+        <p style="background:#eee; padding: 10px; border-radius: 5px; font-size: 0.9em;">
+            <strong>總結：</strong>制度的完善在於「規則講清楚」。唯有明確授權與責任分工，才能讓獵人在貢獻技能的同時，獲得應有的法律保障。
+        </p>
+    </div>
+</div>
+</div>
+<div id="cross-case" class="issue-card">
+            <div class="card-body">
+    <h3>2020年代 丹大林區盜獵案</h3>
+
+    <div class="issue-meta">
+        <span class="issue-badge">商業盜獵犯罪</span>
+        <span class="issue-badge">去污名化行動</span>
+        <span class="issue-badge">非原住民案件</span>
+    </div>
+
+    <div class="issue-summary">
+        這案子的核心不是狩獵，而是<strong style="color:#b33;">利用山林資源牟利的刑事犯罪</strong>。最嚴重的問題在於：當平地盜獵者進入山區大量濫捕時，社會輿論往往因無法區分行為本質，而將負面標籤貼在原住民獵人身上。<br><br>
+        本案反映出社會對狩獵文化的認知錯誤，導致政策討論與社會觀感產生偏差。我們必須清楚界定：<strong style="color:#b33;">「為了錢的盜獵」與「為了文化的狩獵」完全是兩回事</strong>。
+    </div>
+
+    <div class="detail-panel" style="display:block;">
+        <h4>事件背景：非法行為的真相</h4>
+        <ul>
+            <li><strong>現場搜查：</strong>警方在丹大工寮發現散彈槍、十字弓、大量捕獸器，以及多具保育類山羌與長鬃山羊屍體。</li>
+            <li><strong>行為特徵：</strong>發現多數動物仍卡在陷阱中，顯示其係透過「長時間設置陷阱」進行無差別捕捉，而非傳統即時狩獵。</li>
+            <li><strong>身分確認：</strong>經查涉案者均為**平地人**，目的為販售野味營利，與原住民族傳統文化完全無關。</li>
+            <li><strong>媒體效應：</strong>初期報導往往將其簡化為「山區獵捕」，導致社會大眾對原民獵人產生嚴重的污名化誤解。</li>
+        </ul>
+    </div>
+
+    <div class="detail-panel" style="display:block; border-left: 4px solid #b33; background-color: #fff9f9;">
+        <h4>為了去污名化，獵人可以「主動」做的事</h4>
+        <p style="font-size: 0.9em; color: #666;">※ 當外部盜獵者傷害部落資源與名聲時，獵人可以採取防禦：</p>
+        <ul>
+            <li><strong>1. 強化自主巡守與通報機制：</strong>部落獵人最了解獵場環境。發現外來可疑車輛或不明陷阱（如鋼索、大量獸夾）時，主動記錄並通報相關單位，證明部落才是山林的守護者。</li>
+            <li><strong>2. 建立「文化獵人」辨識系統：</strong>透過部落或獵人協會核發識別證，讓執法單位與社會大眾能精準區分誰是「守法的文化傳承者」，誰是「違法的資源掠奪者」。</li>
+            <li><strong>3. 公開宣誓「拒絕商業買賣」：</strong>部落可共同簽署自律公約，明確表達反對任何營利目的的野味販售，並主動切割商業盜獵行為。</li>
+            <li><strong>4. 推動部落監測數據透明化：</strong>與學術單位合作記錄生態豐度，當數據顯示「部落狩獵區」比「盜獵猖獗區」生態更好時，就是去污名化最強有力的證據。</li>
+        </ul>
+    </div>
+
+    <div class="detail-toggle-row">
+        <button class="detail-btn" onclick="toggleDetail('poach-vs-hunt')">看不同立場分析</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('poach-law')">看法律條文</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('poach-future')">看未來發展</button>
+    </div>
+
+    <div id="poach-vs-hunt" class="detail-panel">
+        <h4>立場分析：文化認知的偏差</h4>
+        <ul>
+            <li><strong>社會大眾：</strong>
+                <ul>
+                    <li>看到濫殺保育類新聞會感到憤怒，但因缺乏教育，常將所有山區捕殺歸類為原住民所為。</li>
+                    <li>未能理解「文化自用」與「商業規模」在量體與動機上的巨大差異。</li>
+                </ul>
+            </li>
+            <li><strong>原住民社群：</strong>
+                <ul>
+                    <li>強調傳統狩獵具備「有節制、尊重自然」的倫理，非法盜獵者不僅是違法，更是對山靈的褻瀆。</li>
+                    <li>認為平地盜獵者讓族人背負不公的社會負面標籤，損害了文化正當性。</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="poach-law" class="detail-panel">
+        <h4>涉及法律：刑事犯罪的重典</h4>
+        <ul>
+            <li><strong>野生動物保育法第41條第1項：</strong>非法獵捕、宰殺保育類野生動物，需負刑事責任。商業盜獵者完全不具備任何文化抗辯空間。</li>
+            <li><strong>野生動物保育法第17條：</strong>嚴禁捕殺保育類物種，特別是涉及營利目的時，屬加重處罰之行為。</li>
+            <li><strong>刑法相關規定：</strong>涉及非法販售與逃漏營利行為，案件性質屬於單純的刑事犯罪，而非文化權利爭議。</li>
+        </ul>
+    </div>
+
+    <div id="poach-future" class="detail-panel">
+        <h4>未來發展：從「被動受指責」走向「資源共管」</h4>
+        <ul>
+            <li><strong>1. 加重商業盜獵刑責：</strong>推動法律修正，明確區分「生活需求」與「商業營利」之刑罰等級，針對後者（特別是跨區盜獵組織）加重處罰。</li>
+            <li><strong>2. 建立部落與政府共管機制：</strong>落實「部落巡守、政府執法」。讓部落獵人擁有正式的環境監測角色，成為阻擋外來盜獵者的第一道防線。</li>
+            <li><strong>3. 提升媒體識讀與正確命名：</strong>主動與媒體溝通，要求在報導盜獵案件時明確區分身分，不再使用模糊的詞彙來誤導大眾對原民狩獵的觀感。</li>
+            <li><strong>4. 社會溝通與生態教育：</strong>透過網站或宣導，向社會大眾展示「傳統獵場管理」如何有助於抑制「無差別盜獵」，將獵人重塑為山林的管理者與守護者。</li>
+        </ul>
+        <p style="background:#eee; padding: 10px; border-radius: 5px; font-size: 0.9em;">
+            <strong>總結：</strong>當制度能賦予部落更多管理權限，非法盜獵者將無所遁形。去污名化的終點，是社會能看見獵人對山林的深厚情感與自律精神。
+        </p>
+    </div>
+</div>
+        </div>
+    </div>
+
+    <div id="photoModal" class="modal">
+        <div class="modal-content" style="max-width: 900px;">
+            <span class="close-btn" onclick="closePhotoModal()">&times;</span>
+            <h3 id="photoModalTitle" style="color: var(--tsou-red); margin-bottom: 18px;"></h3>
+            <img id="photoModalImg" class="photo-modal-image" alt="">
+            <div id="photoModalCaption" class="photo-modal-caption"></div>
+        </div>
+    </div>
+
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle" style="color: var(--tsou-red); margin-bottom: 20px;"></h3>
+            <div id="modalInfo"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>鄒族獵人文化寶庫 &copy; 2026 ‧ 數位典藏與智慧傳承</p>
+    </footer>
+
+    <script>
+        function showPage(pId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pId).classList.add('active');
+            if (pId === 'tech') {
+                showTechSection('menu');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showTechSection(section) {
+            const menu = document.getElementById('techMenu');
+            const panels = document.querySelectorAll('.tech-panel');
+            panels.forEach(panel => {
+                panel.classList.remove('active');
+                panel.querySelectorAll('.detail-panel').forEach(item => item.classList.remove('active'));
+            });
+
+            if (section === 'menu') {
+                menu.style.display = 'grid';
+                return;
+            }
+
+            menu.style.display = 'none';
+            const panelMap = {
+                animals: 'animalsPanel',
+                plants: 'plantsPanel',
+                traps: 'trapsPanel',
+                skills: 'skillsPanel'
+            };
+            const target = document.getElementById(panelMap[section]);
+            if (target) target.classList.add('active');
+        }
+
+        const modal = document.getElementById('infoModal');
+        document.querySelectorAll('.interactive-img').forEach(img => {
+            img.onclick = function () {
+                document.getElementById('modalTitle').innerText = this.getAttribute('data-title');
+                document.getElementById('modalInfo').innerText = this.getAttribute('data-info');
+                modal.style.display = 'flex';
+            };
+        });
+
+
+        function toggleDetail(id) {
+            const panel = document.getElementById(id);
+            if (!panel) return;
+
+            const wasActive = panel.classList.contains('active');
+            const scope = panel.closest('.issue-card') || panel.closest('.tech-panel') || panel.closest('.article-container') || document;
+
+            scope.querySelectorAll('.detail-panel').forEach(item => {
+                if (item !== panel) item.classList.remove('active');
+            });
+
+            if (wasActive) {
+                panel.classList.remove('active');
+            } else {
+                panel.classList.add('active');
+            }
+        }
+
+const termDefinitions = {
+
+    wild21_1: {
+        title: '野生動物保育法第21條之1',
+        content: `
+            <p><strong>在講什麼：</strong>原住民族可以基於「傳統文化、祭儀、非營利自用」進行狩獵。</p>
+
+            <p><strong>白話：</strong>這條就是「可以合法打獵」的主要來源。</p>
+
+            <p><strong>但不是無限制：</strong></p>
+            <ul>
+                <li>不能營利（不能販售）</li>
+                <li>要符合地點（傳統領域）</li>
+                <li>要符合物種（不能亂打）</li>
+                <li>通常需要申請或備查</li>
+            </ul>
+
+            <p><strong>最容易出事：</strong></p>
+            <ul>
+                <li>打到保育類</li>
+                <li>沒有申請</li>
+                <li>跨區狩獵</li>
+            </ul>
+
+            <p style="color:#b33;">※重點：這條是「可以打」的來源，也是「會被檢查」的標準。</p>
+        `
+    },
+
+    wild21: {
+        title: '野生動物保育法第21條',
+        content: `
+            <p><strong>在講什麼：</strong>野生動物危及人類安全時的例外處理。</p>
+
+            <p><strong>白話：</strong>例如黑熊攻擊、人身有危險，可以不是一般狩獵規則。</p>
+
+            <p><strong>重點：</strong></p>
+            <ul>
+                <li>必須是真的「危險」</li>
+                <li>不是一般狩獵理由</li>
+            </ul>
+
+            <p><strong>常見誤解：</strong>不是看到動物就可以用這條。</p>
+        `
+    },
+
+    wild41: {
+        title: '野生動物保育法第41條',
+        content: `
+            <p><strong>在講什麼：</strong>違法獵捕保育類動物的刑責。</p>
+
+            <p><strong>白話：</strong>打到不該打的動物，會被判刑。</p>
+
+            <p><strong>常見情況：</strong></p>
+            <ul>
+                <li>打保育類（例如黑熊）</li>
+                <li>非法狩獵</li>
+            </ul>
+
+            <p style="color:#b33;">※這條是最容易直接進入刑事案件的條文。</p>
+        `
+    },
+
+    wild51_1: {
+        title: '野生動物保育法第51條之1',
+        content: `
+            <p><strong>在講什麼：</strong>部分違規改為行政處罰。</p>
+
+            <p><strong>白話：</strong>不一定坐牢，但會被罰錢或處分。</p>
+
+            <p><strong>重要：</strong></p>
+            <ul>
+                <li>無罪 ≠ 沒事</li>
+                <li>可能改成行政罰</li>
+            </ul>
+        `
+    },
+
+    gun20: {
+        title: '槍砲彈藥刀械管制條例第20條',
+        content: `
+            <p><strong>在講什麼：</strong>原住民自製獵槍在特定情況下可不罰。</p>
+
+            <p><strong>白話：</strong>不是所有狩獵用槍都合法，但有文化例外。</p>
+
+            <p><strong>會看的東西：</strong></p>
+            <ul>
+                <li>是否文化用途</li>
+                <li>是否生活需求</li>
+                <li>是否安全</li>
+            </ul>
+
+            <p style="color:#b33;">※槍枝問題非常容易變刑事案件，要特別小心。</p>
+        `
+    },
+
+    animal14_1: {
+        title: '動物保護法第14條之1',
+        content: `
+            <p><strong>在講什麼：</strong>禁止殘忍或高風險捕捉方式。</p>
+
+            <p><strong>重點：</strong>金屬套索（山豬吊）原則上禁止。</p>
+
+            <p><strong>問題核心：</strong></p>
+            <ul>
+                <li>會誤捕</li>
+                <li>無法選擇物種</li>
+            </ul>
+
+            <p><strong>例外：</strong>若符合野保法21-1文化狩獵，需個案判斷。</p>
+        `
+    },
+
+    constitution803: {
+        title: '釋字第803號',
+        content: `
+            <p><strong>在講什麼：</strong>原住民族狩獵屬於文化權利。</p>
+
+            <p><strong>白話：</strong>法律不能只看保育，也要看文化。</p>
+
+            <p><strong>帶來改變：</strong></p>
+            <ul>
+                <li>非營利自用納入文化</li>
+                <li>制度開始調整</li>
+            </ul>
+
+            <p style="color:#b33;">※很多無罪案例都跟這個有關。</p>
+        `
+    },
+
+    nonprofit: {
+        title: '非營利自用',
+        content: `
+            <p><strong>意思：</strong>不是拿去賣，而是自己或部落使用。</p>
+
+            <ul>
+                <li>不能販售</li>
+                <li>不能大量獵捕</li>
+            </ul>
+
+            <p><strong>用途：</strong>家人食用、部落分享、祭儀使用。</p>
+        `
+    },
+
+    protected: {
+        title: '保育類野生動物',
+        content: `
+            <p><strong>意思：</strong>受法律保護的動物。</p>
+
+            <ul>
+                <li>通常不能打</li>
+                <li>打到風險極高</li>
+            </ul>
+
+            <p style="color:#b33;">※不確定就不要碰。</p>
+        `
+    },
+
+    territory: {
+        title: '傳統領域',
+        content: `
+            <p><strong>意思：</strong>部落或家族的狩獵範圍。</p>
+
+            <ul>
+                <li>不能隨便跨區</li>
+                <li>要尊重他人獵場</li>
+            </ul>
+
+            <p><strong>重點：</strong>身分合法 ≠ 地點合法。</p>
+        `
+    }
+};
+
+function openTermModal(key) {
+    const item = termDefinitions[key];
+    if (!item) return;
+
+    document.getElementById('termModalTitle').innerText = item.title;
+    document.getElementById('termModalInfo').innerHTML = item.content;
+    document.getElementById('termModal').style.display = 'flex';
+}
+
+function closeTermModal() {
+    document.getElementById('termModal').style.display = 'none';
+}
+        const photoDefinitions = {
+            plantMillet: {
+                title: '小米',
+                src: 'images/photo_001.jpg',
+                caption: '圖片來源：<a href="https://kmweb.moa.gov.tw/subject/subject.php?id=39490" target="_blank">農業知識入口網</a>'
+            },
+
+            plantMiscanthus: {
+                title: '五節芒',
+                src: 'images/photo_002.jpg',
+                caption: '圖片來源：<a href="https://www.7stareco.org.tw/eco/detail-plant.php?id=2270" target="_blank">七星生態保育基金會</a>（原提供來源：認識植物網站）'
+            },
+
+            plantHibiscus: {
+                title: '山芙蓉',
+                src: 'images/photo_003.jpg',
+                caption: '圖片來源：<a href="https://theme.forest.gov.tw/forestplant/info/000009" target="_blank">台灣山林悠遊網</a>'
+            },
+
+            plantRedCypress: {
+                title: '紅檜',
+                src: 'images/photo_004.jpg',
+                caption: '圖片來源：<a href="https://hiking.biji.co/index.php?q=news&act=info&id=13223" target="_blank">健行筆記</a>'
+            },
+
+            plantBamboo: {
+                title: '箭竹',
+                src: 'images/photo_005.jpg',
+                caption: '圖片來源：<a href="https://taieol.tw/muse/digi_object/267ffb3ef43f70f7071d791df0124096" target="_blank">台灣生命大百科</a>'
+            },
+
+            plantStinging: {
+                title: '咬人貓',
+                src: 'images/photo_006.jpg',
+                caption: '圖片來源：<a href="https://kmweb.moa.gov.tw/theme_data.php?theme=news&sub_theme=agri_life&id=55030" target="_blank">農業知識入口網</a>'
+            },
+
+            plantMahonia: {
+                title: '阿里山十大功勞',
+                src: 'images/photo_007.jpg',
+                caption: '圖片來源：<a href="https://commons.wikimedia.org/wiki/File:Mahonia_oiwakensis_1.jpg" target="_blank">Wikimedia Commons</a>（原提供來源：PictureThis）'
+            },
+
+            plantPepper: {
+                title: '山胡椒',
+                src: 'images/photo_008.jpg',
+                caption: '圖片來源：<a href="https://teia.tw/archives/mountain_lastestpost/column_20180803" target="_blank">台灣環境資訊協會</a>'
+            },
+
+            plantOxalis: {
+                title: '酢漿草',
+                src: 'images/photo_009.jpg',
+                caption: '圖片來源：<a href="https://kmweb.moa.gov.tw/theme_data.php?theme=plant_illustration&id=196" target="_blank">農業知識入口網</a>'
+            },
+
+
+
+            waterDeer: {
+                title: '水鹿｜‘ua',
+                src: "images/photo_010.png",
+                caption: '圖片來源：使用者提供照片；標註來源：<a href="https://hiking.biji.co/index.php?q=news&act=info&id=3848" target="_blank" rel="noopener noreferrer">健行筆記</a>。'
+            },
+            boar: {
+                title: '山豬｜fuzu',
+                src: 'https://g.udn.com.tw/upfiles/B_MA/mamabook/PSN_PHOTO/603/f_25396603_1.jpg',
+                caption: '圖片來源標註：<a href="https://blog.udn.com/mamabook/131506105" target="_blank" rel="noopener noreferrer">udn 部落格</a>。'
+            },
+            muntjac: {
+                title: '山羌｜ta’cx',
+                src: 'https://web-ws.wra.gov.tw/001/Upload/OldFile/zwt/web_img/ecology/another/03-04-01-2.jpg',
+                caption: '圖片來源：經濟部水利署曾文旅遊網；你提供的補充標註來源：<a href="https://news.cts.com.tw/cts/life/201802/201802221914573.html" target="_blank" rel="noopener noreferrer">華視新聞</a>。'
+            },
+            cloudedLeopard: {
+                title: '雲豹｜e’uho',
+                src: 'https://www.kfbg.org/upload/Blog/2020/A-clouded-future/shutterstock_740325778-resized.jpg',
+                caption: '圖片來源標註：<a href="https://www.kfbg.org/tc/KFBG-blog/post/A-clouded-future-The-secretive-clouded-leopard-is-pushed-to-the-brink-by-deforestation" target="_blank" rel="noopener noreferrer">嘉道理農場暨植物園</a>。'
+            },
+            maskedPalmCivet: {
+                title: '白鼻心｜mea’hisi',
+                src: 'https://web3.nmns.edu.tw/exhibits/111/teeth-claws/assets/images/unit-5-3-8-980x653.jpg',
+                caption: '圖片來源：國立自然科學博物館「張牙舞爪特展」；你提供的補充標註來源：<a href="https://teia.tw/archives/natural_valley_star/am2018-10-02" target="_blank" rel="noopener noreferrer">台灣環境資訊協會</a>。'
+            },
+            leopardCat: {
+                title: '石虎｜istola',
+                src: 'https://scitechvista.nat.gov.tw/FileDownload/Article/20241216113045303702980.jpg',
+                caption: '圖片來源標註：<a href="https://scitechvista.nat.gov.tw/Article/c000003/detail?ID=03406e62-7a1f-4dbe-8f1c-b355a2239257" target="_blank" rel="noopener noreferrer">科技大觀園</a>。'
+            },
+            weasel: {
+                title: '黃鼠狼｜’itaci',
+                src: 'https://web3.nmns.edu.tw/exhibits/111/teeth-claws/assets/images/unit-5-3-3-6-980x653.jpg',
+                caption: '圖片來源：國立自然科學博物館「張牙舞爪特展」；你提供的補充標註來源：<a href="https://pets.ettoday.net/news/2868558" target="_blank" rel="noopener noreferrer">ETtoday 寵物雲</a>。'
+            },
+            pangolin: {
+                title: '穿山甲｜hieamoza',
+                src: "images/photo_011.png",
+                caption: '圖片來源：使用者提供照片；標註來源：<a href="https://taieol.tw/pages/75630" target="_blank" rel="noopener noreferrer">台灣生命大百科</a>。'
+            },
+            bambooPartridge: {
+                title: '深山竹雞',
+                src: "images/photo_012.jpg",
+                caption: '圖片來源標註：健行筆記〈我是台灣山鷓鴣（深山竹雞）〉。'
+            },
+            fulvetta: {
+                title: '繡眼畫眉',
+                src: "images/photo_013.jpg",
+                caption: '圖片來源標註：使用者提供照片；標註來源為 eBird 繡眼畫眉資料頁。'
+            },
+
+            yoskx: {
+                title: "鯝魚｜yoskx-axlx",
+                src: "images/photo_014.png",
+                caption: "圖片來源標註：使用者提供照片；來源頁面：<a href=\"https://catalog.digitalarchives.tw/item/00/03/4b/dd.html\" target=\"_blank\" rel=\"noopener noreferrer\">數位典藏與數位學習聯合目錄〈鯝魚〉</a>。"
+            },            squalidus: {
+                title: '何氏棘魞',
+                src: "images/photo_015.png",
+                caption: '圖片來源標註：使用者提供照片；文字標註來源為環境資訊中心〈研究：特有種何氏棘魞族群恢復快 遺傳多樣性卻不足〉。'
+            }
+,
+            toevosx: {
+                title: '藍腹鷳｜toevosx',
+                src: 'https://cdntwrunning.biji.co/800_b3764cde8fa83afb733450008b9e58b2.jpg',
+                caption: '圖片來源標註：使用者提供照片；來源頁面：<a href="https://hiking.biji.co/index.php?q=news&act=info&id=11711" target="_blank" rel="noopener noreferrer">健行筆記〈如何辨認帝雉與藍腹鷴？〉</a>。'
+            },
+            ftxftx: {
+                title: '帝雉｜ftxftx',
+                src: 'https://cdntwrunning.biji.co/800_f94fdd6ad9677f0c5962ba094f7bf6dd.jpg',
+                caption: '圖片來源標註：使用者提供照片；來源頁面：<a href="https://hiking.biji.co/index.php?q=news&act=info&id=11711" target="_blank" rel="noopener noreferrer">健行筆記〈如何辨認帝雉與藍腹鷴？〉</a>。'
+            },
+            sxeo: {
+                title: "竹雞｜sx'eo",
+                src: 'https://teia.tw/wp-content/uploads/2021/02/76_%E7%AB%B9%E9%9B%9E_TRUE-e1700119033829.jpg',
+                caption: '圖片來源標註：使用者提供照片；來源頁面：<a href="https://teia.tw/archives/natural_valley_star/ab2018-04-02" target="_blank" rel="noopener noreferrer">台灣環境資訊協會〈竹雞〉</a>。'
+            },
+            tmueosx: {
+                title: "藪鳥｜tmu'eosx",
+                src: "images/photo_016.jpg",
+                caption: "圖片來源標註：eBird / Macaulay Library；來源頁面：<a href=\"https://ebird.org/species/stelio1?siteLanguage=zh\" target=\"_blank\" rel=\"noopener noreferrer\">eBird〈黃胸藪眉〉</a>。"
+            },            kaangi: {
+                title: "灰林鶚／鴞｜kaangi",
+                src: "images/photo_017.jpg",
+                caption: "圖片來源標註：eBird / Macaulay Library；來源頁面：<a href=\"https://ebird.org/species/himowl1?siteLanguage=zh\" target=\"_blank\" rel=\"noopener noreferrer\">eBird〈東方灰林鴞〉</a>。"
+            },            koiyo: {
+                title: "大冠鷲｜koiyo",
+                src: "images/photo_018.jpg",
+                caption: "圖片來源標註：eBird / Macaulay Library；來源頁面：<a href=\"https://ebird.org/species/crseag1?siteLanguage=zh\" target=\"_blank\" rel=\"noopener noreferrer\">eBird〈大冠鷲〉</a>。"
+            },            yiski: {
+                title: "熊鷹｜yiski",
+                src: "images/photo_019.jpg",
+                caption: "圖片來源標註：eBird / Macaulay Library；來源頁面：<a href=\"https://ebird.org/species/mouhae1?siteLanguage=zh\" target=\"_blank\" rel=\"noopener noreferrer\">eBird〈熊鷹〉</a>。"
+            },            yxpx: {
+                title: "鳳頭蒼鷹｜yx'px",
+                src: "images/photo_020.jpg",
+                caption: "圖片來源標註：eBird / Macaulay Library；來源頁面：<a href=\"https://ebird.org/species/cregos1?siteLanguage=zh\" target=\"_blank\" rel=\"noopener noreferrer\">eBird〈鳳頭蒼鷹〉</a>。"
+            },            feocuChumu: {
+                title: "翠鳥｜feoc'u-chumu",
+                src: "images/photo_021.jpg",
+                caption: "圖片來源標註：eBird / Macaulay Library；來源頁面：<a href=\"https://ebird.org/species/comkin1?siteLanguage=zh\" target=\"_blank\" rel=\"noopener noreferrer\">eBird〈翠鳥〉</a>。"
+            },            teofsiza: {
+                title: "臺灣藍鵲｜teofsi’za",
+                src: "images/photo_022.jpg",
+                caption: "圖片來源標註：eBird / Macaulay Library；來源頁面：<a href=\"https://ebird.org/species/formag1?siteLanguage=zh\" target=\"_blank\" rel=\"noopener noreferrer\">eBird〈臺灣藍鵲〉</a>。"
+            },            uhngu: {
+                title: '白腰文鳥｜uhngu',
+                src: 'https://cdn.download.ams.birds.cornell.edu/api/v1/asset/203140841/1200',
+                caption: '圖片來源標註：使用者提供照片；來源頁面：<a href="https://ebird.org/species/whrmun?siteLanguage=zh" target="_blank" rel="noopener noreferrer">eBird〈白腰文鳥〉</a>。'
+            },
+            seisi: {
+                title: '山椒鳥｜seisi',
+                src: 'https://cdn.download.ams.birds.cornell.edu/api/v1/asset/204419091/1200',
+                caption: '圖片來源標註：使用者提供照片；來源頁面：<a href="https://ebird.org/species/gycmin1?siteLanguage=zh" target="_blank" rel="noopener noreferrer">eBird〈山椒鳥〉</a>。'
+            }
+
+        };
+
+        function openPhotoModal(key) {
+            const item = photoDefinitions[key];
+            if (!item) return;
+
+            const modalEl = document.getElementById('photoModal');
+            const titleEl = document.getElementById('photoModalTitle');
+            const imgEl = document.getElementById('photoModalImg');
+            const captionEl = document.getElementById('photoModalCaption');
+
+            // 重要修正：photoModal 原本被放在某個 page 裡，當該 page 隱藏時，圖片彈窗也會一起被藏住。
+            // 這行會把彈窗移到 body 最外層，確保在動植物頁面點擊也能正常顯示。
+            if (modalEl && modalEl.parentElement !== document.body) {
+                document.body.appendChild(modalEl);
+            }
+
+            titleEl.innerText = item.title;
+            imgEl.style.display = 'block';
+            imgEl.onerror = function () {
+                imgEl.style.display = 'none';
+                captionEl.innerHTML = '圖片載入失敗，請確認 images 資料夾中是否有對應圖片檔。<br>' + (item.caption || '');
+            };
+            imgEl.onload = function () {
+                imgEl.style.display = 'block';
+                captionEl.innerHTML = item.caption || '';
+            };
+            imgEl.src = item.src;
+            imgEl.alt = item.title;
+            captionEl.innerHTML = item.caption || '';
+            modalEl.style.display = 'flex';
+        }
+
+        function closePhotoModal() {
+            document.getElementById('photoModal').style.display = 'none';
+        }
+
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function (e) {
+            if (e.target === modal) closeModal();
+            if (e.target === document.getElementById('photoModal')) closePhotoModal();
+        };
+ function openTermModal(key) {
+        const item = termDefinitions[key];
+        if (!item) return;
+        document.getElementById('termModalTitle').innerText = item.title;
+        document.getElementById('termModalInfo').innerHTML = item.content;
+        document.getElementById('termModal').style.display = 'flex';
+    }
+
+function closeTermModal() { 
+    const modal = document.getElementById('termModal');
+    if (modal) modal.style.display = 'none';
+}
+
+window.addEventListener('click', function (event) {
+    const termModal = document.getElementById('termModal');
+    if (event.target === termModal) closeTermModal();
+});
+
+function toggleDetail(panelId) {
+    const panel = document.getElementById(panelId);
+    if (!panel) return;
+
+    const card = panel.closest('.issue-card');
+
+    if (panel.classList.contains('active')) {
+        panel.classList.remove('active');
+    } else {
+        if (card) {
+            card.querySelectorAll('.detail-panel').forEach(item => {
+                if (item.id) item.classList.remove('active');
+            });
+        }
+        panel.classList.add('active');
+    }
+}
+</script>
+<div id="termModal" class="modal" onclick="closeTermModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeTermModal()">&times;</span>
+        <h3 id="termModalTitle"></h3>
+        <div id="termModalInfo"></div>
+    </div>
+</div>
+
+</body>
+</html>
