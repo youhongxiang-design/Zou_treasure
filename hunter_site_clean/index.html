@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
@@ -796,6 +796,25 @@ html { scroll-behavior: smooth; }
 .detail-panel tr:nth-child(even) {
     background: #fdfaf5;
 }
+
+/* ===== 田野訪談延伸補充 ===== */
+.field-source {
+    margin-top: 12px;
+    font-size: 0.88rem;
+    color: #7a2d20;
+    font-weight: bold;
+}
+.detail-panel .qa-mini {
+    margin: 10px 0 14px;
+    padding: 12px 14px;
+    border-left: 4px solid var(--tsou-red);
+    background: #f8f4ee;
+    border-radius: 6px;
+}
+.detail-panel .qa-mini strong {
+    color: var(--wood-dark);
+}
+
 /* 修正技術頁各分類跑出版面的問題 */
 .tech-panel {
     max-width: 1100px;
@@ -825,7 +844,523 @@ html { scroll-behavior: smooth; }
     box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
 
-    </style>
+/* ===== 教授訪談補充卡 ===== */
+.expert-card {
+    border-left: 6px solid var(--tsou-red);
+    background: #fffdfb;
+    padding: 24px;
+    margin: 26px 0 34px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    border-top: 1px solid #eadfd6;
+    border-right: 1px solid #eadfd6;
+    border-bottom: 1px solid #eadfd6;
+}
+.expert-card h3 {
+    margin-top: 0;
+    color: var(--wood-dark);
+    border-bottom: 1px solid #eadfd6;
+    padding-bottom: 10px;
+}
+.expert-card .source {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 18px;
+}
+.qa-block {
+    background: #f8f4ee;
+    border-radius: 10px;
+    padding: 15px 16px;
+    margin: 14px 0;
+    line-height: 1.75;
+}
+.qa-block .question {
+    font-weight: 700;
+    color: var(--tsou-red);
+    margin-bottom: 6px;
+}
+.qa-block .answer {
+    color: #333;
+    margin: 0;
+}
+.qa-block ul {
+    padding-left: 20px;
+    margin: 8px 0 0;
+}
+.interview-note {
+    background: #fff9f9;
+    border-left: 4px solid #b33;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-top: 12px;
+    color: #4a3328;
+}
+
+    
+
+/* ===== 首頁主旨：鄒族紋路感重點框 ===== */
+.home-purpose-tsou {
+    position: relative;
+    text-align: left;
+    margin: 0 auto 34px;
+    padding: 30px 34px;
+    border-radius: 18px;
+    background:
+        linear-gradient(135deg, rgba(158,27,27,0.10) 0 25%, transparent 25% 50%, rgba(158,27,27,0.10) 50% 75%, transparent 75%) 0 0 / 26px 26px,
+        linear-gradient(180deg, #fffdf8, #f7efe5);
+    border: 2px solid #4E342E;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    overflow: hidden;
+}
+
+.home-purpose-tsou::before,
+.home-purpose-tsou::after {
+    content: "";
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    height: 10px;
+    background:
+        repeating-linear-gradient(90deg,
+            #9E1B1B 0 18px,
+            #4E342E 18px 28px,
+            #f2d7a0 28px 38px,
+            #4E342E 38px 48px,
+            #9E1B1B 48px 66px);
+    border-radius: 999px;
+    opacity: 0.95;
+}
+
+.home-purpose-tsou::before { top: 14px; }
+.home-purpose-tsou::after { bottom: 14px; }
+
+.home-purpose-tsou .purpose-inner {
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(78,52,46,0.22);
+    background: rgba(255,255,255,0.72);
+    border-radius: 14px;
+    padding: 24px 24px 20px;
+}
+
+.home-purpose-tsou .purpose-kicker {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: #4E342E;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.home-purpose-tsou p {
+    margin: 0 0 13px;
+    color: #3f2b24;
+    font-size: 1.05rem;
+    line-height: 1.95;
+}
+
+.home-purpose-tsou p:last-child { margin-bottom: 0; }
+
+.home-purpose-tsou .purpose-highlight {
+    color: #9E1B1B;
+    font-weight: 800;
+    background: linear-gradient(transparent 60%, rgba(242,215,160,0.75) 60%);
+    padding: 0 2px;
+}
+
+@media (max-width: 700px) {
+    .home-purpose-tsou { padding: 26px 18px; }
+    .home-purpose-tsou .purpose-inner { padding: 20px 16px; }
+    .home-purpose-tsou p { font-size: 0.98rem; }
+}
+
+
+/* ===== 全站鄒族紋路風格：貫穿版 ===== */
+:root {
+    --pattern-red: #9E1B1B;
+    --pattern-brown: #4E342E;
+    --pattern-gold: #C9A45C;
+    --pattern-cream: #fdfaf5;
+    --pattern-line: rgba(158, 27, 27, 0.22);
+}
+
+/* 全站底紋：低調幾何線條 */
+body {
+    background-color: var(--cream-bg);
+    background-image:
+        linear-gradient(135deg, rgba(158,27,27,0.045) 25%, transparent 25%),
+        linear-gradient(225deg, rgba(158,27,27,0.045) 25%, transparent 25%),
+        linear-gradient(45deg, rgba(78,52,46,0.035) 25%, transparent 25%),
+        linear-gradient(315deg, rgba(78,52,46,0.035) 25%, var(--cream-bg) 25%);
+    background-position: 18px 0, 18px 0, 0 0, 0 0;
+    background-size: 36px 36px;
+    background-repeat: repeat;
+}
+
+/* 導覽列加入幾何織帶感 */
+nav {
+    background:
+        linear-gradient(rgba(27,48,34,0.95), rgba(27,48,34,0.95)),
+        repeating-linear-gradient(90deg,
+            transparent 0 18px,
+            rgba(201,164,92,0.24) 18px 22px,
+            transparent 22px 36px,
+            rgba(158,27,27,0.28) 36px 40px
+        );
+    border-bottom: 4px solid var(--pattern-red);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+}
+
+nav::after {
+    content: "";
+    display: block;
+    height: 7px;
+    margin-top: 8px;
+    background:
+        repeating-linear-gradient(135deg,
+            var(--pattern-gold) 0 7px,
+            transparent 7px 14px,
+            var(--pattern-red) 14px 21px,
+            transparent 21px 28px
+        );
+    opacity: 0.75;
+}
+
+/* 首頁大圖下方加部落織帶分隔 */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 14px;
+    background:
+        repeating-linear-gradient(90deg,
+            var(--pattern-red) 0 18px,
+            var(--pattern-gold) 18px 28px,
+            var(--pattern-brown) 28px 46px,
+            var(--pattern-gold) 46px 56px
+        );
+}
+
+/* 主要內容容器：雙線框＋角落紋樣 */
+.article-container,
+.tech-panel {
+    position: relative;
+    border: 1px solid rgba(78,52,46,0.16);
+    outline: 3px double rgba(158,27,27,0.18);
+    background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        repeating-linear-gradient(45deg,
+            rgba(158,27,27,0.36) 0 8px,
+            rgba(201,164,92,0.34) 8px 16px,
+            rgba(78,52,46,0.28) 16px 24px
+        ) border-box;
+}
+
+.article-container::before,
+.article-container::after,
+.tech-panel::before,
+.tech-panel::after {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    pointer-events: none;
+    opacity: 0.72;
+}
+
+.article-container::before,
+.tech-panel::before {
+    top: 10px;
+    left: 10px;
+    border-top: 4px solid var(--pattern-red);
+    border-left: 4px solid var(--pattern-red);
+    box-shadow: inset 8px 8px 0 -4px var(--pattern-gold);
+}
+
+.article-container::after,
+.tech-panel::after {
+    bottom: 10px;
+    right: 10px;
+    border-bottom: 4px solid var(--pattern-red);
+    border-right: 4px solid var(--pattern-red);
+    box-shadow: inset -8px -8px 0 -4px var(--pattern-gold);
+}
+
+/* 各頁標題：紅黑金三色重點 */
+h2 {
+    position: relative;
+    border-left: 0;
+    padding-left: 26px;
+}
+
+h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.18em;
+    width: 12px;
+    height: 1.15em;
+    background:
+        linear-gradient(to bottom,
+            var(--pattern-red) 0 33%,
+            var(--pattern-gold) 33% 66%,
+            var(--pattern-brown) 66% 100%
+        );
+    border-radius: 2px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    height: 6px;
+    width: min(280px, 78%);
+    margin-top: 10px;
+    background:
+        repeating-linear-gradient(90deg,
+            var(--pattern-red) 0 16px,
+            transparent 16px 24px,
+            var(--pattern-gold) 24px 34px,
+            transparent 34px 42px
+        );
+    opacity: 0.78;
+}
+
+/* 首頁卡片：像小型織紋牌 */
+.category-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(158,27,27,0.18);
+    box-shadow: 0 6px 18px rgba(78,52,46,0.08);
+}
+
+.category-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 9px;
+    background:
+        repeating-linear-gradient(90deg,
+            var(--pattern-red) 0 14px,
+            var(--pattern-gold) 14px 22px,
+            var(--pattern-brown) 22px 36px,
+            var(--pattern-gold) 36px 44px
+        );
+}
+
+.category-card::after {
+    content: "";
+    position: absolute;
+    right: -26px;
+    bottom: -26px;
+    width: 92px;
+    height: 92px;
+    transform: rotate(45deg);
+    background:
+        repeating-linear-gradient(90deg,
+            rgba(158,27,27,0.10) 0 8px,
+            transparent 8px 16px
+        );
+}
+
+/* 一般資訊框和重點框統一加紋路側邊 */
+.issues-intro,
+.issue-summary,
+.mini-note,
+.green-panel,
+.note-panel,
+.always-open-panel {
+    position: relative;
+    border-left-width: 6px !important;
+    overflow: hidden;
+}
+
+.issues-intro::before,
+.issue-summary::before,
+.mini-note::before,
+.green-panel::before,
+.note-panel::before,
+.always-open-panel::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background:
+        repeating-linear-gradient(to bottom,
+            var(--pattern-red) 0 12px,
+            var(--pattern-gold) 12px 20px,
+            var(--pattern-brown) 20px 32px
+        );
+}
+
+/* 議題與內容卡片：上緣織帶 */
+.issue-card {
+    position: relative;
+    border-color: rgba(78,52,46,0.18) !important;
+    overflow: hidden;
+}
+
+.issue-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 8px;
+    background:
+        repeating-linear-gradient(90deg,
+            var(--pattern-red) 0 18px,
+            var(--pattern-gold) 18px 26px,
+            var(--pattern-brown) 26px 42px,
+            var(--pattern-gold) 42px 50px
+        );
+    opacity: 0.88;
+}
+
+.issue-card .card-body,
+.issue-card > h3,
+.issue-card > .issue-summary,
+.issue-card > ul,
+.issue-card > .detail-toggle-row {
+    position: relative;
+}
+
+/* 展開小卡：更像資料籤 */
+.detail-panel {
+    position: relative;
+    border: 1px solid rgba(158,27,27,0.16) !important;
+    border-left: 6px solid var(--pattern-red) !important;
+    background:
+        linear-gradient(90deg, rgba(158,27,27,0.055), transparent 34%),
+        #fffdfb !important;
+}
+
+.detail-panel::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 8px;
+    height: 4px;
+    background:
+        repeating-linear-gradient(90deg,
+            rgba(158,27,27,0.55) 0 12px,
+            transparent 12px 18px,
+            rgba(201,164,92,0.65) 18px 26px,
+            transparent 26px 34px
+        );
+    border-radius: 999px;
+}
+
+.detail-panel h4,
+.detail-panel h3 {
+    padding-top: 8px;
+}
+
+/* 按鈕：紅金雙色邊 */
+.detail-btn,
+.term-btn,
+.term-btn.small {
+    border: 1px solid rgba(201,164,92,0.65) !important;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.12), 0 3px 8px rgba(78,52,46,0.12);
+}
+
+.detail-btn:hover,
+.term-btn:hover,
+.term-btn.small:hover {
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.16), 0 5px 12px rgba(78,52,46,0.18);
+}
+
+/* 表格也加入紋路表頭 */
+table th,
+.detail-panel th {
+    background:
+        linear-gradient(rgba(78,52,46,0.92), rgba(78,52,46,0.92)),
+        repeating-linear-gradient(90deg,
+            transparent 0 14px,
+            rgba(201,164,92,0.38) 14px 20px,
+            transparent 20px 34px
+        ) !important;
+}
+
+/* 彈窗：上緣織帶 */
+.modal-content,
+.term-modal-content {
+    border-top: 12px solid var(--pattern-red) !important;
+    background:
+        linear-gradient(#fff, #fff) padding-box,
+        repeating-linear-gradient(45deg,
+            var(--pattern-red) 0 10px,
+            var(--pattern-gold) 10px 18px,
+            var(--pattern-brown) 18px 28px
+        ) border-box;
+    box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+}
+
+.modal-content::before,
+.term-modal-content::before {
+    content: "";
+    display: block;
+    height: 7px;
+    margin: -22px -22px 18px;
+    background:
+        repeating-linear-gradient(90deg,
+            var(--pattern-red) 0 18px,
+            var(--pattern-gold) 18px 28px,
+            var(--pattern-brown) 28px 46px,
+            var(--pattern-gold) 46px 56px
+        );
+}
+
+/* 首頁主旨框再強化：和全站一致 */
+.home-purpose-tsou {
+    box-shadow: 0 12px 30px rgba(78,52,46,0.13);
+}
+
+.home-purpose-tsou .purpose-inner {
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.92), rgba(253,250,245,0.96)),
+        repeating-linear-gradient(45deg,
+            rgba(158,27,27,0.045) 0 10px,
+            transparent 10px 20px
+        );
+}
+
+/* 手機：保留紋路但降低密度 */
+@media (max-width: 700px) {
+    body {
+        background-size: 46px 46px;
+    }
+
+    .article-container::before,
+    .article-container::after,
+    .tech-panel::before,
+    .tech-panel::after {
+        width: 24px;
+        height: 24px;
+    }
+
+    h2::after {
+        width: 92%;
+    }
+
+    .issue-card::before {
+        height: 6px;
+    }
+}
+
+</style>
 </head>
 <body>
 
@@ -848,6 +1383,23 @@ html { scroll-behavior: smooth; }
         </div>
 
         <div class="article-container" style="text-align:center; margin-top:-50px; position:relative; z-index:10;">
+            <div class="home-purpose-tsou">
+                <div class="purpose-inner">
+                    <span class="purpose-kicker">網站主旨</span>
+                    <p>
+                        本網站以 <span class="purpose-highlight">鄒族獵人文化</span> 為核心，整理
+                        <span class="purpose-highlight">狩獵技術、動植物知識、獵物分配、祭典儀式、EINU 倫理規範</span>，
+                        以及 <span class="purpose-highlight">當代法律與社會爭議</span>。
+                        透過 <span class="purpose-highlight">系統化整理與實際訪談補充</span>，呈現獵人在山林中的
+                        <span class="purpose-highlight">判斷能力、文化價值與生活方式</span>。
+                    </p>
+                    <p>
+                        閱讀者可以從不同面向理解：狩獵不只是行為本身，而是一套結合
+                        <span class="purpose-highlight">知識、經驗、規範與責任</span> 的文化系統，並進一步思考
+                        <span class="purpose-highlight">傳統文化在現代法律與社會中的位置與變化</span>。
+                    </p>
+                </div>
+            </div>
             <div class="category-grid">
                 <div class="category-card" onclick="showPage('tech')">
                     <h3>技術與經驗</h3>
@@ -877,7 +1429,6 @@ html { scroll-behavior: smooth; }
             <div class="issues-intro">
                 技術與工具的核心不是「做陷阱」，而是「<strong style="color:#b33;">讀懂山林</strong>」。讀懂森林，包括對動物，植物，工具的認識，在這裡你可以知道各種動植物的生態習慣與文化意義以及傳統陷阱的認識。
             </div>
-
             <div id="techMenu" class="category-grid">
                 <div class="category-card" onclick="showTechSection('animals')">
                     <h3>動物</h3>
@@ -914,6 +1465,8 @@ html { scroll-behavior: smooth; }
                         <button class="detail-btn" onclick="toggleDetail('animal-land-detail')">看大型陸生動物</button>
                         <button class="detail-btn secondary" onclick="toggleDetail('animal-stream-detail')">看溪流魚蝦與水生動物</button>
                         <button class="detail-btn secondary" onclick="toggleDetail('animal-bird-detail')">看鳥類的徵兆與禁忌</button>
+                        <button class="detail-btn secondary" onclick="toggleDetail('animal-nsoo-interview')">看獸泉訪談補充</button>
+                        <button class="detail-btn secondary" onclick="toggleDetail('animal-culture-interview')">看動物文化訪談補充</button>
                     </div>
                     <div id="animal-land-detail" class="detail-panel">
                         <h4>大型陸生動物與重要慣習</h4>
@@ -986,6 +1539,22 @@ html { scroll-behavior: smooth; }
 </li>
                             <li><strong><span class="media-link" onclick="openPhotoModal('seisi')">seisi（山椒鳥）</span>：</strong>被視為吉祥之鳥，反映鳥類不只是食物，也可作環境與徵兆判讀。</li>
                         </ul>
+                    </div>
+
+                    <div id="animal-nsoo-interview" class="detail-panel">
+                        <h4>田野訪談補充：獸泉 nsoo 如何判斷？</h4>
+                        <div class="qa-mini"><strong>Q：獸泉一定是固定泉水或固定陷阱點嗎？</strong><br>教授補充，獸泉不是只看「有一個泉水」本身，而是看附近是否出現比平常更多的動物足跡，因此判斷那裡會吸引動物前來。獵人不一定只是在獸泉附近設陷阱，也可能選擇蹲點觀察或等待。</div>
+                        <div class="qa-mini"><strong>Q：不同動物會使用不同獸泉嗎？</strong><br>不同泉水可能吸引不同動物，例如水鹿、山羊、山羌或飛鼠。實際判斷仍要看足跡數量、獸徑方向、周邊地形與近期活動痕跡。</div>
+                        <p class="field-source">資料來源：教授訪談紀錄，2026。</p>
+                    </div>
+
+                    <div id="animal-culture-interview" class="detail-panel">
+                        <h4>田野訪談補充：動物禁忌、風味與時代變化</h4>
+                        <div class="qa-mini"><strong>Q：白鼻心為何可獵，而其他狐狸類常帶有禁忌？</strong><br>教授說明，白鼻心以前即屬可獵範圍；至於為何和其他狐狸類禁忌不同，源頭已難以確定。這也提醒我們，鄒族動物分類不只是生物學分類，也包含地方經驗與文化記憶。</div>
+                        <div class="qa-mini"><strong>Q：腐臭山羊肉是保存失敗，還是文化風味？</strong><br>教授認為這比較接近民族飲食風味，類似有人喜歡臭豆腐。部分族人喜歡帶有強烈腐臭味的山羊肉，但也有族人不熟悉、不習慣這種味道。</div>
+                        <div class="qa-mini"><strong>Q：猴子為何在部分家族中禁食，1960年代後又有人食用？</strong><br>猴子不是主要獵物，也不帶來狩獵榮耀。教授補充，杜氏家族有祖先由猴子變來的神話，因此有不食用的觀念；1960年代後，因漢人收購猴骨製成補品膠，族人接觸後才逐漸有人嘗試。</div>
+                        <div class="qa-mini"><strong>補充：</strong>教授也提到家族神話常與自然災變、植物或祖先來源有關，例如颱風後芭蕉樹屹立不搖、孩子攀附其上，被理解為「風的孩子」。</div>
+                        <p class="field-source">資料來源：教授訪談紀錄，2026。</p>
                     </div>
                 </div>
             </div>
@@ -1625,7 +2194,6 @@ html { scroll-behavior: smooth; }
             獵物分配不只是把肉分出去，而是在維持家族關係、長幼秩序與獵人的名聲。
             在鄒族文化中，「怎麼分」和「會不會獵」一樣重要。
         </div>
-
         <div class="issue-card">
             <h3>為什麼一定要分享？</h3>
 
@@ -1690,6 +2258,7 @@ html { scroll-behavior: smooth; }
             <div class="detail-toggle-row">
                 <button class="detail-btn" onclick="toggleDetail('share-pig-role-detail')">看分配角色</button>
                 <button class="detail-btn secondary" onclick="toggleDetail('share-pig-part-detail')">看重要部位用途</button>
+                <button class="detail-btn secondary" onclick="toggleDetail('share-pig-interview')">看供品訪談補充</button>
             </div>
 
             <div id="share-pig-role-detail" class="detail-panel">
@@ -1712,6 +2281,13 @@ html { scroll-behavior: smooth; }
                     <li><strong>頭骨、下顎：</strong>常被保留，具有獵績與象徵意義。</li>
                 </ul>
             </div>
+
+            <div id="share-pig-interview" class="detail-panel">
+                <h4>田野訪談補充：小米收成祭供品的文化內涵</h4>
+                <div class="qa-mini"><strong>Q：小米收成祭中，豬的五個部位有什麼意義？</strong><br>教授說明，祭拜土地神時會將五個部位串起來，從上方的耳朵到下方的肝等部位，湊足五個部位象徵整隻豬。</div>
+                <div class="qa-mini"><strong>Q：為什麼小型獵物也可能有很高的祭儀價值？</strong><br>教授補充，在小米女神的故事中，松鼠也可被視為一隻大山豬。這表示祭儀價值不只取決於體型大小，而是取決於象徵關係與祭儀脈絡。</div>
+                <p class="field-source">資料來源：教授訪談紀錄，2026。</p>
+            </div>
         </div>
 
         <div class="issue-card">
@@ -1725,6 +2301,7 @@ html { scroll-behavior: smooth; }
 
             <div class="detail-toggle-row">
                 <button class="detail-btn" onclick="toggleDetail('share-gender-detail')">看分工與觀念補充</button>
+                <button class="detail-btn secondary" onclick="toggleDetail('share-gender-interview')">看性別分工訪談補充</button>
             </div>
 
             <div id="share-gender-detail" class="detail-panel">
@@ -1734,6 +2311,14 @@ html { scroll-behavior: smooth; }
                     <li>家豬則轉入家內飼養與管理系統，常由婦女接手。</li>
                     <li>這些差異顯示，動物分類本身就反映出社會秩序。</li>
                 </ul>
+            </div>
+
+            <div id="share-gender-interview" class="detail-panel">
+                <h4>田野訪談補充：山豬、家豬與性別分工</h4>
+                <div class="qa-mini"><strong>Q：幼小山豬交給女性飼養後，宰殺由誰處理？</strong><br>教授說明，飼養過程由女性負責，但宰殺或獵殺過程仍需由男性處理。</div>
+                <div class="qa-mini"><strong>Q：男性可以飼養或觸碰家豬嗎？</strong><br>教授補充，傳統觀念中男性不可飼養甚至觸碰家豬，否則可能被認為會影響獵獲山豬的能力。</div>
+                <div class="qa-mini"><strong>Q：這些分工現在還固定嗎？</strong><br>傳統分工很細，但當代已經逐漸改變。教授也提到，女獵人是否可以同時獵豬、養豬，是值得繼續討論的新問題。</div>
+                <p class="field-source">資料來源：教授訪談紀錄，2026。</p>
             </div>
         </div>
 
@@ -1748,7 +2333,6 @@ html { scroll-behavior: smooth; }
             <div class="issues-intro">
                 獵地不是地圖上的一條線，而是靠<strong style="color:#b33;">家族歷史、長期使用、彼此默契與部落規範形成的領域</strong>。對獵人來說，懂不懂邊界，不只是空間問題，也是人與人的關係問題。
             </div>
-
             <div class="issue-card">
                 <h3>怎麼知道這裡是不是別人的獵地？</h3>
                 <div class="issue-summary">在山裡，不一定會看到明顯界線，但獵人會從獸徑、陷阱、標記、整理過的痕跡與過往經驗，知道某塊地方是不是有人在使用。真正重要的不是地圖，而是「看得懂別人的存在」。
@@ -1762,6 +2346,7 @@ html { scroll-behavior: smooth; }
                 <div class="detail-toggle-row">
                     <button class="detail-btn" onclick="toggleDetail('land-judge-detail')">看判斷方式</button>
                     <button class="detail-btn secondary" onclick="toggleDetail('land-modern-detail')">看現代制度影響</button>
+                    <button class="detail-btn secondary" onclick="toggleDetail('land-origin-interview')">看獵地來源訪談補充</button>
                 </div>
                 <div id="land-judge-detail" class="detail-panel">
                     <h4>判斷獵地的方式</h4>
@@ -1780,6 +2365,13 @@ html { scroll-behavior: smooth; }
                         <li>所以現在的獵地判斷，常常是「部落規範＋國家制度」一起看。</li>
                     </ul>
                 </div>
+
+                <div id="land-origin-interview" class="detail-panel">
+                    <h4>田野訪談補充：傳統獵地不是國家給的</h4>
+                    <div class="qa-mini"><strong>Q：政府如何與獵人協調「總獵地」？</strong><br>教授指出，傳統獵場不是國家給的，而是從日治時期以前的使用關係延續下來，再由部落內部分配。現代國家多是給出限制，而非真正協調。</div>
+                    <div class="qa-mini"><strong>Q：哪些族群受到現代保護區限制特別明顯？</strong><br>教授以布農族為例，因靠近玉山國家公園，傳統獵地受到的限制特別明顯，有些使用關係被迫放棄或縮減。</div>
+                    <p class="field-source">資料來源：教授訪談紀錄，2026。</p>
+                </div>
             </div>
 
             <div class="issue-card">
@@ -1794,6 +2386,7 @@ html { scroll-behavior: smooth; }
                 </ul>
                 <div class="detail-toggle-row">
                     <button class="detail-btn" onclick="toggleDetail('land-conflict-detail')">看常見衝突與處理</button>
+                    <button class="detail-btn secondary" onclick="toggleDetail('land-conflict-interview')">看長老協調訪談補充</button>
                 </div>
                 <div id="land-conflict-detail" class="detail-panel">
                     <h4>常見衝突與處理</h4>
@@ -1802,6 +2395,14 @@ html { scroll-behavior: smooth; }
                         <li><strong>處理方式：</strong>獵人之間先協調，再由長者或協會介入。</li>
                         <li><strong>重點：</strong>不是比誰先，而是先守住安全與關係。</li>
                     </ul>
+                </div>
+
+                <div id="land-conflict-interview" class="detail-panel">
+                    <h4>田野訪談補充：獵場衝突如何協調？</h4>
+                    <div class="qa-mini"><strong>Q：傳統鄒族面對獵場衝突時，會由誰出面？</strong><br>教授說明，傳統上會由家族長老或部落長老出面談判。</div>
+                    <div class="qa-mini"><strong>Q：如果獵物跨過不同人的領地怎麼辦？</strong><br>獵地常以一個山頭、一個山頭的方式劃分；若獵物經過不同人的領地，傳統上經過的相關方都有一份，這反映「獵物不是單純個人所有」的分享規範。</div>
+                    <div class="qa-mini"><strong>Q：獵人協會會處理獵場紛爭嗎？</strong><br>教授補充，獵人協會通常不介入傳統獵場紛爭，這類問題多由各家長老處理。獵人協會較多負責現代行政問題，例如證照、申請、講習或制度溝通。</div>
+                    <p class="field-source">資料來源：教授訪談紀錄，2026。</p>
                 </div>
             </div>
 
@@ -1826,6 +2427,7 @@ html { scroll-behavior: smooth; }
         <button class="detail-btn secondary" onclick="toggleDetail('hunter-training-detail')">看訓練內容</button>
         <button class="detail-btn secondary" onclick="toggleDetail('hunter-standard-detail')">看審查標準</button>
         <button class="detail-btn secondary" onclick="toggleDetail('hunter-change-detail')">看現代變化</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('hunter-review-interview')">看審查訪談補充</button>
     </div>
 
     <div id="hunter-path-detail" class="detail-panel">
@@ -1870,6 +2472,14 @@ html { scroll-behavior: smooth; }
             <li><strong>最容易誤解的地方：</strong>證照是外在資格，文化認可是長期行為累積出來的信任。</li>
         </ul>
     </div>
+
+    <div id="hunter-review-interview" class="detail-panel">
+        <h4>田野訪談補充：獵人審查如何避免太主觀？</h4>
+        <div class="qa-mini"><strong>Q：獵人資格是看人際認可，會不會太主觀？</strong><br>教授說明，審查不是單一個人決定，而是由十幾位審核人員討論後決定。</div>
+        <div class="qa-mini"><strong>Q：具體標準包含什麼？</strong><br>審查重點包含能否獨立完成狩獵流程，例如獵捕、背回、切割與分配，也需簽署自治自律公約，例如飲酒不能打獵、不能販賣等。</div>
+        <div class="qa-mini"><strong>Q：為什麼強調榮譽感？</strong><br>教授指出，獵人不只是取得資格，而是要對自身行為、部落規範與山林關係負責，因此「獵人要有光榮感」。</div>
+        <p class="field-source">資料來源：教授訪談紀錄，2026。</p>
+    </div>
 </div>
         </div>
     </div>
@@ -1883,7 +2493,6 @@ html { scroll-behavior: smooth; }
             <div class="issues-intro">
                 獵人來說，儀式是在提醒自己：獵物不是單純被取得，而是和<strong style="color:#b33;">自然、動物、祖靈、家族關係連在一起</strong>。儀式也在安排時間、行動與分配。
             </div>
-
             <div class="issue-card">
                 <h3>emocucu：重點不是發聲，而是回應</h3>
                 <div class="issue-summary">
@@ -1898,6 +2507,7 @@ html { scroll-behavior: smooth; }
                 </ul>
                 <div class="detail-toggle-row">
                     <button class="detail-btn" onclick="toggleDetail('ritual-emocucu-detail')">看 emocucu 補充</button>
+                    <button class="detail-btn secondary" onclick="toggleDetail('ritual-emocucu-interview')">看田野訪談補充</button>
                 </div>
                 <div id="ritual-emocucu-detail" class="detail-panel">
                     <h4>emocucu 補充</h4>
@@ -1906,6 +2516,13 @@ html { scroll-behavior: smooth; }
                         <li>現代常被理解為感謝，但它本質上和狩獵情境綁在一起。</li>
                         <li>只記得形式、不理解對象，就容易把儀式看淺了。</li>
                     </ul>
+                </div>
+
+                <div id="ritual-emocucu-interview" class="detail-panel">
+                    <h4>田野訪談補充：emocucu 的聲音與動作</h4>
+                    <div class="qa-mini"><strong>Q：emocucu 中的 cucu 聲如何理解？</strong><br>教授說明，emocucu 比較像搭配動作的聲音，近似「嘖嘖」聲。它不是單純口號，而是一種尊重的動作，面向山神、山林與取得資源的關係。</div>
+                    <div class="qa-mini"><strong>Q：emocucu 只在取得資源時進行嗎？</strong><br>教授建議，即使只是上山，也可以進行 emocucu 的行為，作為對當地山神與山林的尊敬。它的重點是尊重與回應，而不是只有獵獲後才出現。</div>
+                    <p class="field-source">資料來源：教授訪談紀錄，2026。</p>
                 </div>
             </div>
 
@@ -1980,6 +2597,7 @@ html { scroll-behavior: smooth; }
         <button class="detail-btn" onclick="toggleDetail('ritual-millet-sowing-detail')">看播種祭流程</button>
         <button class="detail-btn secondary" onclick="toggleDetail('ritual-millet-harvest-detail')">看收穫祭流程</button>
         <button class="detail-btn secondary" onclick="toggleDetail('ritual-millet-hunter-detail')">看獵人與祭品意義</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('ritual-millet-interview')">看祭典時間訪談補充</button>
     </div>
 
     <div id="ritual-millet-sowing-detail" class="detail-panel">
@@ -2014,6 +2632,14 @@ html { scroll-behavior: smooth; }
             <li><strong>社會意義：</strong>祭儀同時是獵物供奉、家族團圓、分配關係與長老決策的場合。</li>
             <li><strong>現代提醒：</strong>即使今天狩獵不再是主要生計，小米祭仍在決定家族何時聚合、供品該準備什麼，以及哪些獵物具有儀式資格。</li>
         </ul>
+    </div>
+
+    <div id="ritual-millet-interview" class="detail-panel">
+        <h4>田野訪談補充：祭典時間如何決定？</h4>
+        <div class="qa-mini"><strong>Q：播種祭與收穫祭都是固定日期嗎？</strong><br>教授補充，播種時間較彈性，但收割季會依實際成熟時間變動。</div>
+        <div class="qa-mini"><strong>Q：收穫祭大概落在什麼時候？</strong><br>通常在 7、8 月上下，可能有 20 天到 1 個月的落差；約在收成前一個月可以開始判斷時間。</div>
+        <div class="qa-mini"><strong>Q：祭典會全部對外開放嗎？</strong><br>戰祭、小米祭等祭典具有階段性，一開始會有家祭，家祭階段通常不開放外人進入。</div>
+        <p class="field-source">資料來源：教授訪談紀錄，2026。</p>
     </div>
 </div>
 
@@ -2087,7 +2713,6 @@ html { scroll-behavior: smooth; }
             <div class="issues-intro">
                 einu 不只是禁忌清單，而是一整套<strong style="color:#b33;">和人、動物、山林、其他獵人互動的方法</strong>。很多規定表面上看很簡單，但真正重要的是背後的判斷與自我克制。<br><br>它真正管的不是表面行為，而是你會不會在沒人提醒的時候，自己停下來、自己修正、自己尊重界線。
             </div>
-
             <div class="issue-card">
                 <h3>einu 的核心不是「不能做什麼」，而是知道自己該怎麼做</h3>
                 <div class="issue-summary">
@@ -2101,6 +2726,7 @@ html { scroll-behavior: smooth; }
                 <div class="detail-toggle-row">
                     <button class="detail-btn" onclick="toggleDetail('ethics-core-detail')">看核心規範</button>
                     <button class="detail-btn secondary" onclick="toggleDetail('ethics-people-detail')">看人與人之間的規矩</button>
+                    <button class="detail-btn secondary" onclick="toggleDetail('ethics-einu-interview')">看EINU訪談補充</button>
                 </div>
                 <div id="ethics-core-detail" class="detail-panel">
                     <h4>核心規範（獵人協會十項原則）</h4>
@@ -2155,6 +2781,14 @@ html { scroll-behavior: smooth; }
                         <li>村落近鄰不進行槍獵活動。</li>
                         <li>帶外人進獵場，需要依規定登記與管理。</li>
                     </ul>
+                </div>
+
+                <div id="ethics-einu-interview" class="detail-panel">
+                    <h4>田野訪談補充：EINU 是倫理，不只是禁忌</h4>
+                    <div class="qa-mini"><strong>Q：EINU 對族人來說是嚴重規範，還是日常提醒？</strong><br>教授說明，EINU 不是單純禁止清單，而是一套倫理：敬老尊賢、尊重對方，也包含對超自然、山林與各方面關係的尊重。</div>
+                    <div class="qa-mini"><strong>Q：如果違反 EINU，會怎麼處理？</strong><br>犯錯通常由家族出面協調。過去可能透過服勞役、工作補償，或更具儀式性的方式，例如獵山豬頭給對方；現在則較依賴國家法律。</div>
+                    <div class="qa-mini"><strong>Q：最嚴重會怎麼處置？</strong><br>教授提到，傳統上沒有類似死刑的處罰，最重可能是放逐。過去也曾有因嚴重傷害而以土地補償對方的例子，反映責任承擔與關係修復。</div>
+                    <p class="field-source">資料來源：教授訪談紀錄，2026。</p>
                 </div>
             </div>
 
@@ -2245,7 +2879,7 @@ html { scroll-behavior: smooth; }
                 </div>
             </div>
         </div>
-        <div id="intro-concept" class="issue-card highlight-border">
+<div id="intro-concept" class="issue-card highlight-border">
             <div class="card-header">核心概念：法規限制下的原民狩獵困境</div>
             <div class="card-body">
                 <h3>制度設計與實際運作的斷裂</h3>
@@ -2293,6 +2927,7 @@ html { scroll-behavior: smooth; }
                     <button class="detail-btn" onclick="toggleDetail('intro-view')">看立場分析</button>
                     <button class="detail-btn secondary" onclick="toggleDetail('intro-law')">看法律衝突</button>
                     <button class="detail-btn secondary" onclick="toggleDetail('intro-future')">看未來發展</button>
+                    <button class="detail-btn secondary" onclick="toggleDetail('intro-law-interview')">看法律訪談補充</button>
                 </div>
 
                 <div id="intro-view" class="detail-panel" style="display:none; background:#f9f9f9; padding: 15px; margin-top: 15px; border-radius: 4px; border-top: 2px solid #666;">
@@ -2316,6 +2951,13 @@ html { scroll-behavior: smooth; }
                         <li><strong>在地參與：</strong>將獸徑、季節、祭儀禁忌等部落知識納入管理依據。</li>
                         <li><strong>自治機制：</strong>建立部落層級的狩獵自治，達成生態與文化的平衡。</li>
                     </ul>
+                </div>
+
+                <div id="intro-law-interview" class="detail-panel">
+                    <h4>田野訪談補充：法律灰色地帶與白話化需求</h4>
+                    <div class="qa-mini"><strong>Q：現行法律的困難在哪裡？</strong><br>教授提到，原住民自製獵槍仍需經過申請與審查。王光祿案在蔡英文任內獲得特赦，代表當時法律體系中仍難以直接找到讓其無罪的理由，凸顯法律與文化實踐之間的落差。</div>
+                    <div class="qa-mini"><strong>Q：用個案帶法條，適合給完全不懂法律的族人閱讀嗎？</strong><br>教授提供的資訊支持用白話、案例式呈現法律。比起直接貼法條，透過獵槍、保育類、陷阱、跨區等案例分類，更容易讓族人理解法律底線。</div>
+                    <p class="field-source">資料來源：教授訪談紀錄，2026。</p>
                 </div>
             </div>
         </div>
@@ -2753,6 +3395,7 @@ html { scroll-behavior: smooth; }
         <button class="detail-btn" onclick="toggleDetail('gun-view')">看立場分析</button>
         <button class="detail-btn secondary" onclick="toggleDetail('gun-law')">看法律條文</button>
         <button class="detail-btn secondary" onclick="toggleDetail('gun-future')">看未來發展</button>
+        <button class="detail-btn secondary" onclick="toggleDetail('gun-admin-interview')">看獵槍管理訪談補充</button>
     </div>
 
     <div id="gun-view" class="detail-panel">
@@ -2789,6 +3432,14 @@ html { scroll-behavior: smooth; }
         </ul>
         <p style="color:#b33;">※核心問題：並非單純違法，而是「制度未能提供可行的合法路徑」。</p>
         <p>資料來源：<a href="https://udn.com/news/story/7321/9063362" target="_blank">聯合報：台中排灣族獵槍案報導</a></p>
+    </div>
+
+    <div id="gun-admin-interview" class="detail-panel">
+        <h4>田野訪談補充：獵槍管理與講習考試</h4>
+        <div class="qa-mini"><strong>Q：獵槍目前由誰管理？</strong><br>教授補充，獵槍由警政署核發，警察主要管安全問題，管理非常嚴格。</div>
+        <div class="qa-mini"><strong>Q：取得或管理獵槍需要哪些程序？</strong><br>需要參加講習與考試，考試需達 70 分以上；題目共 50 題、每題 2 分。通過考試的人數有限，與擁有獵人證的人數並不相同。</div>
+        <div class="qa-mini"><strong>Q：安全管理有哪些要求？</strong><br>槍彈需分開保存，並須設置監視器；使用後彈殼也需要繳回。這些規範顯示，現代獵人不只面對文化審查，也面對高度安全行政管理。</div>
+        <p class="field-source">資料來源：教授訪談紀錄，2026。</p>
     </div>
 
     <div id="gun-future" class="detail-panel">
