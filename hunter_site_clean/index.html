@@ -1680,6 +1680,547 @@ table th,
     pointer-events: auto;
 }
 
+
+
+/* ===== 參考資料頁面：超鏈結卡片樣式 ===== */
+.reference-intro {
+    background: #f8f4ee;
+    border-left: 6px solid var(--tsou-red);
+    padding: 18px 22px;
+    margin: 18px 0 28px;
+    border-radius: 10px;
+    color: #4a3a33;
+    line-height: 1.8;
+}
+
+.reference-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.reference-link-card {
+    display: block;
+    text-decoration: none;
+    color: #3f2b24;
+    background: #fffdfb;
+    border: 1px solid #e7ddd6;
+    border-radius: 12px;
+    padding: 20px 22px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    transition: 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.reference-link-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 8px;
+    background: repeating-linear-gradient(90deg,
+        var(--pattern-red) 0 18px,
+        var(--pattern-gold) 18px 26px,
+        var(--pattern-brown) 26px 42px,
+        var(--pattern-gold) 42px 50px
+    );
+}
+
+.reference-link-card strong {
+    display: block;
+    color: var(--wood-dark);
+    font-size: 1.05rem;
+    margin: 8px 0 8px;
+}
+
+.reference-link-card span {
+    color: var(--tsou-red);
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+.reference-link-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+    border-color: rgba(158,27,27,0.35);
+}
+
+@media (max-width: 700px) {
+    .reference-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ===== 參考資料頁面：外部超鏈結按鈕修正版 ===== */
+.reference-link-card {
+    display: flex !important;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.reference-title-link {
+    color: var(--wood-dark);
+    font-weight: 800;
+    font-size: 1.05rem;
+    text-decoration: none;
+    line-height: 1.6;
+}
+
+.reference-title-link:hover {
+    color: var(--tsou-red);
+    text-decoration: underline;
+}
+
+.reference-open-btn {
+    display: inline-block;
+    width: fit-content;
+    text-decoration: none;
+    background: var(--tsou-red);
+    color: #ffffff !important;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(158, 27, 27, 0.20);
+    transition: 0.25s ease;
+}
+
+.reference-open-btn:hover {
+    background: var(--wood-dark);
+    transform: translateY(-2px);
+}
+
+
+
+/* ===== 參考資料頁：最穩定的純超鏈結版 ===== */
+#references .clean-reference-intro {
+    background: #f8f4ee !important;
+    border-left: 6px solid var(--tsou-red) !important;
+    padding: 18px 22px !important;
+    margin: 18px 0 28px !important;
+    border-radius: 10px !important;
+    color: #4a3a33 !important;
+    line-height: 1.8 !important;
+}
+
+#references .reference-name-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 24px 0 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+}
+
+#references .reference-item {
+    background: #fffdfb !important;
+    border: 1px solid #e7ddd6 !important;
+    border-radius: 12px !important;
+    padding: 18px 20px !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05) !important;
+    position: relative !important;
+    overflow: visible !important;
+}
+
+#references .reference-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 7px;
+    background: repeating-linear-gradient(90deg,
+        var(--pattern-red) 0 18px,
+        var(--pattern-gold) 18px 26px,
+        var(--pattern-brown) 26px 42px,
+        var(--pattern-gold) 42px 50px
+    );
+    pointer-events: none !important;
+}
+
+#references a.reference-name-link,
+#references a.reference-name-link:visited {
+    display: inline-block !important;
+    margin-top: 8px !important;
+    position: relative !important;
+    z-index: 999 !important;
+    pointer-events: auto !important;
+    color: var(--tsou-red) !important;
+    font-weight: 800 !important;
+    font-size: 1.05rem !important;
+    line-height: 1.8 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 5px !important;
+    cursor: pointer !important;
+}
+
+#references a.reference-name-link:hover {
+    color: var(--wood-dark) !important;
+    background: rgba(158, 27, 27, 0.06) !important;
+}
+
+@media (max-width: 700px) {
+    #references .reference-name-list {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+
+
+
+#references .reference-subtitle {
+    color: var(--wood-dark) !important;
+    margin: 34px 0 12px !important;
+    padding-left: 14px !important;
+    border-left: 6px solid var(--tsou-red) !important;
+    font-size: 1.35rem !important;
+}
+
+#references .reference-link-group {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+}
+
+#references .reference-item {
+    cursor: default !important;
+}
+
+#references a.reference-name-link {
+    pointer-events: auto !important;
+}
+
+/* ===== 修正：選單不固定，避免遮擋頁面最上方文字 ===== */
+nav {
+    position: static !important;
+    width: 100% !important;
+    top: auto !important;
+    left: auto !important;
+}
+
+.page {
+    padding-top: 0 !important;
+}
+
+/* 切換頁面時，內容會自然排在選單下方，不再被固定選單蓋住 */
+html {
+    scroll-padding-top: 0 !important;
+}
+
+
+
+/* ===== 使用者導覽卡 ===== */
+.category-card.guide-card {
+    text-align: left;
+    cursor: pointer;
+}
+
+.category-card.guide-card h3 {
+    margin-bottom: 14px;
+    font-size: 1.22rem;
+}
+
+.category-card.guide-card .guide-block {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(78, 52, 46, 0.16);
+}
+
+.category-card.guide-card .guide-label {
+    display: inline-block;
+    margin-bottom: 6px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: #4E342E;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.category-card.guide-card p {
+    color: #4a3328;
+    font-size: 0.94rem;
+    line-height: 1.75;
+    margin: 0;
+}
+
+
+@media (max-width: 700px) {
+    .category-card.guide-card p {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+/* ===== 左下角：獵人文化導覽員 ===== */
+.guide-assistant-float {
+    position: fixed;
+    left: 18px;
+    bottom: 18px;
+    z-index: 3000;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid rgba(158, 27, 27, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 253, 248, 0.96);
+    color: var(--wood-dark);
+    padding: 10px 16px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+    cursor: pointer;
+    transition: 0.25s ease;
+    backdrop-filter: blur(4px);
+    font-family: inherit;
+}
+
+.guide-assistant-float:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.2);
+}
+
+.guide-assistant-float .guide-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background:
+        repeating-linear-gradient(135deg,
+            var(--pattern-red) 0 8px,
+            var(--pattern-gold) 8px 14px,
+            var(--pattern-brown) 14px 24px
+        );
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.guide-assistant-float .guide-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+    text-align: left;
+}
+
+.guide-assistant-float .guide-title {
+    font-weight: 800;
+    font-size: 0.96rem;
+}
+
+.guide-assistant-float .guide-subtitle {
+    color: #8b5e54;
+    font-size: 0.78rem;
+}
+
+.guide-chat-panel {
+    position: fixed;
+    left: 18px;
+    bottom: 88px;
+    width: min(380px, calc(100vw - 36px));
+    max-height: min(620px, calc(100vh - 120px));
+    z-index: 3100;
+    display: none;
+    flex-direction: column;
+    background: #fffdfb;
+    border: 1px solid rgba(78,52,46,0.18);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 42px rgba(0,0,0,0.22);
+}
+
+.guide-chat-panel.active {
+    display: flex;
+}
+
+.guide-chat-header {
+    background:
+        linear-gradient(rgba(27,48,34,0.95), rgba(27,48,34,0.95)),
+        repeating-linear-gradient(90deg,
+            transparent 0 16px,
+            rgba(201,164,92,0.28) 16px 22px,
+            transparent 22px 34px,
+            rgba(158,27,27,0.25) 34px 40px
+        );
+    color: white;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.guide-chat-header strong {
+    display: block;
+    font-size: 1rem;
+}
+
+.guide-chat-header span {
+    display: block;
+    font-size: 0.8rem;
+    opacity: 0.86;
+    margin-top: 2px;
+}
+
+.guide-chat-close {
+    border: none;
+    background: rgba(255,255,255,0.16);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.guide-chat-body {
+    padding: 14px;
+    overflow-y: auto;
+    background:
+        linear-gradient(135deg, rgba(158,27,27,0.035) 25%, transparent 25%) 0 0 / 30px 30px,
+        #fdfaf5;
+}
+
+.guide-message {
+    max-width: 92%;
+    margin: 8px 0;
+    padding: 10px 12px;
+    border-radius: 14px;
+    line-height: 1.65;
+    font-size: 0.92rem;
+}
+
+.guide-message.bot {
+    background: white;
+    border: 1px solid #eadfd6;
+    color: #3f2b24;
+    border-top-left-radius: 4px;
+}
+
+.guide-message.user {
+    margin-left: auto;
+    background: var(--forest-mid);
+    color: white;
+    border-top-right-radius: 4px;
+}
+
+.guide-quick-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 10px 0 4px;
+}
+
+.guide-quick-btn,
+.guide-page-btn {
+    border: 1px solid rgba(201,164,92,0.65);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--wood-dark);
+    padding: 7px 10px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: inherit;
+}
+
+.guide-quick-btn:hover,
+.guide-page-btn:hover {
+    background: var(--wood-dark);
+    color: white;
+}
+
+.guide-chat-input-row {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid #eadfd6;
+    background: white;
+}
+
+.guide-chat-input-row input {
+    flex: 1;
+    border: 1px solid #d7c7b8;
+    border-radius: 999px;
+    padding: 10px 12px;
+    font-family: inherit;
+    outline: none;
+}
+
+.guide-chat-input-row input:focus {
+    border-color: var(--tsou-red);
+    box-shadow: 0 0 0 3px rgba(158,27,27,0.08);
+}
+
+.guide-chat-input-row button {
+    border: none;
+    border-radius: 999px;
+    background: var(--tsou-red);
+    color: white;
+    padding: 10px 14px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.guide-answer-actions {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.guide-note {
+    font-size: 0.78rem;
+    color: #7a6258;
+    padding: 8px 12px 12px;
+    background: white;
+    border-top: 1px solid #f0e7df;
+}
+
+@media (max-width: 700px) {
+    .guide-assistant-float {
+        left: 10px;
+        bottom: 12px;
+        padding: 8px 11px;
+        gap: 7px;
+    }
+
+    .guide-assistant-float .guide-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+
+    .guide-assistant-float .guide-title {
+        font-size: 0.86rem;
+    }
+
+    .guide-assistant-float .guide-subtitle {
+        display: none;
+    }
+
+    .guide-chat-panel {
+        left: 10px;
+        bottom: 68px;
+        width: calc(100vw - 20px);
+        max-height: calc(100vh - 90px);
+    }
+}
+
+
+/* 導覽員跳轉到小主題時，避免內容貼齊視窗上緣 */
+#animalsPanel, #plantsPanel, #ritual-mayasvi-anchor, #wang-case, #snare-case {
+    scroll-margin-top: 24px;
+}
+
 </style>
 </head>
 <body>
@@ -1693,6 +2234,7 @@ table th,
             <li><a onclick="showPage('ritual')">4. 祭典與儀式</a></li>
             <li><a onclick="showPage('ethics')">5. 倫理與身分</a></li>
             <li><a onclick="showPage('issues')">6. 議題事件與未來發展</a></li>
+            <li><a onclick="showPage('references')">參考資料</a></li>
         </ul>
     </nav>
 
@@ -1738,21 +2280,49 @@ F3wt6wjTIzFwZLjljM3D8MEFsKRgxDiMnHVzXoRwxTptjCfK58v3zcc3/GIQTcwYd8ANX1zMXHMoGA95
                 </div>
             </div>
             <div class="category-grid">
-                <div class="category-card" onclick="showPage('tech')">
+                <div class="category-card guide-card" onclick="showPage('tech')">
                     <h3>技術與經驗</h3>
-                    <p>精密機關製作與獵場動植物變化的洞察</p>
+                    <div class="guide-block">
+                        <span class="guide-label">你可以在這裡了解</span>
+                        <p>獵人如何透過足跡、風向、植物、地形與動物行為判斷山林狀況，理解狩獵並不是單純使用工具，而是一套長期累積的環境知識。</p>
+                    </div>
+                    <div class="guide-block">
+                        <span class="guide-label">需要的東西可以在這裡找到</span>
+                        <p>陷阱知識、獵具觀念、足跡判斷、動物習性、山林環境觀察，以及準備學習狩獵前需要先理解的基本判斷。</p>
+                    </div>
                 </div>
-                <div class="category-card" onclick="showPage('share')">
+                <div class="category-card guide-card" onclick="showPage('share')">
                     <h3>分享與祭典</h3>
-                    <p>神聖的社會行動與全族共享的部落連結</p>
+                    <div class="guide-block">
+                        <span class="guide-label">你可以在這裡了解</span>
+                        <p>獵物取得後如何分配，以及祭典儀式如何連結獵人、祖靈、土地、家族與部落共享關係。</p>
+                    </div>
+                    <div class="guide-block">
+                        <span class="guide-label">需要的東西可以在這裡找到</span>
+                        <p>獵物分配規範、共享倫理、nu-no-hupa、祭典流程、mayasvi、homeyaya，以及祭儀背後的文化意義。</p>
+                    </div>
                 </div>
-                <div class="category-card" onclick="showPage('ethics')">
+                <div class="category-card guide-card" onclick="showPage('ethics')">
                     <h3>身分與社會</h3>
-                    <p>EINU 規範定義的獵人倫理高度與社會地位</p>
+                    <div class="guide-block">
+                        <span class="guide-label">你可以在這裡了解</span>
+                        <p>獵人身分如何和責任、經驗、節制、分享、部落認同與 EINU 倫理規範連結。</p>
+                    </div>
+                    <div class="guide-block">
+                        <span class="guide-label">需要的東西可以在這裡找到</span>
+                        <p>獵人資格、倫理規範、禁忌觀念、社會角色、獵人心態，以及從文化角度重新理解「獵人」身分的內容。</p>
+                    </div>
                 </div>
-                <div class="category-card" onclick="showPage('issues')">
+                <div class="category-card guide-card" onclick="showPage('issues')">
                     <h3>議題事件與未來發展</h3>
-                    <p>法律衝突、社會爭議、媒體事件與未來制度方向</p>
+                    <div class="guide-block">
+                        <span class="guide-label">你可以在這裡了解</span>
+                        <p>當代原民狩獵面臨的法律、保育、獵具、媒體報導與社會觀感等不同面向。</p>
+                    </div>
+                    <div class="guide-block">
+                        <span class="guide-label">需要的東西可以在這裡找到</span>
+                        <p>王光祿案、獵熊事件、山豬吊與捕獸鋏、丹大林場爭議、合法獵人制度與新聞影音延伸資料。</p>
+                    </div>
                 </div>
             </div>
             <div class="feedback-home-card">
@@ -2987,7 +3557,7 @@ F3wt6wjTIzFwZLjljM3D8MEFsKRgxDiMnHVzXoRwxTptjCfK58v3zcc3/GIQTcwYd8ANX1zMXHMoGA95
     </div>
 </div>
 
-            <div class="issue-card">
+            <div id="ritual-mayasvi-anchor" class="issue-card">
     <h3>戰祭（Mayasvi）今天看到的，不一定是全部</h3>
 
     <div class="issue-summary">
@@ -4111,6 +4681,154 @@ F3wt6wjTIzFwZLjljM3D8MEFsKRgxDiMnHVzXoRwxTptjCfK58v3zcc3/GIQTcwYd8ANX1zMXHMoGA95
         </div>
     </div>
 
+
+
+    </div>
+
+        <div id="references" class="page">
+        <div class="article-container">
+            <h2>參考資料</h2>
+            <div class="reference-intro clean-reference-intro">
+                <p>以下資料為本網站製作過程中參考的資料來源。若想更深入理解網站內容，可以直接點擊資料名稱，前往原始文獻、新聞報導或影音資料詳讀。</p>
+            </div>
+
+            <h3 class="reference-subtitle">網站整體參考資料</h3>
+            <ul class="reference-name-list">
+                <li class="reference-item">
+                    <a class="reference-name-link" href="https://www.tbc.cip.gov.tw/Upload/Profile/9a53493d-779a-4e58-bf89-d566c4ec9f75.pdf" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">原住民族文化研究 PDF</a>
+                </li>
+                <li class="reference-item">
+                    <a class="reference-name-link" href="http://www.couhunters.com.tw/upload/knowledgeData/20221107093851N9bD.pdf" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">鄒族獵人協會研究資料</a>
+                </li>
+                <li class="reference-item">
+                    <a class="reference-name-link" href="https://coch.boch.gov.tw/BochAcademyWebSite/upload/achievement/6C56C707-4DA5-4BF2-8A52-5A23934C6A19/50/7ba30998-5176-4860-ad83-5a67f4f4e08d.pdf" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">文化資產研究文獻</a>
+                </li>
+                <li class="reference-item">
+                    <a class="reference-name-link" href="https://library.yabit.org.tw/files/%E9%84%92%E6%97%8F%E7%9A%84Mayasvi%EF%BC%88%E6%88%B0%E7%A5%AD%EF%BC%89%E5%92%8CHomeyaya%EF%BC%88%E5%B0%8F%E7%B1%B3%E6%94%B6%E7%A9%AB%E7%A5%AD%29.pdf" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">鄒族 Mayasvi 與 Homeyaya 祭儀研究</a>
+                </li>
+                <li class="reference-item">
+                    <a class="reference-name-link" href="https://ihc.cip.gov.tw/EJournal/EJournalCat/631" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">原住民族文獻資料庫</a>
+                </li>
+                <li class="reference-item">
+                    <a class="reference-name-link" href="https://smiletaiwan.cw.com.tw/article/4317" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">微笑台灣專題報導</a>
+                </li>
+                <li class="reference-item">
+                    <a class="reference-name-link" href="https://zine.yiri.com.tw/%E5%93%81%E7%89%8C%E4%BC%81%E5%8A%83/%E8%8A%B1%E8%BF%B7%E5%B0%8F%E7%99%BE%E7%A7%91/%E3%80%90%E8%8A%B1%E8%BF%B7%E5%B0%8F%E7%99%BE%E7%A7%91%E3%80%91%E5%96%84%E8%AE%8A%E7%9A%84%E5%8D%83%E9%9D%A2%E7%BE%8E%E4%BA%BA-%E5%B1%B1%E8%8A%99%E8%93%89/" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">山芙蓉植物介紹</a>
+                </li>
+                <li class="reference-item">
+                    <a class="reference-name-link" href="https://theme.forest.gov.tw/forestplant/info/000021" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">臺灣森林植物資料庫</a>
+                </li>
+                <li class="reference-item">
+                    <a class="reference-name-link" href="http://www.couhunters.com.tw/knowledge.html" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">鄒族獵人協會知識專區</a>
+                </li>
+            </ul>
+
+            <h3 class="reference-subtitle">6. 議題事件與未來發展參考資料</h3>
+            <ul class="reference-name-list">
+                <li class="reference-item">
+                    <div class="reference-link-group">
+                        <a class="reference-name-link" href="https://news.pts.org.tw/article/685391" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">王光祿案纏訟11年終判無罪，最高院檢維護原住民狩獵文化的關鍵是什麼？</a>
+                    </div>
+                </li>
+                <li class="reference-item">
+                    <div class="reference-link-group">
+                        <a class="reference-name-link" href="https://www.laf.org.tw/edu-detail/112" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">原住民獵人的漫漫回家路——談王光祿狩獵案／羅惠馨律師</a>
+                    </div>
+                </li>
+                <li class="reference-item">
+                    <div class="reference-link-group">
+                        <a class="reference-name-link" href="https://www.twreporter.org/a/ursus-thibetanus-after-a-bear-shot-dead-in-dawu-village" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">從英雄到罪人——屏東霧台獵熊案下，蒙上陰影的魯凱族至高榮耀</a><a class="reference-name-link" href="https://www.judicial.gov.tw/tw/cp-1888-1448655-afe34-1.html" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">司法院相關資料</a>
+                    </div>
+                </li>
+                <li class="reference-item">
+                    <div class="reference-link-group">
+                        <a class="reference-name-link" href="https://www.spca.org.tw/post/bangintrapsbansnares" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">要求行政院儘速完善條文修正，推動立法全面禁止捕獸鋏與山豬吊</a><a class="reference-name-link" href="https://law.moa.gov.tw/LawContent.aspx?id=GL001105&utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">農業部法規資料</a><a class="reference-name-link" href="https://www.endsnares.org/post/taiwan-modified-traps-falsely-claimed-humane-still-harm-wildlife-under-government-promotion" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">End Snares Taiwan 相關資料</a>
+                    </div>
+                </li>
+                <li class="reference-item">
+                    <div class="reference-link-group">
+                        <a class="reference-name-link" href="https://www.lca.org.tw/article/24" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">丹大林場開放狩獵之事件始末與倫理爭議</a>
+                    </div>
+                </li>
+                <li class="reference-item">
+                    <div class="reference-link-group">
+                        <a class="reference-name-link" href="https://udn.com/news/amp/story/7321/9063362" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">平地原住民要打山豬……路邊試射獵槍，連二審都判無罪</a>
+                    </div>
+                </li>
+                <li class="reference-item">
+                    <div class="reference-link-group">
+                        <a class="reference-name-link" href="https://unews.nccu.edu.tw/unews/%E5%9B%9E%E6%AD%B8%E5%B1%B1%E6%9E%97%E7%9A%84%E8%8D%8A%E6%A3%98%E4%B9%8B%E8%B7%AF-%E6%B3%95%E8%A6%8F%E6%9E%B7%E9%8E%96%E4%B8%AD%E7%9A%84%E5%8E%9F%E6%B0%91%E7%8B%A9%E7%8D%B5%E6%96%87" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">回歸山林的荊棘之路——法規枷鎖中的原民狩獵文化</a>
+                    </div>
+                </li>
+                <li class="reference-item">
+                    <div class="reference-link-group">
+                        <a class="reference-name-link" href="https://www.youtube.com/watch?v=6njp6B_A-7w" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">台灣合法獵人逾3千人，狩獵有規範｜民生八方事</a>
+                    </div>
+                </li>
+                <li class="reference-item">
+                    <div class="reference-link-group">
+                        <a class="reference-name-link" href="https://www.youtube.com/watch?v=Xa70uNx6GZw" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">原民狩獵惹誤解？真兇竟是外來客！</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!-- 左下角：獵人文化導覽員 -->
+    <button class="guide-assistant-float" type="button" onclick="toggleGuideAssistant()" aria-label="開啟獵人文化導覽員">
+        <span class="guide-icon">問</span>
+        <span class="guide-text">
+            <span class="guide-title">獵人文化導覽員</span>
+            <span class="guide-subtitle">不知道從哪看？問我</span>
+        </span>
+    </button>
+
+    <div id="guideChatPanel" class="guide-chat-panel" aria-live="polite">
+        <div class="guide-chat-header">
+            <div>
+                <strong>獵人文化導覽員</strong>
+                <span>根據本網站內容，幫你找方向</span>
+            </div>
+            <button class="guide-chat-close" type="button" onclick="toggleGuideAssistant(false)" aria-label="關閉導覽員">×</button>
+        </div>
+        <div id="guideChatBody" class="guide-chat-body">
+            <div class="guide-message bot">
+                你好，我可以幫你快速理解這個網站。你可以先從下面四個問題開始，也可以往下點選常見 Q&A 或小主題推薦。
+                <div class="guide-quick-section">先從這裡開始</div>
+                <div class="guide-quick-list">
+                    <button class="guide-quick-btn" type="button" onclick="askGuideQuick('這個網站主要在介紹什麼？')">網站介紹什麼？</button>
+                    <button class="guide-quick-btn" type="button" onclick="askGuideQuick('第一次看應該從哪裡開始？')">第一次看從哪裡看？</button>
+                    <button class="guide-quick-btn" type="button" onclick="askGuideQuick('這個網站有什麼推薦的內容？')">有什麼推薦的？</button>
+                    <button class="guide-quick-btn" type="button" onclick="askGuideQuick('獵人是不是等於濫捕？')">獵人是不是濫捕？</button>
+                </div>
+                <div class="guide-quick-section">常見 Q&A</div>
+                <div class="guide-quick-list">
+                    <button class="guide-quick-btn" type="button" onclick="askGuideQuick('王光祿案是什麼？')">王光祿案是什麼？</button>
+                    <button class="guide-quick-btn" type="button" onclick="askGuideQuick('原住民狩獵為什麼會有法律爭議？')">為什麼有法律爭議？</button>
+                    <button class="guide-quick-btn" type="button" onclick="askGuideQuick('山豬吊和捕獸鋏爭議是什麼？')">山豬吊爭議是什麼？</button>
+                    <button class="guide-quick-btn" type="button" onclick="askGuideQuick('獵物為什麼需要分配？')">獵物為什麼要分配？</button>
+                    <button class="guide-quick-btn" type="button" onclick="askGuideQuick('獵場與獵地有什麼重要性？')">獵場為什麼重要？</button>
+                    <button class="guide-quick-btn" type="button" onclick="askGuideQuick('參考資料在哪裡？')">參考資料在哪裡？</button>
+                </div>
+                <div class="guide-quick-section">小主題推薦</div>
+                <div class="guide-quick-list">
+                    <button class="guide-quick-btn" type="button" onclick="guideJumpAndSay('tech', 'animalsPanel', 'animals', null, '已幫你跳到「動物介紹」。這裡整理動物習性、文化意義與獵人如何透過動物痕跡判斷山林。')">動物介紹</button>
+                    <button class="guide-quick-btn" type="button" onclick="guideJumpAndSay('ritual', 'ritual-mayasvi-anchor', null, null, '已幫你跳到「戰祭（Mayasvi）」介紹。這裡重點不是只看祭典流程，而是理解戰祭和部落秩序、男子會所與集體行動的關係。')">戰祭介紹</button>
+                    <button class="guide-quick-btn" type="button" onclick="guideJumpAndSay('tech', 'plantsPanel', 'plants', null, '已幫你跳到「植物與山林知識」。這裡可以看植物如何成為判斷季節、地形、濕度與動物活動的線索。')">植物與山林知識</button>
+                    <button class="guide-quick-btn" type="button" onclick="guideJumpAndSay('ethics', null, null, null, '已幫你跳到「倫理與身分」。這裡適合理解獵人不只是會狩獵的人，也是一種責任、節制、分享與部落認同。')">獵人身分與責任</button>
+                    <button class="guide-quick-btn" type="button" onclick="guideJumpAndSay('issues', null, null, null, '已幫你跳到「議題事件與未來發展」。這裡整理現代原民狩獵與法律、保育、社會觀感之間的不同面向。')">現代議題事件</button>
+                </div>
+            </div>
+        </div>
+        <div class="guide-chat-input-row">
+            <input id="guideChatInput" type="text" placeholder="輸入你想問的問題……" onkeydown="handleGuideEnter(event)">
+            <button type="button" onclick="submitGuideQuestion()">送出</button>
+        </div>
+        <div class="guide-note">提示：這是網站導覽型小助手，回答會依本網站主題整理，不取代正式文獻或專家說明。</div>
+    </div>
+
     <div id="photoModal" class="modal">
         <div class="modal-content" style="max-width: 900px;">
             <span class="close-btn" onclick="closePhotoModal()">&times;</span>
@@ -4135,7 +4853,9 @@ F3wt6wjTIzFwZLjljM3D8MEFsKRgxDiMnHVzXoRwxTptjCfK58v3zcc3/GIQTcwYd8ANX1zMXHMoGA95
     <script>
         function showPage(pId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pId).classList.add('active');
+            const targetPage = document.getElementById(pId);
+            if (!targetPage) return;
+            targetPage.classList.add('active');
             if (pId === 'tech') {
                 showTechSection('menu');
             }
@@ -4664,6 +5384,260 @@ function toggleDetail(panelId) {
         });
     }
 </script>
+
+
+<script>
+// 參考資料頁外部超鏈結：點擊資料名稱後直接開新分頁，避免被其他互動事件攔截
+window.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('#references a.reference-name-link[href^="http"]').forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            window.open(link.href, '_blank', 'noopener,noreferrer');
+        }, true);
+    });
+});
+</script>
+
+
+
+
+<script>
+/* ===== 獵人文化導覽員：關鍵字式網站導覽，不需外部 API，可放 GitHub Pages ===== */
+function toggleGuideAssistant(forceOpen) {
+    const panel = document.getElementById('guideChatPanel');
+    if (!panel) return;
+    const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !panel.classList.contains('active');
+    panel.classList.toggle('active', shouldOpen);
+    if (shouldOpen) {
+        setTimeout(function () {
+            const input = document.getElementById('guideChatInput');
+            if (input) input.focus();
+        }, 80);
+    }
+}
+
+function guideGoPage(pageId) {
+    guideGoTarget({ id: pageId });
+}
+
+function guideGoTarget(page) {
+    if (!page || !page.id || typeof showPage !== 'function') return;
+    showPage(page.id);
+    if (page.section && typeof showTechSection === 'function') {
+        setTimeout(function () { showTechSection(page.section); }, 80);
+    }
+    if (page.detail) {
+        setTimeout(function () {
+            const detailPanel = document.getElementById(page.detail);
+            if (detailPanel) detailPanel.classList.add('active');
+        }, 120);
+    }
+    setTimeout(function () {
+        const target = page.target ? document.getElementById(page.target) : null;
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }, 180);
+    toggleGuideAssistant(false);
+}
+
+function guideJumpAndSay(pageId, targetId, section, detail, message) {
+    appendGuideMessage(message, 'bot');
+    guideGoTarget({ id: pageId, target: targetId, section: section, detail: detail });
+}
+
+function askGuideQuick(question) {
+    const input = document.getElementById('guideChatInput');
+    if (input) input.value = question;
+    submitGuideQuestion();
+}
+
+function handleGuideEnter(event) {
+    if (event.key === 'Enter') submitGuideQuestion();
+}
+
+function submitGuideQuestion() {
+    const input = document.getElementById('guideChatInput');
+    if (!input) return;
+    const question = input.value.trim();
+    if (!question) return;
+    appendGuideMessage(question, 'user');
+    input.value = '';
+    const answer = getGuideAnswer(question);
+    setTimeout(function () {
+        appendGuideMessage(answer.html, 'bot', answer.pages);
+    }, 180);
+}
+
+function appendGuideMessage(content, sender, pages) {
+    const body = document.getElementById('guideChatBody');
+    if (!body) return;
+    const message = document.createElement('div');
+    message.className = 'guide-message ' + sender;
+    message.innerHTML = content;
+
+    if (sender === 'bot' && pages && pages.length) {
+        const actions = document.createElement('div');
+        actions.className = 'guide-answer-actions';
+        pages.forEach(function (page) {
+            const btn = document.createElement('button');
+            btn.className = 'guide-page-btn';
+            btn.type = 'button';
+            btn.textContent = page.label;
+            btn.onclick = function () { guideGoTarget(page); };
+            actions.appendChild(btn);
+        });
+        message.appendChild(actions);
+    }
+
+    body.appendChild(message);
+    body.scrollTop = body.scrollHeight;
+}
+
+function getGuideAnswer(rawQuestion) {
+    const q = rawQuestion.toLowerCase();
+    const has = function () {
+        return Array.from(arguments).some(function (keyword) {
+            return q.indexOf(keyword.toLowerCase()) !== -1;
+        });
+    };
+
+    if (has('網站', '介紹什麼', '主旨', '目的', '做什麼')) {
+        return {
+            html: '這個網站主要在介紹鄒族獵人文化，不只看「狩獵」這個行為，而是從技術、分配、獵場、祭儀、身分倫理，到現代法律與社會議題，幫助讀者理解獵人文化背後的知識、責任與關係。',
+            pages: [{ id: 'home', label: '回到首頁' }, { id: 'ethics', label: '看倫理與身分' }]
+        };
+    }
+
+    if (has('從哪', '第一次', '新手', '順序', '怎麼看')) {
+        return {
+            html: '第一次閱讀可以先看首頁四張導覽小卡。想理解山林判斷，從「技術與工具」開始；想理解文化規範，接著看「分配與共享」和「獵場與獵地」；想理解信仰與身分，可以看「祭典與儀式」與「倫理與身分」；想理解現代爭議，再看第六頁。',
+            pages: [{ id: 'home', label: '看首頁導覽' }, { id: 'tech', label: '看技術與工具' }, { id: 'issues', label: '看議題事件' }]
+        };
+    }
+
+    if (has('推薦', '有什麼推薦', '推薦的內容', '四個首頁小卡', '首頁小卡')) {
+        return {
+            html: '可以依照你想了解的方向選擇：想看獵人如何判斷山林，推薦「技術與工具」；想看獵物取得後如何形成部落關係，推薦「分配與共享」；想看祭儀、祖靈與感謝，推薦「祭典與儀式」；想看獵人為什麼是一種責任與身分，推薦「倫理與身分」。',
+            pages: [{ id: 'tech', label: '技術與工具' }, { id: 'share', label: '分配與共享' }, { id: 'ritual', label: '祭典與儀式' }, { id: 'ethics', label: '倫理與身分' }]
+        };
+    }
+
+    if (has('動物介紹', '動物', '獵物', '山羌', '山豬', '飛鼠', '鳥')) {
+        return {
+            html: '如果你想看動物介紹，可以先到「技術與工具」頁。那裡會把動物、足跡、活動路徑、植物與山林判斷放在一起看，重點不是把動物當成獵物清單，而是理解獵人如何透過環境線索辨認山林狀態。',
+            pages: [{ id: 'tech', label: '跳到動物介紹', section: 'animals', target: 'animalsPanel' }]
+        };
+    }
+
+    if (has('戰祭', 'mayasvi', '祭典', '儀式', '祭儀', 'homeyaya', '祖靈')) {
+        return {
+            html: '如果你想看戰祭介紹，可以前往「祭典與儀式」頁。這一頁會幫助你理解祭儀如何連結獵人、部落、祖靈與土地，也能看見狩獵不只是取得獵物，而包含感謝、回應與文化秩序。',
+            pages: [{ id: 'ritual', label: '跳到戰祭介紹', target: 'ritual-mayasvi-anchor' }]
+        };
+    }
+
+    if (has('植物', '山林知識', '山芙蓉', '五節芒', '風向', '足跡', '地形')) {
+        return {
+            html: '植物與山林知識比較適合從「技術與工具」頁開始看。這些內容可以幫你理解獵人如何透過植物、風向、地形、足跡與動物行為進行判斷，呈現的是長期經驗累積出的環境知識。',
+            pages: [{ id: 'tech', label: '跳到植物與山林知識', section: 'plants', target: 'plantsPanel' }]
+        };
+    }
+
+    if (has('技術', '工具', '陷阱', '判斷')) {
+        return {
+            html: '「技術與工具」頁整理的是獵人如何透過環境線索理解山林，例如足跡、植物、地形、風向與動物行為。這一頁的重點不是教人操作，而是讓讀者理解狩獵知識來自長期觀察與經驗累積。',
+            pages: [{ id: 'tech', label: '前往技術與工具' }]
+        };
+    }
+
+    if (has('分配', '分享', '共享', '分肉', '為什麼要分配')) {
+        return {
+            html: '「分配與共享」頁可以幫你理解：獵物取得後並不只是個人所有，還涉及家族、部落、獵場主人與共享倫理。分享本身也是維繫社會關係的一部分。',
+            pages: [{ id: 'share', label: '前往分配與共享' }]
+        };
+    }
+
+    if (has('獵場', '獵地', '土地', '禁忌', 'taboo', '為什麼重要')) {
+        return {
+            html: '「獵場與獵地」頁整理的是獵場不只是地理空間，也和家族記憶、土地關係、禁忌與責任有關。它能幫助讀者理解為什麼狩獵不是單純進入山林取得獵物。',
+            pages: [{ id: 'taboo', label: '前往獵場與獵地' }]
+        };
+    }
+
+    if (has('身分', '倫理', '責任', '獵人是什麼', '文化承擔')) {
+        return {
+            html: '「倫理與身分」頁說明獵人不只是會狩獵的人，也是一種與責任、節制、分享、經驗和部落認同有關的社會角色。這一頁很適合用來理解網站去污名化的核心。',
+            pages: [{ id: 'ethics', label: '前往倫理與身分' }]
+        };
+    }
+
+    if (has('濫捕', '破壞生態', '誤解', '污名', '殘忍')) {
+        return {
+            html: '傳統狩獵不能簡化成「濫捕」。本網站呈現的是一套包含判斷、節制、分配、禁忌與責任的文化知識。不過現代狩獵也確實會和法律、保育、獵具管理及社會觀感產生爭議，因此可以搭配第六頁一起閱讀。',
+            pages: [{ id: 'ethics', label: '看倫理與身分' }, { id: 'issues', label: '看議題事件' }]
+        };
+    }
+
+    if (has('法律爭議', '為什麼會有法律', '法律', '槍枝', '槍砲', '野保法', '判決', '無罪')) {
+        return {
+            html: '原住民狩獵之所以容易出現法律爭議，是因為傳統文化實踐、現代槍枝管理、野生動物保育、公共安全與社會觀感常常交疊在一起。第六頁會用事件整理的方式，呈現不同議題牽涉的面向。',
+            pages: [{ id: 'issues', label: '前往議題事件' }]
+        };
+    }
+
+    if (has('王光祿')) {
+        return {
+            html: '王光祿案是討論原住民族傳統狩獵與現代法律制度衝突的重要案例，涉及文化實踐、槍枝管理與野生動物保育等面向。你可以在第六頁找到相關事件整理與參考資料。',
+            pages: [{ id: 'issues', label: '跳到王光祿案', target: 'wang-case' }, { id: 'references', label: '看參考資料' }]
+        };
+    }
+
+    if (has('山豬吊', '捕獸鋏', '獵具', '動保', '動物保護')) {
+        return {
+            html: '山豬吊與捕獸鋏相關爭議通常涉及動物傷害、獵具管理、法律規範與部落生活經驗。第六頁有整理相關事件與外部資料，適合用來比較不同面向的討論。',
+            pages: [{ id: 'issues', label: '跳到山豬吊爭議', target: 'snare-case' }, { id: 'references', label: '看參考資料' }]
+        };
+    }
+
+    if (has('丹大', '林場', '開放狩獵')) {
+        return {
+            html: '丹大林場開放狩獵事件涉及山林管理、狩獵倫理、保育制度與原住民族文化實踐等討論。你可以在第六頁找到相關參考資料。',
+            pages: [{ id: 'issues', label: '前往議題事件' }]
+        };
+    }
+
+    if (has('霧台', '獵熊', '黑熊', '魯凱')) {
+        return {
+            html: '霧台獵熊案涉及文化榮耀、保育物種、社會輿論與法律責任等多重面向。若你想了解這類事件如何讓原民狩獵被社會討論，可以前往第六頁查看事件整理與參考資料。',
+            pages: [{ id: 'issues', label: '前往議題事件' }, { id: 'references', label: '看參考資料' }]
+        };
+    }
+
+    if (has('參考', '資料', '文獻', '來源', '網址', '連結')) {
+        return {
+            html: '網站的文獻、新聞、研究資料與植物資料庫整理在「參考資料」頁。你可以直接點擊資料名稱開啟外部網站。第六頁事件相關資料也已整理在參考資料區中。',
+            pages: [{ id: 'references', label: '前往參考資料' }, { id: 'issues', label: '看議題事件' }]
+        };
+    }
+
+    if (has('鄒族', 'cou', 'tsou')) {
+        return {
+            html: '本網站以鄒族獵人文化為主要介紹對象，整理狩獵知識、分配倫理、獵場關係、祭儀與現代議題。若你想快速掌握架構，可以先回首頁看導覽小卡。',
+            pages: [{ id: 'home', label: '回到首頁' }, { id: 'references', label: '看參考資料' }]
+        };
+    }
+
+    return {
+        html: '目前比較適合回答和本網站架構有關的問題，例如：網站介紹什麼、第一次從哪裡看、動物介紹、戰祭介紹、分配共享、獵場獵地、倫理身分、法律爭議與參考資料。你也可以換個方式問，或先回首頁看導覽小卡。',
+        pages: [{ id: 'home', label: '看首頁導覽' }, { id: 'references', label: '看參考資料' }]
+    };
+}
+</script>
+
 
 </body>
 </html>
