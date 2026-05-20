@@ -5589,14 +5589,14 @@ function getGuideAnswer(rawQuestion) {
         };
     }
 
-    if (has('王光祿')) {
+    if (has('王光祿', '光祿','重要案例','事件' )) {
         return {
             html: '王光祿案是討論原住民族傳統狩獵與現代法律制度衝突的重要案例，涉及文化實踐、槍枝管理與野生動物保育等面向。你可以在第六頁找到相關事件整理與參考資料。',
             pages: [{ id: 'issues', label: '跳到王光祿案', target: 'wang-case' }, { id: 'references', label: '看參考資料' }]
         };
     }
 
-    if (has('山豬吊', '捕獸鋏', '獵具', '動保', '動物保護')) {
+    if (has('山豬吊', '捕獸鋏', '獵具', '動保', '動物保護', '陷阱')) {
         return {
             html: '山豬吊與捕獸鋏相關爭議通常涉及動物傷害、獵具管理、法律規範與部落生活經驗。第六頁有整理相關事件與外部資料，適合用來比較不同面向的討論。',
             pages: [{ id: 'issues', label: '跳到山豬吊爭議', target: 'snare-case' }, { id: 'references', label: '看參考資料' }]
@@ -5624,7 +5624,7 @@ function getGuideAnswer(rawQuestion) {
         };
     }
 
-    if (has('鄒族', 'cou', 'tsou')) {
+    if (has('鄒族', 'cou', 'tsou', '鄒族原住民', '原住民獵人')) {
         return {
             html: '本網站以鄒族獵人文化為主要介紹對象，整理狩獵知識、分配倫理、獵場關係、祭儀與現代議題。若你想快速掌握架構，可以先回首頁看導覽小卡。',
             pages: [{ id: 'home', label: '回到首頁' }, { id: 'references', label: '看參考資料' }]
